@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nails by NFB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inria Serif', sans-serif;
+      font-family: 'Inria Serif', serif;
       background-color: #1c1c1c;
       color: #ffffff;
     }
@@ -69,20 +69,43 @@
       font-size: 0.9em;
     }
 
-    /* Nouvelle section galerie */
-    #portfolio {
-      display: none; /* Cache la galerie au départ */
-      flex-wrap: wrap;
-      gap: 10px;
+    /* Galerie Carrousel de Bulles */
+    .gallery {
+      display: flex;
       justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 50px;
       padding: 20px;
     }
 
-    .gallery img {
-      width: 200px;
-      height: auto;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    .bubble-carousel {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      animation: scrollImages 20s linear infinite;
+    }
+
+    .bubble-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .bubble-img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Animation du carrousel */
+    @keyframes scrollImages {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
@@ -97,7 +120,7 @@
   </div>
 
   <div class="section" style="text-align: center;">
-    <a href="https://www.fresha.com/fr/book-now/nails-by-nfb-yrwylzmk/services?lid=2570687&eid=4522015&share&pId=2490376" target="_blank" class="btn">Prendre rendez-vous</a>
+    <a href="https://www.fresha.com/fr/book-now/nails-by-nfb-yrwylzmk/services?lid=2570687&eid=4522015&share&pId=2490376" target="_blank" class="btn">Réservez maintenant sur Fresha</a>
   </div>
 
   <div class="section">
@@ -107,34 +130,36 @@
 
   <div class="section">
     <h2>Découvrez mon travail</h2>
-    <p>Consultez la <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a></p>
+    <p>Consultez la <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a> pour voir mes dernières créations.</p>
   </div>
 
   <!-- Section galerie avec ID portfolio -->
   <div id="portfolio" class="gallery">
-    <img src="images/orange_fleurs.JPG" alt="Fleur orange">
-    <img src="images/emerald_city.JPG" alt="Emerald City by Libra Nails">
-    <img src="images/fanny_french.jpg" alt="French Amande">
-    <img src="images/french_classic_entretien.JPG" alt="French Classic">
-    <img src="images/french_fleurs.JPG" alt="French Fleurs 3D">
-    <img src="images/green_gold.JPG" alt="Green Gold">
-    <img src="images/holiday_25_guadeloupe.jpg" alt="Holidays 25">
-    <img src="images/hot_spicy_strass.jpg" alt="Hot & Spicy by Libra Nails">
-    <img src="images/laurianna_french.jpg" alt="French Carré">
-    <img src="images/milky_white.JPG" alt="Stiletto Milky White">
-    <img src="images/pose_saint_valentin.JPG" alt="Pose Saint Valentin">
-    <img src="images/halloween_24.JPG" alt="Halloween 24">
+    <div class="bubble-carousel">
+      <img src="images/orange_fleur.JPG" alt="Fleur orange" class="bubble-img">
+      <img src="images/emerald_city.JPG" alt="Emerald City by Libra Nails" class="bubble-img">
+      <img src="images/fanny_french.jpg" alt="French Amande" class="bubble-img">
+      <img src="images/french_classic_entretien.JPG" alt="French Classic" class="bubble-img">
+      <img src="images/french_fleurs.JPG" alt="French Fleurs 3D" class="bubble-img">
+      <img src="images/green_gold.JPG" alt="Green Gold" class="bubble-img">
+      <img src="images/holiday_25_guadeloupe.jpg" alt="Holidays 25" class="bubble-img">
+      <img src="images/hot_spicy_strass.jpg" alt="Hot & Spicy by Libra Nails" class="bubble-img">
+      <img src="images/laurianna_french.jpg" alt="French Carré" class="bubble-img">
+      <img src="images/milky_white.JPG" alt="Stiletto Milky White" class="bubble-img">
+      <img src="images/pose_saint_valentin.JPG" alt="Pose Saint Valentin" class="bubble-img">
+      <img src="images/halloween_24.JPG" alt="Halloween 24" class="bubble-img">
+    </div>
   </div>
 
   <footer>
-    Nails by NFB - Corbeil-Essonnes<br/>
-    Site créé avec amour et passion
+    <p>Donnez votre avis ici : <a href="https://g.page/r/CQDGLLwBAEmbEBM/review" target="_blank" style="color: #C2858C; font-weight: bold;">Écrire un avis ⭐</a></p>
+    <p>Nails by NFB - Corbeil-Essonnes <br/> Site créé avec amour et passion</p>
   </footer>
 
-  <script>
-    function showGallery() {
-      document.getElementById('portfolio').style.display = 'flex';
-      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+<script>
+  function showGallery() {
+    document.getElementById('portfolio').style.display = 'flex';
+    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
