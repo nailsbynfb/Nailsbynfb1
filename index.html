@@ -68,8 +68,10 @@
       color: #aaa;
       font-size: 0.9em;
     }
-        .portfolio {
-      display: none;
+
+    /* Nouvelle section galerie */
+    #portfolio {
+      display: none; /* Cache la galerie au départ */
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
@@ -105,31 +107,36 @@
 
   <div class="section">
     <h2>Découvrez mon travail</h2>
-    <p>Consultez la <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a>
+    <p>Consultez la <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a></p>
   </div>
-<!-- Section galerie avec ID portfolio -->
-<div id="portfolio" class="gallery">
-  <img src="images/orange_fleurs.JPG" alt="Fleur orange">
-<img src="images/emerald_city.JPG" alt="Emerald City by Libra Nails">
-<img src="images/fanny_french.jpg" alt="French Amande">
-<img src="images/french_classic_entretien.JPG" alt="French Classic">
-<img src="images/french_fleurs.JPG" alt="French Fleurs 3D">
-<img src="images/green_gold.JPG" alt="Green Gold">
-<img src="images/holiday_25_guadeloupe.jpg" alt="Holidays 25">
-<img src="images/hot_spicy_strass.jpg" alt="Hot & Spicy by Libra Nails">
-<img src="images/laurianna_french.jpg" alt="French Carré">
-<img src="images/milky_white.JPG" alt="Stiletto Milky White">
-<img src="images/pose_saint_valentin.JPG" alt="Pose Saint Valentin">
-<img src="images/halloween_24.JPG" alt="Halloween 24">
-</div>
+
+  <!-- Section galerie avec ID portfolio -->
+  <div id="portfolio" class="gallery">
+    <img src="images/orange_fleurs.JPG" alt="Fleur orange">
+    <img src="images/emerald_city.JPG" alt="Emerald City by Libra Nails">
+    <img src="images/fanny_french.jpg" alt="French Amande">
+    <img src="images/french_classic_entretien.JPG" alt="French Classic">
+    <img src="images/french_fleurs.JPG" alt="French Fleurs 3D">
+    <img src="images/green_gold.JPG" alt="Green Gold">
+    <img src="images/holiday_25_guadeloupe.jpg" alt="Holidays 25">
+    <img src="images/hot_spicy_strass.jpg" alt="Hot & Spicy by Libra Nails">
+    <img src="images/laurianna_french.jpg" alt="French Carré">
+    <img src="images/milky_white.JPG" alt="Stiletto Milky White">
+    <img src="images/pose_saint_valentin.JPG" alt="Pose Saint Valentin">
+    <img src="images/halloween_24.JPG" alt="Halloween 24">
+  </div>
+
+  <footer>
     Nails by NFB - Corbeil-Essonnes<br/>
     Site créé avec amour et passion
   </footer>
-<script>
-  function showGallery() {
-    document.getElementById('portfolio').style.display = 'flex';
-    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
-  }
-</script>
+
+  <script>
+    function showGallery() {
+      document.getElementById('portfolio').style.display = 'flex';
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 </html>
