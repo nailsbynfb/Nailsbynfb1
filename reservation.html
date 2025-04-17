@@ -207,35 +207,39 @@
   </div>
   </div>
 
-  <!-- Forfait Dépose + Pose -->
-<select id="forfait_depose" name="forfait_depose">
-  <option value="">-- Sélectionnez un forfait avec dépose --</option>
+  <!-- Forfaits Dépose + Pose -->
+<div id="forfaits" class="category">
+  <h2>Forfaits Dépose + Pose</h2>
 
-  <!-- DÉPOSE + POSE GEL -->
-  <option value="66.5">Forfait Dépose + Pose Gel — 66,50€</option>
-  <option value="76">Forfait Dépose + Pose Gel (Ongles rongés) — 76€</option>
-  <option value="76">Forfait Dépose + Pose Gel + Nail art simple — 76€</option>
-  <option value="85.5">Forfait Dépose + Pose Gel + Nail art simple (Ongles rongés) — 85,50€</option>
-  <option value="85.5">Forfait Dépose + Pose Gel + Nail art complexe — 85,50€</option>
-  <option value="95">Forfait Dépose + Pose Gel + Nail art complexe (Ongles rongés) — 95€</option>
+  <div class="service">
+    <h3>Gel</h3>
+    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel">Dépose + Pose Gel • 2 h • 66,50€</div>
+    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art simple">Dépose + Pose Gel + Nail art simple • 2 h 15 min • 76€</div>
+    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art complexe">Dépose + Pose Gel + Nail art complexe • 2 h 30 min • 85,50€</div>
+    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel (Ongles rongés)">Dépose + Pose Gel (Ongles rongés) • 2 h 30 min • 76€</div>
+    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art simple (Ongles rongés)">Dépose + Pose Gel + Nail art simple (Ongles rongés) • 2 h 45 min • 85,50€</div>
+    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art complexe (Ongles rongés)">Dépose + Pose Gel + Nail art complexe (Ongles rongés) • 3 h • 95€</div>
+  </div>
 
-  <!-- DÉPOSE + POSE SEMI PERMANENT RENFORCÉ -->
-  <option value="47.5">Forfait Dépose + Pose Semi permanent renforcé — 47,50€</option>
-  <option value="57">Forfait Dépose + Pose Semi permanent renforcé (Ongles rongés) — 57€</option>
-  <option value="57">Forfait Dépose + Pose Semi permanent renforcé + Nail art simple — 57€</option>
-  <option value="66.5">Forfait Dépose + Pose Semi permanent renforcé + Nail art complexe — 66,50€</option>
-  <option value="61.75">Forfait Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art simple — 61,75€</option>
-  <option value="71.25">Forfait Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art complexe — 71,25€</option>
+  <div class="service">
+    <h3>Semi Permanent Renforcé</h3>
+    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé">Dépose + Pose Semi permanent renforcé • 1 h 45 min • 47,50€</div>
+    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé (Ongles rongés)">Dépose + Pose Semi permanent renforcé (Ongles rongés) • 2 h • 57€</div>
+    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé + Nail art simple">Dépose + Pose Semi permanent renforcé + Nail art simple • 2 h • 57€</div>
+    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé + Nail art complexe">Dépose + Pose Semi permanent renforcé + Nail art complexe • 2 h 15 min • 66,50€</div>
+    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art simple">Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art simple • 2 h 15 min • 61,75€</div>
+    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art complexe">Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art complexe • 2 h 30 min • 71,25€</div>
+  </div>
 
-  <!-- DÉPOSE + POSE SEMI PERMANENT -->
-  <option value="38">Forfait Dépose + Pose Semi permanent — 38€</option>
-  <option value="47.5">Forfait Dépose + Pose Semi permanent (Ongles rongés) — 47,50€</option>
-  <option value="47.5">Forfait Dépose + Pose Semi permanent + Nail art simple — 47,50€</option>
-  <option value="57">Forfait Dépose + Pose Semi permanent + Nail art complexe — 57€</option>
-  <option value="57">Forfait Dépose + Pose Semi permanent (Ongles rongés) + Nail art simple — 57€</option>
-  <option value="66.5">Forfait Dépose + Pose Semi permanent (Ongles rongés) + Nail art complexe — 66,50€</option>
-</select>
-</div>
+  <div class="service">
+    <h3>Semi Permanent Simple</h3>
+    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent">Dépose + Pose Semi permanent • 1 h 30 min • 38€</div>
+    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent (Ongles rongés)">Dépose + Pose Semi permanent (Ongles rongés) • 1 h 45 min • 47,50€</div>
+    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent + Nail art simple">Dépose + Pose Semi permanent + Nail art simple • 1 h 45 min • 47,50€</div>
+    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent + Nail art complexe">Dépose + Pose Semi permanent + Nail art complexe • 2 h • 57€</div>
+    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent (Ongles rongés) + Nail art simple">Dépose + Pose Semi permanent (Ongles rongés) + Nail art simple • 2 h • 57€</div>
+    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent (Ongles rongés) + Nail art complexe">Dépose + Pose Semi permanent (Ongles rongés) + Nail art complexe • 2 h 15 min • 66,50€</div>
+  </div>
 </div>
 
   <!-- Dépose -->
