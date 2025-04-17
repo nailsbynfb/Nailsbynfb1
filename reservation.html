@@ -35,10 +35,6 @@
       margin-top: 10px;
     }
 
-    .section {
-      margin: 40px 20px;
-    }
-
     .category-btns {
       display: flex;
       justify-content: space-around;
@@ -112,6 +108,16 @@
       background-color: #a4656f;
     }
 
+    .input-file {
+      display: block;
+      margin-top: 15px;
+    }
+
+    .input-file label {
+      color: #C2858C;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
@@ -126,6 +132,7 @@
       <a href="#rallongement" class="category-btn">Rallongement</a>
       <a href="#sans-rallongement" class="category-btn">Sans Rallongement</a>
       <a href="#depose" class="category-btn">Dépose</a>
+      <a href="#forfait-depose" class="category-btn">Forfait Dépose + Pose</a>
     </div>
 
     <!-- Formulaire de réservation -->
@@ -158,17 +165,37 @@
         </select>
       </div>
 
-      <!-- Informations supplémentaires -->
+      <!-- Dépose -->
+      <div id="depose" class="service-box">
+        <h2>Dépose</h2>
+        <p>Retrait soigné de vos ongles. Nécessaire si vous venez avec du gel posé par une autre professionnelle.</p>
+        <label for="depose">Sélectionner une option :</label>
+        <select id="depose" name="depose_option">
+          <option value="semi-permanent-simple">Dépose Semi Permanent Simple • 10€</option>
+          <option value="semi-permanent-renforce">Dépose Semi Permanent Renforcé • 15€</option>
+          <option value="depose-gel">Dépose Gel • 20€</option>
+        </select>
+      </div>
+
+      <!-- Forfait Dépose + Pose -->
+      <div id="forfait-depose" class="service-box">
+        <h2>Forfait Dépose + Pose</h2>
+        <p>Profitez de notre forfait dépose et pose à prix réduit. La réduction de 5% est déjà appliquée.</p>
+        <label for="forfait-depose">Sélectionner une option :</label>
+        <select id="forfait-depose" name="forfait_depose_option">
+          <option value="depose-pose-gel">Dépose + Pose Gel • 66.50€</option>
+          <option value="depose-pose-semi-permanent">Dépose + Pose Semi Permanent • 47.50€</option>
+        </select>
+      </div>
+
+      <!-- Photo d'inspiration -->
+      <div class="input-file">
+        <label for="photo-inspiration">Télécharger une photo d'inspiration (optionnel) :</label>
+        <input type="file" id="photo-inspiration" name="photo_inspiration" accept="image/*">
+      </div>
+
+      <!-- Remarques supplémentaires -->
       <div>
         <label for="remark">Ajouter un commentaire ou une remarque (optionnel) :</label>
         <textarea id="remark" name="remark" rows="4" placeholder="Exemple: Préférence couleur ou style de nail art"></textarea>
-      </div>
-
-      <div>
-        <button type="submit" class="submit-btn">Réserver maintenant</button>
-      </div>
-    </form>
-  </div>
-
-</body>
-</html>
+      </div
