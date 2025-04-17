@@ -139,13 +139,24 @@
 
     /* Conditions générales styles */
     .condition-content {
-      display: none;
+      display: block;
       margin-top: 20px;
       font-size: 1em;
       background-color: #333;
       color: #fff;
-      padding: 20px;
+      padding: 0 20px;
       border-radius: 10px;
+      max-height: 0; /* Caché initialement */
+      overflow: hidden; /* Empêche l'affichage du contenu non visible */
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .condition-content.open {
+      max-height: 500px; /* Taille maximale du contenu visible */
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   </style>
 </head>
@@ -238,16 +249,16 @@
     }
 
     function toggleCondition(conditionId) {
-      // Cache toutes les conditions avant d'afficher la nouvelle
+      // Cache toutes les conditions
       const conditions = document.querySelectorAll('.condition-content');
       conditions.forEach(function(condition) {
-        condition.style.display = 'none';
+        condition.classList.remove('open'); // Ferme toutes les conditions
       });
 
       // Affiche la condition qui a été cliquée
       const conditionToShow = document.getElementById(conditionId);
       if (conditionToShow) {
-        conditionToShow.style.display = 'block';
+        conditionToShow.classList.add('open'); // Ouvre la condition
       }
     }
   </script>
