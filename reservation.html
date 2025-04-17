@@ -89,19 +89,13 @@
       color: #C2858C;
     }
 
-    .option-title {
-      font-size: 1.1em;
-      margin: 20px 0;
-    }
-
-    .textarea {
-      width: 100%;
-      height: 80px;
-      padding: 10px;
+    select, .submit-btn {
       background-color: #333;
       color: #fff;
-      border: none;
       border-radius: 5px;
+      padding: 10px;
+      width: 100%;
+      margin: 10px 0;
     }
 
     .submit-btn {
@@ -111,47 +105,11 @@
       font-size: 1.2em;
       border-radius: 5px;
       border: none;
-      width: 100%;
       cursor: pointer;
     }
 
     .submit-btn:hover {
       background-color: #a4656f;
-    }
-
-    .form-section {
-      margin-top: 30px;
-    }
-
-    .form-section input[type="file"] {
-      background-color: #333;
-      color: #fff;
-      border-radius: 5px;
-      padding: 10px;
-      width: 100%;
-    }
-
-    .form-section input[type="text"] {
-      background-color: #333;
-      color: #fff;
-      border-radius: 5px;
-      padding: 10px;
-      width: 100%;
-      margin: 10px 0;
-    }
-
-    .form-section label {
-      font-size: 1.2em;
-      color: #C2858C;
-    }
-
-    .service-box ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .service-box ul li {
-      margin: 5px 0;
     }
 
   </style>
@@ -168,76 +126,49 @@
       <a href="#rallongement" class="category-btn">Rallongement</a>
       <a href="#sans-rallongement" class="category-btn">Sans Rallongement</a>
       <a href="#depose" class="category-btn">Dépose</a>
-      <a href="#forfait-depose-pose" class="category-btn">Forfait Dépose + Pose</a>
     </div>
 
-    <!-- Rallongement -->
-    <div id="rallongement">
-      <h2>Rallongement</h2>
-      <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
-      <p><strong>⚠️ N’oubliez pas de prendre rendez-vous 3-4 semaines afin de maintenir un résultat optimal !</strong></p>
-
-      <div class="service-box">
-        <div class="service-title">Rallongement (Chablons ou Capsules)</div>
-        <div class="service-description">Choisissez vos options :</div>
-
-        <ul>
-          <li><span class="price">Rallongement en Gel • 50€</span></li>
-          <li><span class="price">Nail Art Simple • 60€</span></li>
-          <li><span class="price">Ongles Rongés • 60€</span></li>
-          <li><span class="price">Nail Art Complexe • 70€</span></li>
-          <li><span class="price">Ongles Rongés + Nail Art Simple • 70€</span></li>
-          <li><span class="price">Ongles Rongés + Nail Art Complexe • 80€</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Sans Rallongement -->
-    <div id="sans-rallongement">
-      <h2>Sans Rallongement</h2>
-      <p>Choisissez l'une de nos prestations pour sublimer vos ongles naturels.</p>
-
-      <div class="service-box">
-        <div class="service-title">Gainage</div>
-        <div class="service-description">Renforcez et sublimez vos ongles naturels avec notre service de gainage.</div>
-        <ul>
-          <li><span class="price">Gainage • 40€</span></li>
-          <li><span class="price">Ongles Rongés • 50€</span></li>
-          <li><span class="price">Nail Art Simple • 55€</span></li>
-          <li><span class="price">Nail Art Complexe • 65€</span></li>
-        </ul>
+    <!-- Formulaire de réservation -->
+    <form method="POST" action="your-server-endpoint">
+      <!-- Rallongement -->
+      <div id="rallongement" class="service-box">
+        <h2>Rallongement</h2>
+        <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
+        <label for="rallongement">Sélectionner une option :</label>
+        <select id="rallongement" name="rallongement_option">
+          <option value="rallongement-gel">Rallongement en Gel • 50€</option>
+          <option value="nail-art-simple">Nail Art Simple • 60€</option>
+          <option value="ongles-ronges">Ongles Rongés • 60€</option>
+          <option value="nail-art-complexe">Nail Art Complexe • 70€</option>
+          <option value="ongles-ronges-nail-art-simple">Ongles Rongés + Nail Art Simple • 70€</option>
+          <option value="ongles-ronges-nail-art-complexe">Ongles Rongés + Nail Art Complexe • 80€</option>
+        </select>
       </div>
 
-      <div class="service-box">
-        <div class="service-title">Semi Permanent Simple</div>
-        <div class="service-description">Offrez à vos ongles un fini impeccable avec notre service de semi-permanent.</div>
-        <ul>
-          <li><span class="price">Semi Permanent • 30€</span></li>
-          <li><span class="price">Ongles Rongés • 40€</span></li>
-          <li><span class="price">Nail Art Simple • 40€</span></li>
-          <li><span class="price">Nail Art Complexe • 50€</span></li>
-        </ul>
+      <!-- Sans Rallongement -->
+      <div id="sans-rallongement" class="service-box">
+        <h2>Sans Rallongement</h2>
+        <p>Choisissez l'une de nos prestations pour sublimer vos ongles naturels.</p>
+        <label for="sans-rallongement">Sélectionner une option :</label>
+        <select id="sans-rallongement" name="sans_rallongement_option">
+          <option value="gainage">Gainage • 40€</option>
+          <option value="ongles-ronges">Ongles Rongés • 50€</option>
+          <option value="nail-art-simple">Nail Art Simple • 55€</option>
+          <option value="nail-art-complexe">Nail Art Complexe • 65€</option>
+        </select>
       </div>
 
-      <div class="service-box">
-        <div class="service-title">Semi Permanent Renforcé</div>
-        <div class="service-description">Un fini impeccable avec une solidité et longévité accrues grâce à la base renforcée.</div>
-        <ul>
-          <li><span class="price">Semi Permanent Renforcé • 35€</span></li>
-          <li><span class="price">Ongles Rongés • 45€</span></li>
-          <li><span class="price">Nail Art Simple • 45€</span></li>
-          <li><span class="price">Nail Art Complexe • 55€</span></li>
-        </ul>
+      <!-- Informations supplémentaires -->
+      <div>
+        <label for="remark">Ajouter un commentaire ou une remarque (optionnel) :</label>
+        <textarea id="remark" name="remark" rows="4" placeholder="Exemple: Préférence couleur ou style de nail art"></textarea>
       </div>
-    </div>
 
-    <!-- Dépose -->
-    <div id="depose">
-      <h2>Dépose</h2>
-      <p>Offrez à vos ongles un retrait soigné avec notre service de dépose de gel.</p>
+      <div>
+        <button type="submit" class="submit-btn">Réserver maintenant</button>
+      </div>
+    </form>
+  </div>
 
-      <div class="service-box">
-        <div class="service-title">Dépose Gel</div>
-        <div class="service-description">Dépose soigneuse des ongles en gel.</div>
-        <ul>
-          <li><span class="price">Dépose
+</body>
+</html>
