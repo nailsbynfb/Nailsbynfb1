@@ -56,6 +56,7 @@
     }
 
     .section {
+      display: none; /* Masquer les sections par défaut */
       margin-top: 40px;
     }
 
@@ -150,10 +151,10 @@
   </header>
 
   <div class="category-btns">
-    <a href="#rallongement" class="category-btn">Rallongement</a>
-    <a href="#sans-rallongement" class="category-btn">Sans Rallongement</a>
-    <a href="#depose" class="category-btn">Dépose</a>
-    <a href="#forfait-depose" class="category-btn">Forfait Dépose + Pose</a>
+    <a href="javascript:void(0);" class="category-btn" onclick="toggleSection('rallongement')">Rallongement</a>
+    <a href="javascript:void(0);" class="category-btn" onclick="toggleSection('sans-rallongement')">Sans Rallongement</a>
+    <a href="javascript:void(0);" class="category-btn" onclick="toggleSection('depose')">Dépose</a>
+    <a href="javascript:void(0);" class="category-btn" onclick="toggleSection('forfait-depose')">Forfait Dépose + Pose</a>
   </div>
 
   <form method="POST" action="your-server-endpoint">
@@ -172,7 +173,6 @@
         <div class="service-description">3 h</div>
         <button type="button" class="option-btn" onclick="selectOption('Nail Art Simple')">Choisir</button>
       </div>
-      <!-- Ajoute d'autres options ici -->
     </div>
 
     <!-- Sans Rallongement -->
@@ -188,7 +188,6 @@
         <div class="service-description">2 h 45 min</div>
         <button type="button" class="option-btn" onclick="selectOption('Ongles Rongés')">Choisir</button>
       </div>
-      <!-- Ajoute d'autres options ici -->
     </div>
 
     <!-- Forfait Dépose + Pose -->
@@ -228,4 +227,12 @@
       <input type="file" id="photo-inspiration" name="photo_inspiration" accept="image/*">
     </div>
 
-    <!-- Remar
+    <!-- Remarques supplémentaires -->
+    <div>
+      <label for="remark">Ajouter un commentaire ou une remarque (optionnel) :</label>
+      <textarea id="remark" name="remark" rows="4" placeholder="Exemple: Préférence couleur ou style de nail art"></textarea>
+    </div>
+
+    <!-- Soumettre -->
+    <button type="submit" class="submit-btn">Réserver</button>
+  </form>
