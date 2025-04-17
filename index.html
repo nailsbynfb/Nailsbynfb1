@@ -4,8 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nails by NFB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Polices -->
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'White Star';
+      src: url('https://fonts.cdnfonts.com/s/72030/WhiteStarRegular-owxgg.woff') format('woff');
+    }
+
     body {
       margin: 0;
       font-family: 'Inria Serif', serif;
@@ -16,14 +24,21 @@
     header {
       background-color: #BAA898;
       color: #1c1c1c;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
     }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
+    .brand-title {
+      font-family: 'Inria Serif', serif;
       font-size: 2.5em;
       margin: 0;
+    }
+
+    .brand-subtitle {
+      font-family: 'White Star', sans-serif;
+      font-size: 3em;
+      margin: 0;
+      color: #a4656f;
     }
 
     .accroche {
@@ -40,9 +55,10 @@
       padding: 12px 25px;
       margin-top: 20px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 8px;
       font-weight: bold;
       transition: background 0.3s;
+      font-family: 'Inria Serif', serif;
     }
 
     .btn:hover {
@@ -57,7 +73,7 @@
 
     .section h2 {
       color: #BAA898;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inria Serif', serif;
       margin-bottom: 20px;
     }
 
@@ -69,97 +85,120 @@
       font-size: 0.9em;
     }
 
-    /* Galerie Carrousel de Bulles */
-    .gallery {
-      display: flex;
+    /* Galerie */
+    .portfolio {
+      display: none;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      margin-top: 50px;
-      padding: 20px;
+      position: relative;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 15px;
     }
 
-    .bubble-carousel {
+    .carousel {
       display: flex;
-      flex-wrap: nowrap;
+      animation: scroll 30s linear infinite;
       gap: 20px;
-      animation: scrollImages 20s linear infinite;
     }
 
-    .bubble-img {
-      width: 120px;
-      height: 120px;
+    .carousel img {
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.4s ease;
     }
 
-    .bubble-img:hover {
-      transform: scale(1.2);
+    .carousel img:hover {
+      transform: scale(1.3);
     }
 
-    /* Animation du carrousel */
-    @keyframes scrollImages {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Flèche animée */
+    .arrow-container {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .arrow-container img {
+      width: 50px;
+      height: auto;
+    }
+
+    .review-btn {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 1.1em;
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    <h1>Nails by NFB</h1>
+    <div class="brand-title">Nails by</div>
+    <div class="brand-subtitle">NFB</div>
   </header>
 
   <div class="accroche">
-    Chez Nails by NFB, chaque pose est bien plus qu’un simple soin : c’est un moment de détente, de confiance et de mise en valeur. Passionnée par l’onglerie, je vous propose des prestations soignées, personnalisées et réalisées avec précision, dans une ambiance chaleureuse et professionnelle. Sublimez vos mains avec élégance parce que chaque détail compte.
+    Chez Nails by NFB, chaque pose est bien plus qu’un simple soin : c’est un moment de détente, de confiance et de mise en valeur.
   </div>
 
   <div class="section" style="text-align: center;">
-    <a href="https://www.fresha.com/fr/book-now/nails-by-nfb-yrwylzmk/services?lid=2570687&eid=4522015&share&pId=2490376" target="_blank" class="btn">Réservez maintenant sur Fresha</a>
+    <a href="reservation.html" class="btn">Prendre un rendez-vous</a>
   </div>
 
   <div class="section">
     <h2>À propos</h2>
-    <p>Bienvenue chez Nails by NFB à Corbeil-Essonnes. Je m'adapte à tous les styles et envies pour mettre vos ongles en valeur avec raffinement et créativité. Que vous aimiez le nude, le design, le bling ou les tendances du moment — ici, tout est possible !</p>
+    <p>Bienvenue chez Nails by NFB à Corbeil-Essonnes. Je m'adapte à tous les styles et envies pour mettre vos ongles en valeur avec raffinement et créativité.</p>
   </div>
 
   <div class="section">
     <h2>Découvrez mon travail</h2>
-    <p>Consultez la <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a> pour voir mes dernières créations.</p>
+    <p>
+      Consultez la 
+      <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a>
+    </p>
   </div>
 
-  <!-- Section galerie avec ID portfolio -->
-  <div id="portfolio" class="gallery">
-    <div class="bubble-carousel">
-      <img src="images/orange_fleur.JPG" alt="Fleur orange" class="bubble-img">
-      <img src="images/emerald_city.JPG" alt="Emerald City by Libra Nails" class="bubble-img">
-      <img src="images/fanny_french.jpg" alt="French Amande" class="bubble-img">
-      <img src="images/french_classic_entretien.JPG" alt="French Classic" class="bubble-img">
-      <img src="images/french_fleurs.JPG" alt="French Fleurs 3D" class="bubble-img">
-      <img src="images/green_gold.JPG" alt="Green Gold" class="bubble-img">
-      <img src="images/holiday_25_guadeloupe.jpg" alt="Holidays 25" class="bubble-img">
-      <img src="images/hot_spicy_strass.jpg" alt="Hot & Spicy by Libra Nails" class="bubble-img">
-      <img src="images/laurianna_french.jpg" alt="French Carré" class="bubble-img">
-      <img src="images/milky_white.JPG" alt="Stiletto Milky White" class="bubble-img">
-      <img src="images/pose_saint_valentin.JPG" alt="Pose Saint Valentin" class="bubble-img">
-      <img src="images/halloween_24.JPG" alt="Halloween 24" class="bubble-img">
+  <div id="portfolio" class="portfolio">
+    <div class="carousel">
+      <img src="images/orange_fleurs.JPG" alt="Fleur orange">
+      <img src="images/emerald_city.JPG" alt="Emerald City">
+      <img src="images/fanny_french.jpg" alt="French Amande">
+      <img src="images/french_classic_entretien.JPG" alt="French Classic">
+      <img src="images/french_fleurs.JPG" alt="French Fleurs">
+      <img src="images/green_gold.JPG" alt="Green Gold">
+      <img src="images/hot_spicy_strass.jpg" alt="Hot Spicy">
+      <img src="images/laurianna_french.jpg" alt="Carré">
+      <img src="images/milky_white.JPG" alt="Milky White">
+      <img src="images/pose_saint_valentin.JPG" alt="Saint Valentin">
+      <img src="images/halloween_24.JPG" alt="Halloween 24">
     </div>
   </div>
 
+  <div class="section" style="text-align: center;">
+    <div class="arrow-container">
+      <img src="https://media.giphy.com/media/l3vR85PnGsBwu1PFK/giphy.gif" alt="arrow">
+    </div>
+    <a class="btn review-btn" href="https://g.page/r/CQDGLLwBAEmbEBM/review" target="_blank">⭐ Laisser un avis</a>
+  </div>
+
   <footer>
-    <p>Donnez votre avis ici : <a href="https://g.page/r/CQDGLLwBAEmbEBM/review" target="_blank" style="color: #C2858C; font-weight: bold;">Écrire un avis ⭐</a></p>
-    <p>Nails by NFB - Corbeil-Essonnes <br/> Site créé avec amour et passion</p>
+    Nails by NFB - Corbeil-Essonnes<br/>
+    Site créé avec amour et passion
   </footer>
 
-<script>
-  function showGallery() {
-    document.getElementById('portfolio').style.display = 'flex';
-    document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+  <script>
+    function showGallery() {
+      document.getElementById('portfolio').style.display = 'flex';
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
