@@ -1,140 +1,244 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Réservation - Nails by NFB</title>
   <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=White+Star&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Inria Serif', serif;
-      background-color: #f0f0f0;
-      color: #333;
+      background-color: #1c1c1c;
+      color: #fff;
     }
 
     header {
-      background-color: #BAA898;
-      color: #1c1c1c;
-      padding: 20px;
       text-align: center;
+      padding: 30px 20px 10px;
+      background-color: #BAA898;
     }
 
-    h1 {
-      font-size: 2.5em;
+    .brand-title {
+      font-family: 'Inria Serif', serif;
+      font-size: 2.2em;
       margin: 0;
+      color: #1c1c1c;
     }
 
-    .nfb {
-      font-family: 'White Star', serif;
-      font-size: 3em;
-      color: #C2858C;
-      margin-top: 10px;
+    .brand-subtitle {
+      font-family: 'White Star', cursive;
+      font-size: 2.8em;
+      margin: 0;
+      margin-top: 5px;
+      color: #1c1c1c;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background-color: #C2858C;
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background-color: #fff;
+      color: #1c1c1c;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Inria Serif', serif;
+      transition: background 0.3s;
+    }
+
+    nav button:hover {
+      background-color: #e1d1c7;
     }
 
     .section {
-      padding: 20px;
+      display: none;
+      padding: 30px 20px;
       max-width: 900px;
       margin: auto;
     }
 
-    .section h2 {
-      color: #BAA898;
-      font-family: 'Inria Serif', serif;
+    .section.active {
+      display: block;
     }
 
-    .form-group {
+    .category-description {
+      font-style: italic;
       margin-bottom: 15px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
+    .service {
+      background-color: #2e2e2e;
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .service h4 {
+      margin: 0 0 10px;
+      color: #C2858C;
+    }
+
+    .service p {
+      margin: 5px 0;
+    }
+
+    .form-section {
+      background-color: #2e2e2e;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 40px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     input, select, textarea {
       width: 100%;
       padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-family: 'Inria Serif', serif;
     }
 
-    .btn {
-      display: inline-block;
-      background-color: #C2858C;
-      color: #ffffff;
-      padding: 12px 25px;
-      margin-top: 20px;
-      text-decoration: none;
-      border-radius: 5px;
+    label {
       font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .submit-btn {
+      background-color: #C2858C;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 25px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
       transition: background 0.3s;
     }
 
-    .btn:hover {
+    .submit-btn:hover {
       background-color: #a4656f;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #333;
-      color: #aaa;
-      font-size: 0.9em;
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Réservez votre rendez-vous</h1>
-    <div class="nfb">NFB</div>
+    <h1 class="brand-title">Nails by</h1>
+    <h2 class="brand-subtitle">NFB</h2>
   </header>
 
-  <div class="section">
-    <h2>Choisissez vos prestations</h2>
+  <nav>
+    <button onclick="showSection('rallongement')">Rallongement</button>
+    <button onclick="showSection('sans')">Sans Rallongement</button>
+    <button onclick="showSection('depose')">Dépose</button>
+    <button onclick="showSection('forfait')">Forfait Dépose + Pose</button>
+  </nav>
 
-    <form action="" method="POST">
-      <div class="form-group">
-        <label for="category">Catégorie</label>
-        <select id="category" name="category">
-          <option value="rallongement">Rallongement</option>
-          <option value="sans_rallongement">Sans Rallongement</option>
-          <option value="depose">Dépose</option>
-          <option value="forfait_depose">Forfait Dépose + Pose</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="service">Service</label>
-        <select id="service" name="service">
-          <option value="rallongement_gel">Rallongement en Gel</option>
-          <option value="semi_permanent">Semi Permanent</option>
-          <option value="gainage">Gainage</option>
-          <!-- Ajouter plus d'options selon les prestations -->
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="photo">Photo de vos mains (optionnelle)</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message ou remarque (optionnel)</label>
-        <textarea id="message" name="message" rows="4"></textarea>
-      </div>
-
-      <button type="submit" class="btn">Réserver</button>
-    </form>
+  <div id="rallongement" class="section active">
+    <p class="category-description">Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
+    <div class="service">
+      <h4>Rallongement (Chablons ou Capsules)</h4>
+      <p>* Rallongement en Gel • 2h45 — 50€</p>
+      <p>* Nail art simple • 3h — 60€</p>
+      <p>* Ongles rongés • 3h — 60€</p>
+      <p>* Nail art complexe • 3h15 — 70€</p>
+      <p>* Ongles rongés + Nail art simple • 3h30 — 70€</p>
+      <p>* Ongles rongés + Nail art complexe • 3h45 — 80€</p>
+    </div>
   </div>
 
-  <footer>
-    Nails by NFB - Corbeil-Essonnes<br/>
-    Site créé avec amour et passion
-  </footer>
+  <div id="sans" class="section">
+    <div class="service">
+      <h4>Gainage</h4>
+      <p class="category-description">Renforcez et sublimez vos ongles naturels avec notre service de gainage. Le gel renforce l’ongle naturel tout en lui offrant une forme harmonieuse et élégante.</p>
+      <p>* Gainage • 2h30 — 40€</p>
+      <p>* Ongles rongés • 2h45 — 50€</p>
+      <p>* Nail art simple • 2h45 — 55€</p>
+      <p>* Ongles rongés + Nail art simple • 3h — 60€</p>
+      <p>* Nail art complexe • 3h — 65€</p>
+      <p>* Ongles rongés + Nail art complexe • 3h15 — 70€</p>
+    </div>
+
+    <div class="service">
+      <h4>Semi permanent simple</h4>
+      <p class="category-description">Offrez à vos ongles un fini impeccable avec deux couches de vernis semi-permanent. Profitez d’une finition lisse et durable !</p>
+      <p>* Semi permanent • 2h — 30€</p>
+      <p>* Ongles rongés • 2h15 — 40€</p>
+      <p>* Nail art simple • 2h15 — 40€</p>
+      <p>* Nail art complexe • 2h30 — 50€</p>
+    </div>
+
+    <div class="service">
+      <h4>Semi permanent renforcé</h4>
+      <p class="category-description">Base rubber pour solidité et tenue prolongée. Une manucure résistante et durable !</p>
+      <p>* Semi permanent renforcé • 2h — 35€</p>
+      <p>* Ongles rongés • 2h45 — 45€</p>
+      <p>* Nail art simple • 2h45 — 45€</p>
+      <p>* Nail art complexe • 3h — 55€</p>
+    </div>
+  </div>
+
+  <div id="depose" class="section">
+    <div class="service">
+      <h4>Dépose</h4>
+      <p class="category-description">Offrez à vos ongles un retrait soigné. ⚠️ Obligatoire si gel posé ailleurs.</p>
+      <p>* Semi permanent simple — 30 min — 10€</p>
+      <p>* Semi permanent renforcé — 45 min — 15€</p>
+      <p>* Dépose gel — 1h — 20€</p>
+    </div>
+  </div>
+
+  <div id="forfait" class="section">
+    <div class="service">
+      <h4>Forfaits (réduction 5% déjà appliquée)</h4>
+      <p>* Dépose + Pose Gel Ongles rongés — 4h — 76€</p>
+      <p>* Dépose + Pose Gel — 3h45 — 66,50€</p>
+      <p>* Dépose + Pose Semi renforcé Ongles rongés — 3h30 — 57€</p>
+      <p>* Dépose + Pose Semi renforcé — 2h45 — 47,50€</p>
+      <p>* Dépose + Pose Semi simple Ongles rongés — 2h45 — 47,50€</p>
+      <p>* Dépose + Pose Semi simple — 2h30 — 38€</p>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3>Informations supplémentaires</h3>
+    <label for="photo">* Photo d’inspiration (si vous en avez)</label>
+    <input type="file" id="photo" accept="image/*">
+
+    <label for="photo-mains">* Photo de vos mains (obligatoire)</label>
+    <input type="file" id="photo-mains" accept="image/*" required>
+
+    <label for="remarques">Remarques (facultatif)</label>
+    <textarea id="remarques" placeholder="Laissez un message ou une précision ici..."></textarea>
+
+    <button class="submit-btn">Envoyer ma demande</button>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
