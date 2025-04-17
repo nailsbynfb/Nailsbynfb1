@@ -138,31 +138,20 @@
     }
 
     /* Styles pour les conditions */
-    .conditions-container {
-      padding: 20px;
-      margin-top: 40px;
-      background-color: #333;
-      color: #aaa;
-    }
-
-    .condition-text {
+    .condition-content {
       display: none;
-      margin-top: 20px;
-      color: #fff;
-      background-color: #444;
-      padding: 20px;
+      margin-top: 10px;
+      padding: 15px;
+      background-color: #f4f4f4;
+      color: #333;
       border-radius: 8px;
-      line-height: 1.6;
-    }
-
-    .condition-text.active {
-      display: block;
     }
 
     .condition-link {
-      color: #C2858C;
       font-weight: bold;
+      color: #C2858C;
       cursor: pointer;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -179,7 +168,7 @@
   </div>
 
   <div class="section" style="text-align: center;">
-    <a href="reservation.html" class="btn">Prendre un rendez-vous</a>
+    <a href="pages/reservation.html" class="btn">Prendre un rendez-vous</a>
   </div>
 
   <div class="section">
@@ -223,51 +212,15 @@
     Site créé avec amour et passion
   </footer>
 
-  <!-- Conditions générales -->
-  <div class="conditions-container">
-    <h2>Conditions générales</h2>
+  <div class="section">
+    <h2>Conditions</h2>
     <p><span class="condition-link" onclick="toggleCondition('remboursement')">Politique de remboursement et de règlement des litiges</span></p>
-    <div id="remboursement" class="condition-text">
-      En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité et à respecter les engagements pris avec nos clientes. Toutefois, un acompte est exigé lors de la réservation de votre rendez-vous, afin de garantir la prise en charge de votre demande. Cet acompte est non remboursable, sauf dans les cas spécifiques prévus par la législation.
-
-      En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable. Si un règlement amiable ne peut être trouvé, vous avez la possibilité de faire appel aux autorités compétentes ou de recourir à un médiateur pour les litiges de consommation. La procédure de médiation peut être entamée conformément aux articles L. 612-1 et suivants du Code de la consommation.
+    <div id="remboursement" class="condition-content">
+      <p>En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité et à respecter les engagements pris avec nos clientes. Toutefois, un acompte est exigé lors de la réservation de votre rendez-vous, afin de garantir la prise en charge de votre demande. Cet acompte est non remboursable, sauf dans les cas spécifiques prévus par la législation.</p>
+      <p>En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable. Si un règlement amiable ne peut être trouvé, vous avez la possibilité de faire appel aux autorités compétentes ou de recourir à un médiateur pour les litiges de consommation. La procédure de médiation peut être entamée conformément aux articles L. 612-1 et suivants du Code de la consommation.</p>
     </div>
 
     <p><span class="condition-link" onclick="toggleCondition('annulation')">Politique d’annulation et de retard</span></p>
-    <div id="annulation" class="condition-text">
-      Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions. Toute annulation doit être effectuée au minimum 48 heures avant le rendez-vous initial, via la messagerie de notre site ou tout autre moyen de communication spécifié.
-
-      Si l’annulation survient dans un délai inférieur à 48 heures, l’acompte versé ne sera pas remboursé, conformément aux conditions de réservation. De même, si vous ne vous présentez pas à votre rendez-vous sans nous avoir informés dans le délai imparti, l’acompte sera également retenu.
-    </div>
-
-    <p><span class="condition-link" onclick="toggleCondition('promotions')">Conditions générales applicables aux promotions</span></p>
-    <div id="promotions" class="condition-text">
-      Les présentes conditions générales régissent les promotions proposées par Nails by NFB pour nos prestations d’onglerie, réservées via notre site internet. En participant à nos promotions, vous acceptez expressément ces conditions.
-      <ul>
-        <li><strong>Validité des promotions</strong>: Les promotions sont valables uniquement pendant la période indiquée sur la communication associée à chaque offre...</li>
-        <li><strong>Conditions d’éligibilité</strong>: Les promotions sont réservées aux personnes ayant effectué une réservation préalable...</li>
-        <li><strong>Application des promotions</strong>: Certaines promotions sont appliquées directement lors de la réservation...</li>
-        <!-- Autres points -->
-      </ul>
-    </div>
-  </div>
-
-  <script>
-    function toggleCondition(conditionId) {
-      var condition = document.getElementById(conditionId);
-      var allConditions = document.querySelectorAll('.condition-text');
-
-      // Masquer tous les autres textes
-      allConditions.forEach(function(cond) {
-        if (cond !== condition) {
-          cond.classList.remove('active');
-        }
-      });
-
-      // Afficher ou masquer la condition cliquée
-      condition.classList.toggle('active');
-    }
-  </script>
-
-</body>
-</html>
+    <div id="annulation" class="condition-content">
+      <p>Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions. Toute annulation doit être effectuée au minimum 48 heures avant le rendez-vous initial, via la messagerie de notre site ou tout autre moyen de communication spécifié.</p>
+      <p>Si l’annulation survient dans un délai inférieur à 48 heures, l’acompte versé ne sera pas remboursé, conformément aux conditions de réservation. De même, si vous ne vous présentez pas à votre rendez-vous sans nous avoir informés dans le délai imparti, l’acompte sera également retenu
