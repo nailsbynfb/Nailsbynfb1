@@ -153,62 +153,35 @@
       <div class="option"><input type="radio" name="rallongement" value="Nail art simple"> Nail art simple • 3 h • 60€</div>
       <div class="option"><input type="radio" name="rallongement" value="Ongles rongés"> Ongles rongés • 3 h • 60€</div>
       <div class="option"><input type="radio" name="rallongement" value="Nail art complexe"> Nail art complexe • 3 h 15 • 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art simple"> Ongles rongés + Nail art simple • 3 h 30 min • 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art complexe"> Ongles rongés + Nail art complexe • 3 h 45 min • 80€</div>
     </div>
   </div>
 
   <!-- Sans Rallongement -->
   <div id="sans_rallongement" class="category">
     <h2>Sans Rallongement</h2>
-
+    
     <h3>Gainage</h3>
     <div class="service">
       <div class="option"><input type="radio" name="gainage" value="Gainage"> Gainage • 2 h 30 min • 40€</div>
-      <div class="option"><input type="radio" name="gainage" value="Nail art simple"> Nail art simple • 2 h 45 min • 45€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés"> Ongles rongés • 2 h 45 min • 50€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art simple"> Nail art simple • 2 h 45 min • 55€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art simple"> Ongles rongés + Nail art simple • 3 h • 60€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art complexe"> Nail art complexe • 3 h • 65€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe"> Ongles rongés + Nail art complexe • 3 h 15 min • 70€</div>
     </div>
-  </div>
 
-  <!-- Formulaire -->
-  <div class="formulaire">
-    <h2>Formulaire de Réservation</h2>
-    <form action="#" method="POST">
-      <label for="nom">Nom</label>
-      <input type="text" id="nom" name="nom" required>
+    <h3>Semi Permanent Simple</h3>
+    <div class="service">
+      <div class="option"><input type="radio" name="semi_permanent" value="Semi permanent"> Semi permanent • 2 h • 30€</div>
+      <div class="option"><input type="radio" name="semi_permanent" value="Ongles rongés"> Ongles rongés • 2 h 15 min • 40€</div>
+      <div class="option"><input type="radio" name="semi_permanent" value="Nail art simple"> Nail art simple • 2 h 15 min • 40€</div>
+      <div class="option"><input type="radio" name="semi_permanent" value="Nail art complexe"> Nail art complexe • 2 h 30 min • 50€</div>
+    </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="telephone">Téléphone</label>
-      <input type="text" id="telephone" name="telephone" required>
-
-      <label for="date">Date du rendez-vous</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="service">Choisissez votre service</label>
-      <select id="service" name="service" required>
-        <option value="rallongement">Rallongement</option>
-        <option value="sans_rallongement">Sans Rallongement</option>
-        <option value="forfait">Forfait Dépose + Pose</option>
-        <option value="depose">Dépose</option>
-      </select>
-
-      <button type="submit">Réserver</button>
-    </form>
-  </div>
-
-  <script>
-    // Fonction pour afficher une catégorie et cacher les autres
-    function showCategory(category) {
-      // Masquer toutes les catégories
-      const categories = document.querySelectorAll('.category');
-      categories.forEach(cat => {
-        cat.classList.remove('active');
-      });
-
-      // Afficher la catégorie sélectionnée
-      const activeCategory = document.getElementById(category);
-      activeCategory.classList.add('active');
-    }
-  </script>
-
-</body>
-</html>
+    <h3>Semi Permanent Renforcé</h3>
+    <div class="service">
+      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Semi permanent renforcé"> Semi permanent renforcé • 2 h • 35€</div>
+      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Ongles rongés"> Ongles rongés • 2 h 45 min • 45€</div>
+      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Nail art simple"> Nail art simple • 2 h
