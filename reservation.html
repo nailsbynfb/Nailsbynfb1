@@ -55,6 +55,10 @@
       color: #fff;
     }
 
+    .section {
+      margin-top: 40px;
+    }
+
     .service-box {
       background-color: #333;
       color: #fff;
@@ -62,6 +66,7 @@
       padding: 15px;
       border-radius: 10px;
       text-align: center;
+      cursor: pointer;
     }
 
     .service-box:hover {
@@ -118,6 +123,23 @@
       font-size: 1.1em;
       margin-bottom: 5px;
     }
+
+    .option-btn {
+      background-color: #555;
+      color: #C2858C;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 1.1em;
+      width: 100%;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    .option-btn:hover {
+      background-color: #C2858C;
+      color: #1c1c1c;
+    }
   </style>
 </head>
 <body>
@@ -127,75 +149,83 @@
     <div class="nfb">Réservation en ligne</div>
   </header>
 
-  <div class="section">
-    <div class="category-btns">
-      <a href="#rallongement" class="category-btn">Rallongement</a>
-      <a href="#sans-rallongement" class="category-btn">Sans Rallongement</a>
-      <a href="#depose" class="category-btn">Dépose</a>
-      <a href="#forfait-depose" class="category-btn">Forfait Dépose + Pose</a>
+  <div class="category-btns">
+    <a href="#rallongement" class="category-btn">Rallongement</a>
+    <a href="#sans-rallongement" class="category-btn">Sans Rallongement</a>
+    <a href="#depose" class="category-btn">Dépose</a>
+    <a href="#forfait-depose" class="category-btn">Forfait Dépose + Pose</a>
+  </div>
+
+  <form method="POST" action="your-server-endpoint">
+    
+    <!-- Rallongement -->
+    <div id="rallongement" class="section">
+      <h2>Rallongement</h2>
+      <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
+      <div class="service-box">
+        <div class="service-title">Rallongement en Gel • 50€</div>
+        <div class="service-description">2 h 45 min</div>
+        <button type="button" class="option-btn" onclick="selectOption('Rallongement en Gel')">Choisir</button>
+      </div>
+      <div class="service-box">
+        <div class="service-title">Nail Art Simple • 60€</div>
+        <div class="service-description">3 h</div>
+        <button type="button" class="option-btn" onclick="selectOption('Nail Art Simple')">Choisir</button>
+      </div>
+      <!-- Ajoute d'autres options ici -->
     </div>
 
-    <!-- Formulaire de réservation -->
-    <form method="POST" action="your-server-endpoint">
-      <!-- Rallongement -->
-      <div id="rallongement" class="service-box">
-        <h2>Rallongement</h2>
-        <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
-        <label for="rallongement">Sélectionner une option :</label>
-        <select id="rallongement" name="rallongement_option">
-          <option value="rallongement-gel">Rallongement en Gel • 50€</option>
-          <option value="nail-art-simple">Nail Art Simple • 60€</option>
-          <option value="ongles-ronges">Ongles Rongés • 60€</option>
-          <option value="nail-art-complexe">Nail Art Complexe • 70€</option>
-          <option value="ongles-ronges-nail-art-simple">Ongles Rongés + Nail Art Simple • 70€</option>
-          <option value="ongles-ronges-nail-art-complexe">Ongles Rongés + Nail Art Complexe • 80€</option>
-        </select>
+    <!-- Sans Rallongement -->
+    <div id="sans-rallongement" class="section">
+      <h2>Sans Rallongement</h2>
+      <div class="service-box">
+        <div class="service-title">Gainage • 40€</div>
+        <div class="service-description">2 h 30 min</div>
+        <button type="button" class="option-btn" onclick="selectOption('Gainage')">Choisir</button>
       </div>
-
-      <!-- Sans Rallongement -->
-      <div id="sans-rallongement" class="service-box">
-        <h2>Sans Rallongement</h2>
-        <p>Choisissez l'une de nos prestations pour sublimer vos ongles naturels.</p>
-        <label for="sans-rallongement">Sélectionner une option :</label>
-        <select id="sans-rallongement" name="sans_rallongement_option">
-          <option value="gainage">Gainage • 40€</option>
-          <option value="ongles-ronges">Ongles Rongés • 50€</option>
-          <option value="nail-art-simple">Nail Art Simple • 55€</option>
-          <option value="nail-art-complexe">Nail Art Complexe • 65€</option>
-        </select>
+      <div class="service-box">
+        <div class="service-title">Ongles Rongés • 50€</div>
+        <div class="service-description">2 h 45 min</div>
+        <button type="button" class="option-btn" onclick="selectOption('Ongles Rongés')">Choisir</button>
       </div>
+      <!-- Ajoute d'autres options ici -->
+    </div>
 
-      <!-- Dépose -->
-      <div id="depose" class="service-box">
-        <h2>Dépose</h2>
-        <p>Retrait soigné de vos ongles. Nécessaire si vous venez avec du gel posé par une autre professionnelle.</p>
-        <label for="depose">Sélectionner une option :</label>
-        <select id="depose" name="depose_option">
-          <option value="semi-permanent-simple">Dépose Semi Permanent Simple • 10€</option>
-          <option value="semi-permanent-renforce">Dépose Semi Permanent Renforcé • 15€</option>
-          <option value="depose-gel">Dépose Gel • 20€</option>
-        </select>
+    <!-- Forfait Dépose + Pose -->
+    <div id="forfait-depose" class="section">
+      <h2>Forfait Dépose + Pose</h2>
+      <p>Profitez de notre forfait dépose et pose à prix réduit. La réduction de 5% est déjà appliquée.</p>
+      <div class="service-box">
+        <div class="service-title">Dépose + Pose Gel • 66.50€</div>
+        <div class="service-description">4 h</div>
+        <button type="button" class="option-btn" onclick="selectOption('Dépose + Pose Gel')">Choisir</button>
       </div>
-
-      <!-- Forfait Dépose + Pose -->
-      <div id="forfait-depose" class="service-box">
-        <h2>Forfait Dépose + Pose</h2>
-        <p>Profitez de notre forfait dépose et pose à prix réduit. La réduction de 5% est déjà appliquée.</p>
-        <label for="forfait-depose">Sélectionner une option :</label>
-        <select id="forfait-depose" name="forfait_depose_option">
-          <option value="depose-pose-gel">Dépose + Pose Gel • 66.50€</option>
-          <option value="depose-pose-semi-permanent">Dépose + Pose Semi Permanent • 47.50€</option>
-        </select>
+      <div class="service-box">
+        <div class="service-title">Dépose + Pose Semi Permanent • 47.50€</div>
+        <div class="service-description">2 h 30 min</div>
+        <button type="button" class="option-btn" onclick="selectOption('Dépose + Pose Semi Permanent')">Choisir</button>
       </div>
+    </div>
 
-      <!-- Photo d'inspiration -->
-      <div class="input-file">
-        <label for="photo-inspiration">Télécharger une photo d'inspiration (optionnel) :</label>
-        <input type="file" id="photo-inspiration" name="photo_inspiration" accept="image/*">
+    <!-- Dépose -->
+    <div id="depose" class="section">
+      <h2>Dépose</h2>
+      <div class="service-box">
+        <div class="service-title">Dépose Gel • 20€</div>
+        <div class="service-description">1 h 20 min</div>
+        <button type="button" class="option-btn" onclick="selectOption('Dépose Gel')">Choisir</button>
       </div>
+      <div class="service-box">
+        <div class="service-title">Dépose Semi Permanent • 15€</div>
+        <div class="service-description">45 min</div>
+        <button type="button" class="option-btn" onclick="selectOption('Dépose Semi Permanent')">Choisir</button>
+      </div>
+    </div>
 
-      <!-- Remarques supplémentaires -->
-      <div>
-        <label for="remark">Ajouter un commentaire ou une remarque (optionnel) :</label>
-        <textarea id="remark" name="remark" rows="4" placeholder="Exemple: Préférence couleur ou style de nail art"></textarea>
-      </div
+    <!-- Photo d'inspiration -->
+    <div class="input-file">
+      <label for="photo-inspiration">Télécharger une photo d'inspiration (optionnel) :</label>
+      <input type="file" id="photo-inspiration" name="photo_inspiration" accept="image/*">
+    </div>
+
+    <!-- Remar
