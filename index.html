@@ -137,14 +137,10 @@
       font-size: 1.1em;
     }
 
-    /* Style pour afficher/masquer les textes des politiques */
+    /* Style pour masquer le contenu des conditions */
     .policy-content {
       display: none;
-      margin-top: 20px;
-      background-color: #444;
-      padding: 20px;
-      border-radius: 10px;
-      color: #fff;
+      padding-top: 20px;
     }
   </style>
 </head>
@@ -170,27 +166,37 @@
   </div>
 
   <div class="section">
-    <h2>Découvrez mon travail</h2>
-    <p>
-      Consultez la 
-      <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a>
-    </p>
+    <h2>Conditions</h2>
+    <ul>
+      <li><a href="javascript:void(0);" onclick="togglePolicy('remboursement');" style="font-weight: bold;">Politique de remboursement et de règlement des litiges</a></li>
+      <li><a href="javascript:void(0);" onclick="togglePolicy('annulation');" style="font-weight: bold;">Politique d'annulation et de retard</a></li>
+      <li><a href="javascript:void(0);" onclick="togglePolicy('promotions');" style="font-weight: bold;">Conditions générales applicables aux promotions</a></li>
+    </ul>
   </div>
 
-  <div id="portfolio" class="portfolio">
-    <div class="carousel">
-      <img src="images/orange_fleurs.JPG" alt="Fleur orange">
-      <img src="images/emerald_city.JPG" alt="Emerald City">
-      <img src="images/fanny_french.jpg" alt="French Amande">
-      <img src="images/french_classic_entretien.JPG" alt="French Classic">
-      <img src="images/french_fleurs.JPG" alt="French Fleurs">
-      <img src="images/green_gold.JPG" alt="Green Gold">
-      <img src="images/hot_spicy_strass.jpg" alt="Hot Spicy">
-      <img src="images/laurianna_french.jpg" alt="Carré">
-      <img src="images/milky_white.JPG" alt="Milky White">
-      <img src="images/pose_saint_valentin.JPG" alt="Saint Valentin">
-      <img src="images/halloween_24.JPG" alt="Halloween 24">
-    </div>
+  <div id="remboursement" class="policy-content">
+    <h3>Politique de remboursement et de règlement des litiges</h3>
+    <p>En tant que prestataire de services de prothèse ongulaire...</p>
+  </div>
+
+  <div id="annulation" class="policy-content">
+    <h3>Politique d’annulation et de retard</h3>
+    <p>Nous comprenons que des imprévus peuvent survenir...</p>
+  </div>
+
+  <div id="promotions" class="policy-content">
+    <h3>Conditions générales applicables aux promotions</h3>
+    <p>Les présentes conditions générales régissent les promotions proposées par Nails by NFB...</p>
+    <ol>
+      <li><strong>Validité des promotions</strong><br>Les promotions sont valables uniquement pendant la période indiquée...</li>
+      <li><strong>Conditions d’éligibilité</strong><br>Les promotions sont réservées aux personnes ayant effectué une réservation...</li>
+      <li><strong>Application des promotions</strong><br>Certaines promotions sont appliquées directement lors de la réservation...</li>
+      <li><strong>Non cumulabilité des promotions</strong><br>Sauf mention contraire dans les conditions de l’offre...</li>
+      <li><strong>Réservation et paiement</strong><br>Pour bénéficier d’une promotion, une réservation préalable est nécessaire...</li>
+      <li><strong>Annulation et modification des promotions</strong><br>En cas d’annulation ou de modification de votre rendez-vous...</li>
+      <li><strong>Exclusions et limitations</strong><br>Certaines promotions peuvent exclure certains services...</li>
+      <li><strong>Modification des conditions</strong><br>Nous nous réservons le droit de modifier les conditions...</li>
+    </ol>
   </div>
 
   <div class="section" style="text-align: center;">
@@ -205,40 +211,6 @@
     Site créé avec amour et passion
   </footer>
 
-  <!-- Liens vers les politiques -->
-  <div class="section">
-    <h2>Conditions</h2>
-    <ul>
-      <li><a href="javascript:void(0);" onclick="togglePolicy('remboursement');" style="font-weight: bold;">Politique de remboursement et de règlement des litiges</a></li>
-      <li><a href="javascript:void(0);" onclick="togglePolicy('annulation');" style="font-weight: bold;">Politique d'annulation et de retard</a></li>
-    </ul>
-  </div>
-
-  <!-- Texte caché avec un lien -->
-  <div id="remboursement" class="policy-content">
-    <h3>Politique de remboursement et de règlement des litiges</h3>
-    <p>
-      En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité et à respecter les engagements pris avec nos clientes. Toutefois, un acompte est exigé lors de la réservation de votre rendez-vous, afin de garantir la prise en charge de votre demande. Cet acompte est non remboursable, sauf dans les cas spécifiques prévus par la législation.
-      <br><br>
-      En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable. Si un règlement amiable ne peut être trouvé, vous avez la possibilité de faire appel aux autorités compétentes ou de recourir à un médiateur pour les litiges de consommation. La procédure de médiation peut être entamée conformément aux articles L. 612-1 et suivants du Code de la consommation.
-    </p>
-  </div>
-
-  <div id="annulation" class="policy-content">
-    <h3>Politique d’annulation et de retard</h3>
-    <p>
-      Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions. Toute annulation doit être effectuée au minimum 48 heures avant le rendez-vous initial, via la messagerie de notre site ou tout autre moyen de communication spécifié.
-      <br><br>
-      Si l’annulation survient dans un délai inférieur à 48 heures, l’acompte versé ne sera pas remboursé, conformément aux conditions de réservation. De même, si vous ne vous présentez pas à votre rendez-vous sans nous avoir informés dans le délai imparti, l’acompte sera également retenu.
-      <br><br>
-      Si vous souhaitez reporter votre rendez-vous, nous nous engageons à trouver un créneau disponible dans les plus brefs délais, mais aucun remboursement de l’acompte ne sera effectué.
-      <br><br>
-      Nous attachons une grande importance à la ponctualité afin de respecter nos horaires et de garantir un service de qualité à toutes nos clientes. Si vous arrivez avec un retard de plus de 30 minutes, nous nous réservons le droit d’annuler le rendez-vous. Dans ce cas, l’acompte versé ne sera pas remboursé, et aucun report du rendez-vous ne sera effectué, afin de respecter les horaires des autres clientes.
-      <br><br>
-      Nous vous conseillons de nous prévenir dès que possible en cas de retard afin de nous permettre d’adapter, si cela est possible, votre rendez-vous.
-    </p>
-  </div>
-
   <script>
     function togglePolicy(policy) {
       var policyElement = document.getElementById(policy);
@@ -247,11 +219,6 @@
       } else {
         policyElement.style.display = 'none';
       }
-    }
-
-    function showGallery() {
-      document.getElementById('portfolio').style.display = 'flex';
-      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
