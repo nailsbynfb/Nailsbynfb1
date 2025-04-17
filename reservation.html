@@ -144,6 +144,16 @@
       font-size: 1.2em;
       color: #C2858C;
     }
+
+    .service-box ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .service-box ul li {
+      margin: 5px 0;
+    }
+
   </style>
 </head>
 <body>
@@ -171,13 +181,14 @@
         <div class="service-title">Rallongement (Chablons ou Capsules)</div>
         <div class="service-description">Choisissez vos options :</div>
 
-        <div class="option-title">Options disponibles :</div>
-        <div class="price">Rallongement en Gel • 50€</div>
-        <div class="price">Nail Art Simple • 60€</div>
-        <div class="price">Ongles Rongés • 60€</div>
-        <div class="price">Nail Art Complexe • 70€</div>
-        <div class="price">Ongles Rongés + Nail Art Simple • 70€</div>
-        <div class="price">Ongles Rongés + Nail Art Complexe • 80€</div>
+        <ul>
+          <li><span class="price">Rallongement en Gel • 50€</span></li>
+          <li><span class="price">Nail Art Simple • 60€</span></li>
+          <li><span class="price">Ongles Rongés • 60€</span></li>
+          <li><span class="price">Nail Art Complexe • 70€</span></li>
+          <li><span class="price">Ongles Rongés + Nail Art Simple • 70€</span></li>
+          <li><span class="price">Ongles Rongés + Nail Art Complexe • 80€</span></li>
+        </ul>
       </div>
     </div>
 
@@ -189,10 +200,34 @@
       <div class="service-box">
         <div class="service-title">Gainage</div>
         <div class="service-description">Renforcez et sublimez vos ongles naturels avec notre service de gainage.</div>
-        <div class="price">Gainage • 40€</div>
-        <div class="price">Ongles Rongés • 50€</div>
-        <div class="price">Nail Art Simple • 55€</div>
-        <div class="price">Nail Art Complexe • 65€</div>
+        <ul>
+          <li><span class="price">Gainage • 40€</span></li>
+          <li><span class="price">Ongles Rongés • 50€</span></li>
+          <li><span class="price">Nail Art Simple • 55€</span></li>
+          <li><span class="price">Nail Art Complexe • 65€</span></li>
+        </ul>
+      </div>
+
+      <div class="service-box">
+        <div class="service-title">Semi Permanent Simple</div>
+        <div class="service-description">Offrez à vos ongles un fini impeccable avec notre service de semi-permanent.</div>
+        <ul>
+          <li><span class="price">Semi Permanent • 30€</span></li>
+          <li><span class="price">Ongles Rongés • 40€</span></li>
+          <li><span class="price">Nail Art Simple • 40€</span></li>
+          <li><span class="price">Nail Art Complexe • 50€</span></li>
+        </ul>
+      </div>
+
+      <div class="service-box">
+        <div class="service-title">Semi Permanent Renforcé</div>
+        <div class="service-description">Un fini impeccable avec une solidité et longévité accrues grâce à la base renforcée.</div>
+        <ul>
+          <li><span class="price">Semi Permanent Renforcé • 35€</span></li>
+          <li><span class="price">Ongles Rongés • 45€</span></li>
+          <li><span class="price">Nail Art Simple • 45€</span></li>
+          <li><span class="price">Nail Art Complexe • 55€</span></li>
+        </ul>
       </div>
     </div>
 
@@ -204,46 +239,5 @@
       <div class="service-box">
         <div class="service-title">Dépose Gel</div>
         <div class="service-description">Dépose soigneuse des ongles en gel.</div>
-        <div class="price">Dépose Gel • 10€</div>
-        <div class="price">Dépose Semi Permanent Renforcé • 15€</div>
-        <div class="price">Dépose Semi Permanent • 15€</div>
-      </div>
-    </div>
-
-    <!-- Forfait Dépose + Pose -->
-    <div id="forfait-depose-pose">
-      <h2>Forfait Dépose + Pose</h2>
-      <p>Réduction de 5% déjà appliquée dans cette catégorie.</p>
-
-      <div class="service-box">
-        <div class="service-title">Dépose + Pose Gel</div>
-        <div class="service-description">Pose de gel après dépose des ongles existants.</div>
-        <div class="price">Dépose + Pose Gel (Ongles Rongés) • 76€</div>
-        <div class="price">Dépose + Pose Gel • 66,50€</div>
-        <div class="price">Dépose + Pose Semi Permanent Renforcé • 57€</div>
-      </div>
-    </div>
-
-    <!-- Formulaire de Réservation -->
-    <div class="form-section">
-      <h3>Réservez votre créneau</h3>
-      <form action="#" method="POST">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
-
-        <label for="email">Email :</label>
-        <input type="text" id="email" name="email" required>
-
-        <label for="photo-mains">Téléchargez une photo de vos mains :</label>
-        <input type="file" id="photo-mains" name="photo-mains">
-
-        <label for="message">Remarque ou message (facultatif) :</label>
-        <textarea id="message" name="message" class="textarea"></textarea>
-
-        <button type="submit" class="submit-btn">Réserver maintenant</button>
-      </form>
-    </div>
-  </div>
-
-</body>
-</html>
+        <ul>
+          <li><span class="price">Dépose
