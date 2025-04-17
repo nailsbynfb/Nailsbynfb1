@@ -175,23 +175,71 @@
     </div>
   </div>
 
+  <!-- Sans Rallongement -->
+  <div id="sans_rallongement" class="category">
+    <h2>Sans Rallongement</h2>
+    <div class="service">
+      <h3>Gainage</h3>
+      <div class="option"><input type="radio" name="gainage" value="Gainage">Gainage • 2 h 30 min – 40€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés">Ongles rongés • 2 h 45 min – 50€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art simple">Nail art simple • 2 h 45 min – 55€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art simple">Ongles rongés + Nail art simple • 3 h – 60€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art complexe">Nail art complexe • 3 h – 65€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 15 min – 70€</div>
+    </div>
+    <div class="service">
+      <h3>Semi Permanent Simple</h3>
+      <div class="option"><input type="radio" name="semi_simple" value="Semi permanent">Semi permanent • 2 h – 30€</div>
+      <div class="option"><input type="radio" name="semi_simple" value="Ongles rongés">Ongles rongés • 2 h 15 min – 40€</div>
+      <div class="option"><input type="radio" name="semi_simple" value="Nail art simple">Nail art simple • 2 h 15 min – 40€</div>
+      <div class="option"><input type="radio" name="semi_simple" value="Nail art complexe">Nail art complexe • 2 h 30 min – 50€</div>
+    </div>
+    <div class="service">
+      <h3>Semi Permanent Renforcé</h3>
+      <div class="option"><input type="radio" name="semi_renforce" value="Semi permanent renforcé">Semi permanent renforcé • 2 h – 35€</div>
+      <div class="option"><input type="radio" name="semi_renforce" value="Ongles rongés">Ongles rongés • 2 h 45 min – 45€</div>
+      <div class="option"><input type="radio" name="semi_renforce" value="Nail art simple">Nail art simple • 2 h 45 min – 45€</div>
+      <div class="option"><input type="radio" name="semi_renforce" value="Nail art complexe">Nail art complexe • 3 h – 55€</div>
+    </div>
+  </div>
+
+  <!-- Forfait Dépose + Pose -->
+  <div id="forfait_depose" class="category">
+    <h2>Forfait Dépose + Pose</h2>
+    <div class="service">
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel (Ongles rongés)">Dépose + Pose Gel (Ongles rongés) • 76€ – 4 h</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel">Dépose + Pose Gel • 66,50€ – 3 h 45 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé (Ongles rongés)">Dépose + Pose Semi perm. renforcé (Ongles rongés) • 57€ – 3 h 30 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé">Dépose + Pose Semi perm. renforcé • 47,50€ – 2 h 45 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple (Ongles rongés)">Dépose + Pose Semi perm. (Ongles rongés) • 47,50€ – 2 h 45 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple">Dépose + Pose Semi perm. • 38€ – 2 h 30 min</div>
+    </div>
+  </div>
+
+  <!-- Dépose -->
+  <div id="depose" class="category">
+    <h2>Dépose</h2>
+    <div class="service">
+      <div class="option"><input type="radio" name="depose" value="Semi permanent simple">Semi permanent simple • 10€ – 30 min</div>
+      <div class="option"><input type="radio" name="depose" value="Semi permanent renforcé">Semi permanent renforcé • 15€ – 45 min</div>
+    </div>
+    <div class="service">
+      <div class="option"><input type="radio" name="depose" value="Dépose Gel">Dépose Gel • 20€ – 1 h 20 min</div>
+    </div>
+  </div>
+
   <!-- Formulaire de réservation -->
   <div class="form-container">
     <h2>Réservez votre rendez-vous</h2>
-    <form action="#" method="POST" id="reservation-form">
+    <form action="#" method="POST">
       <input type="text" name="nom" placeholder="Nom complet" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="tel" name="telephone" placeholder="Téléphone" required>
-      
-      <!-- Date du rendez-vous -->
       <label for="date">Date du rendez-vous souhaitée :</label>
-      <input type="date" name="date" id="date" required>
-      
-      <!-- Horaire du rendez-vous -->
+      <input type="date" name="date" required>
       <label for="horaire">Horaire du rendez-vous souhaité :</label>
-      <select name="horaire" id="horaire" required>
-        <!-- Exemple d'horaires -->
-        <option value="09:00">09:00</option>
+      <select name="horaire" required>
+        <option value="9:00">9:00</option>
         <option value="10:00">10:00</option>
         <option value="11:00">11:00</option>
         <option value="12:00">12:00</option>
@@ -201,12 +249,8 @@
         <option value="16:00">16:00</option>
         <option value="17:00">17:00</option>
       </select>
-
-      <button type="button" onclick="checkAvailability()">Vérifier la disponibilité</button>
-
-      <!-- Message ou informations supplémentaires -->
       <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
-      <input type="file" name="photo" accept="image/*">
+      <input type="file" name="photo" accept="image/*" required>
       <button type="submit">Confirmer le rendez-vous</button>
     </form>
   </div>
@@ -222,20 +266,6 @@
       });
       document.querySelector(`#btn-${categoryId}`).classList.add('active');
     }
-
-    function checkAvailability() {
-      const date = document.getElementById('date').value;
-      const horaire = document.getElementById('horaire').value;
-
-      // Exemple de logique de vérification de disponibilité
-      if (date && horaire) {
-        alert(`Vérification de la disponibilité pour le ${date} à ${horaire}`);
-        // Ajoutez ici la logique pour vérifier la disponibilité, par exemple une API
-      } else {
-        alert('Veuillez sélectionner une date et une heure.');
-      }
-    }
   </script>
-
 </body>
 </html>
