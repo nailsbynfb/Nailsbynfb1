@@ -203,29 +203,28 @@
     </div>
   </div>
 
-  <!-- Forfait Dépose + Pose -->
-  <div id="forfait_depose" class="category">
-    <h2>Forfait Dépose + Pose</h2>
-    <div class="service">
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel (Ongles rongés)">Dépose + Pose Gel (Ongles rongés) • 76€ – 4 h</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel">Dépose + Pose Gel • 66,50€ – 3 h 45 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé (Ongles rongés)">Dépose + Pose Semi perm. renforcé (Ongles rongés) • 57€ – 3 h 30 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé">Dépose + Pose Semi perm. renforcé • 47,50€ – 2 h 45 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple (Ongles rongés)">Dépose + Pose Semi perm. (Ongles rongés) • 47,50€ – 2 h 45 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple">Dépose + Pose Semi perm. • 38€ – 2 h 30 min</div>
-    </div>
-  </div>
+  <!-- Formulaire de vérification de disponibilité -->
+  <div class="form-container">
+    <h2>Vérifiez la disponibilité</h2>
+    <form id="availability-form">
+      <label for="date">Date du rendez-vous :</label>
+      <input type="date" name="date" id="availability-date" required>
 
-  <!-- Dépose -->
-  <div id="depose" class="category">
-    <h2>Dépose</h2>
-    <div class="service">
-      <div class="option"><input type="radio" name="depose" value="Semi permanent simple">Semi permanent simple • 10€ – 30 min</div>
-      <div class="option"><input type="radio" name="depose" value="Semi permanent renforcé">Semi permanent renforcé • 15€ – 45 min</div>
-    </div>
-    <div class="service">
-      <div class="option"><input type="radio" name="depose" value="Dépose Gel">Dépose Gel • 20€ – 1 h 20 min</div>
-    </div>
+      <label for="horaire">Horaire :</label>
+      <select name="horaire" id="availability-time" required>
+        <option value="9:00">9:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+      </select>
+      <button type="submit">Vérifier la disponibilité</button>
+    </form>
+    <div id="availability-result"></div>
   </div>
 
   <!-- Formulaire de réservation -->
@@ -256,16 +255,43 @@
   </div>
 
   <script>
-    function showCategory(categoryId) {
-      document.querySelectorAll('.category').forEach(cat => {
+    document.getElementById('availability-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var date = document.getElementById('availability-date').value;
+      var time = document.getElementById('availability-time').value;
+
+      // Exemple de logique pour vérifier la disponibilité (à adapter en fonction de l'API ou base de données)
+      var available = true; // Simule que le créneau est disponible, à adapter
+
+      var resultDiv = document.getElementById('availability-result');
+      if (available) {
+        resultDiv.textContent = `Le créneau du ${date} à ${time} est disponible ! Vous pouvez procéder à la réservation.`;
+        resultDiv.style.color = 'green';
+      } else {
+        resultDiv.textContent = `Désolé, le créneau du ${date} à ${time} n'est pas disponible.`;
+        resultDiv.style.color = 'red';
+      }
+    });
+
+    function showCategory(category) {
+      // Cacher toutes les catégories
+      var categories = document.querySelectorAll('.category');
+      categories.forEach(function(cat) {
         cat.classList.remove('active');
       });
-      document.getElementById(categoryId).classList.add('active');
-      document.querySelectorAll('.category-buttons button').forEach(btn => {
-        btn.classList.remove('active');
+
+      // Afficher la catégorie sélectionnée
+      var selectedCategory = document.getElementById(category);
+      selectedCategory.classList.add('active');
+
+      // Mettre à jour l'état des boutons
+      var buttons = document.querySelectorAll('.category-buttons button');
+      buttons.forEach(function(button) {
+        button.classList.remove('active');
       });
-      document.querySelector(`#btn-${categoryId}`).classList.add('active');
+      document.getElementById('btn-' + category).classList.add('active');
     }
   </script>
+
 </body>
 </html>
