@@ -3,236 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nails by NFB</title>
-
-  <!-- Polices -->
+  <title>Réservation - Nails by NFB</title>
   <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'White Star';
-      src: url('https://fonts.cdnfonts.com/s/72030/WhiteStarRegular-owxgg.woff') format('woff');
+    :root {
+      --bg: #1c1c1c;
+      --text: #ffffff;
+      --accent-pink: #C2858C;
+      --accent-beige: #BAA898;
+      --card-bg: #2b2b2b;
+      --option-bg: #333333;
     }
-
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Inria Serif', serif;
-      background-color: #1c1c1c;
-      color: #ffffff;
+      background-color: var(--bg);
+      color: var(--text);
     }
-
     header {
-      background-color: #BAA898;
-      color: #1c1c1c;
-      padding: 30px;
+      background-color: var(--accent-beige);
+      color: var(--bg);
       text-align: center;
+      padding: 20px;
     }
-
-    .brand-title {
-      font-family: 'Inria Serif', serif;
+    header h1 {
+      margin: 0;
       font-size: 2.5em;
-      margin: 0;
     }
-
-    .brand-subtitle {
-      font-family: 'White Star', sans-serif;
+    header span {
+      display: block;
+      font-family: 'White Star', cursive;
       font-size: 3em;
-      margin: 0;
-      color: #a4656f;
+      color: #000;
+      margin-top: 5px;
     }
-
-    .accroche {
-      font-style: italic;
-      margin: 20px;
-      text-align: center;
-      font-size: 1.1em;
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      background-color: var(--card-bg);
     }
-
-    .btn {
-      display: inline-block;
-      background-color: #C2858C;
-      color: #ffffff;
-      padding: 12px 25px;
-      margin-top: 20px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-      font-family: 'Inria Serif', serif;
+    .category-buttons button {
+      background-color: var(--card-bg);
+      color: var(--accent-pink);
+      border: 1px solid var(--accent-pink);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 1em;
     }
-
-    .btn:hover {
-      background-color: #a4656f;
+    .category-buttons button.active,
+    .category-buttons button:hover {
+      background-color: var(--accent-pink);
+      color: var(--bg);
     }
-
-    .section {
-      padding: 40px 20px;
+    .category {
+      display: none;
+      padding: 20px;
       max-width: 900px;
       margin: auto;
+      animation: fadeIn 0.5s ease-in-out;
     }
-
-    .section h2 {
-      color: #BAA898;
-      font-family: 'Inria Serif', serif;
+    .category.active {
+      display: block;
+    }
+    .category h2 {
+      text-align: center;
+      color: var(--accent-pink);
+      margin-bottom: 15px;
+    }
+    .service {
+      background-color: var(--card-bg);
+      border: 1px solid var(--accent-pink);
+      border-radius: 15px;
+      padding: 20px;
       margin-bottom: 20px;
     }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #333;
-      color: #aaa;
-      font-size: 0.9em;
+    .service h3 {
+      margin-top: 0;
+      color: var(--accent-pink);
     }
-
-    /* Galerie */
-    .portfolio {
-      display: none;
-      justify-content: center;
+    .option {
+      background-color: var(--option-bg);
+      padding: 12px;
+      border-radius: 10px;
+      margin: 8px 0;
+      cursor: pointer;
+      display: flex;
       align-items: center;
-      overflow: hidden;
-      position: relative;
-      margin: 40px auto;
-      max-width: 800px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .option:hover {
+      background-color: var(--accent-pink);
+      color: var(--bg);
+    }
+    .option input {
+      margin-right: 10px;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--accent-pink);
       border-radius: 15px;
     }
-
-    .carousel {
-      display: flex;
-      animation: scroll 30s linear infinite;
-      gap: 20px;
-    }
-
-    .carousel img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .carousel img:hover {
-      transform: scale(1.3);
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Flèche animée */
-    .arrow-container {
+    .form-container h2 {
       text-align: center;
-      margin-top: 15px;
+      color: var(--accent-pink);
     }
-
-    .arrow-container img {
-      width: 50px;
-      height: auto;
+    .form-container input,
+    .form-container textarea,
+    .form-container select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #555;
+      background-color: var(--option-bg);
+      color: var(--text);
+      font-family: 'Inria Serif', serif;
     }
-
-    .review-btn {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 1.1em;
-    }
-
-    /* Styles pour les conditions */
-    .policy-content {
-      padding: 20px;
-      background-color: #333;
-      color: #fff;
-      margin-top: 20px;
-      display: none; /* Initialement caché */
-    }
-    
-    .policy-link {
-      color: #C2858C;
-      font-weight: bold;
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent-pink);
+      color: var(--bg);
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
-
+    .form-container button:hover {
+      background-color: #a4656f;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
-
 <body>
 
   <header>
-    <div class="brand-title">Nails by</div>
-    <div class="brand-subtitle">NFB</div>
+    <h1>Nails by<br><span>NFB</span></h1>
   </header>
 
-  <div class="accroche">
-    Chez Nails by NFB, chaque pose est bien plus qu’un simple soin : c’est un moment de détente, de confiance et de mise en valeur.
+  <div class="category-buttons">
+    <button id="btn-rallongement" onclick="showCategory('rallongement')">Rallongement</button>
+    <button id="btn-sans_rallongement" onclick="showCategory('sans_rallongement')">Sans Rallongement</button>
+    <button id="btn-forfait_depose" onclick="showCategory('forfait_depose')">Forfait Dépose + Pose</button>
+    <button id="btn-depose" onclick="showCategory('depose')">Dépose</button>
   </div>
 
-  <div class="section" style="text-align: center;">
-    <a href="Index.html/reservation.html" class="btn">Prendre un rendez-vous</a>
-  </div>
-
-  <div class="section">
-    <h2>À propos</h2>
-    <p>Bienvenue chez Nails by NFB à Corbeil-Essonnes. Je m'adapte à tous les styles et envies pour mettre vos ongles en valeur avec raffinement et créativité.</p>
-  </div>
-
-  <div class="section">
-    <h2>Découvrez mon travail</h2>
-    <p>
-      Consultez la 
-      <a href="#" onclick="showGallery()" style="color: #C2858C; font-weight: bold;">galerie</a>
-    </p>
-  </div>
-
-  <div id="portfolio" class="portfolio">
-    <div class="carousel">
-      <img src="images/orange_fleurs.JPG" alt="Fleur orange">
-      <img src="images/emerald_city.JPG" alt="Emerald City">
-      <img src="images/fanny_french.jpg" alt="French Amande">
-      <img src="images/french_classic_entretien.JPG" alt="French Classic">
-      <img src="images/french_fleurs.JPG" alt="French Fleurs">
-      <img src="images/green_gold.JPG" alt="Green Gold">
-      <img src="images/hot_spicy_strass.jpg" alt="Hot Spicy">
-      <img src="images/laurianna_french.jpg" alt="Carré">
-      <img src="images/milky_white.JPG" alt="Milky White">
-      <img src="images/pose_saint_valentin.JPG" alt="Saint Valentin">
-      <img src="images/halloween_24.JPG" alt="Halloween 24">
+  <!-- Rallongement -->
+  <div id="rallongement" class="category active">
+    <h2>Rallongement</h2>
+    <div class="service">
+      <h3>Rallongement (Chablons ou Capsules)</h3>
+      <div class="option"><input type="radio" name="rallongement" value="Rallongement en Gel">Rallongement en Gel • 2 h 45 min – 50€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Nail art simple">Nail art simple • 3 h – 60€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés">Ongles rongés • 3 h – 60€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Nail art complexe">Nail art complexe • 3 h 15 min – 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art simple">Ongles rongés + Nail art simple • 3 h 30 min – 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 45 min – 80€</div>
     </div>
   </div>
 
-  <div class="section" style="text-align: center;">
-    <div class="arrow-container">
-      <img src="https://media.giphy.com/media/l3vR85PnGsBwu1PFK/giphy.gif" alt="arrow">
+  <!-- Sans Rallongement -->
+  <div id="sans_rallongement" class="category">
+    <h2>Sans Rallongement</h2>
+    <div class="service">
+      <h3>Gainage</h3>
+      <div class="option"><input type="radio" name="gainage" value="Gainage">Gainage • 2 h 30 min – 40€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés">Ongles rongés • 2 h 45 min – 50€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art simple">Nail art simple • 2 h 45 min – 55€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art simple">Ongles rongés + Nail art simple • 3 h – 60€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art complexe">Nail art complexe • 3 h – 65€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 15 min – 70€</div>
     </div>
-    <a class="btn review-btn" href="https://g.page/r/CQDGLLwBAEmbEBM/review" target="_blank">⭐ Laisser un avis</a>
+    <div class="service">
+      <h3>Semi Permanent Simple</h3>
+      <div class="option"><input type="radio" name="semi_simple" value="Semi permanent">Semi permanent • 2 h – 30€</div>
+      <div class="option"><input type="radio" name="semi_simple" value="Ongles rongés">Ongles rongés • 2 h 15 min – 40€</div>
+      <div class="option"><input type="radio" name="semi_simple" value="Nail art simple">Nail art simple • 2 h 15 min – 40€</div>
+      <div class="option"><input type="radio" name="semi_simple" value="Nail art complexe">Nail art complexe • 2 h 30 min – 50€</div>
+    </div>
+    <div class="service">
+      <h3>Semi Permanent Renforcé</h3>
+      <div class="option"><input type="radio" name="semi_renforce" value="Semi permanent renforcé">Semi permanent renforcé • 2 h – 35€</div>
+      <div class="option"><input type="radio" name="semi_renforce" value="Ongles rongés">Ongles rongés • 2 h 45 min – 45€</div>
+      <div class="option"><input type="radio" name="semi_renforce" value="Nail art simple">Nail art simple • 2 h 45 min – 45€</div>
+      <div class="option"><input type="radio" name="semi_renforce" value="Nail art complexe">Nail art complexe • 3 h – 55€</div>
+    </div>
   </div>
 
-  <footer>
-    Nails by NFB - Corbeil-Essonnes<br/>
-    Site créé avec amour et passion
-  </footer>
-
-  <!-- Liens vers les conditions générales -->
-  <div class="section">
-    <h2>Conditions générales</h2>
-    <p><span class="policy-link" onclick="togglePolicy('remboursement')">Politique de remboursement et de règlement des litiges</span></p>
-    <p><span class="policy-link" onclick="togglePolicy('annulation')">Politique d’annulation et de retard</span></p>
-    <p><span class="policy-link" onclick="togglePolicy('promotions')">Conditions générales applicables aux promotions</span></p>
+  <!-- Forfait Dépose + Pose -->
+  <div id="forfait_depose" class="category">
+    <h2>Forfait Dépose + Pose</h2>
+    <div class="service">
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel (Ongles rongés)">Dépose + Pose Gel (Ongles rongés) • 76€ – 4 h</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel">Dépose + Pose Gel • 66,50€ – 3 h 45 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé (Ongles rongés)">Dépose + Pose Semi perm. renforcé (Ongles rongés) • 57€ – 3 h 30 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé">Dépose + Pose Semi perm. renforcé • 47,50€ – 2 h 45 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple (Ongles rongés)">Dépose + Pose Semi perm. (Ongles rongés) • 47,50€ – 2 h 45 min</div>
+      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple">Dépose + Pose Semi perm. • 38€ – 2 h 30 min</div>
+    </div>
   </div>
 
-  <!-- Contenus des conditions -->
-  <div id="remboursement" class="policy-content">
-    <p>En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité...</p>
-    <p>En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable...</p>
+  <!-- Dépose -->
+  <div id="depose" class="category">
+    <h2>Dépose</h2>
+    <div class="service">
+      <div class="option"><input type="radio" name="depose" value="Semi permanent simple">Semi permanent simple • 10€ – 30 min</div>
+      <div class="option"><input type="radio" name="depose" value="Semi permanent renforcé">Semi permanent renforcé • 15€ – 45 min</div>
+    </div>
+    <div class="service">
+      <div class="option"><input type="radio" name="depose" value="Dépose Gel">Dépose Gel • 20€ – 1 h 20 min</div>
+    </div>
   </div>
 
-  <div id="annulation" class="policy-content">
-    <p>Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions...</p>
+  <!-- Formulaire de réservation -->
+  <div class="form-container">
+    <h2>Réservez votre rendez-vous</h2>
+    <form action="#" method="POST">
+      <input type="text" name="nom" placeholder="Nom complet" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="telephone" placeholder="Téléphone" required>
+      <input type="date" name="date" required>
+      <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
+      <input type="file" name="photo" accept="image/*" required>
+      <button type="submit">Confirmer le rendez-vous</button>
+    </form>
   </div>
 
-  <div id="promotions" class="policy-content">
-    <p>Les présentes conditions générales régissent les promotions proposées par Nails by NFB...</p>
-    <ol>
-      <li><strong>Validité des promotions</strong>: Les promotions sont valables uniquement pendant la période indiquée...</li>
-      <li><strong>Conditions d’éligibilité</strong>: Les promotions sont réservées aux personnes ayant effectué une réservation préalable...</li>
-      <li><strong>Application des promotions</strong>: Certaines promotions sont appliquées directement lors de la réservation...</li>
-      <li><strong>
+  <script>
+    function showCategory(categoryId) {
+      document.querySelectorAll('.category').forEach(cat => {
+        cat.classList.remove('active');
+      });
+      document.getElementById(categoryId).classList.add('active');
+      document.querySelectorAll('.category-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('btn-' + categoryId).classList.add('active');
+    }
+    // Initial active category
+    document.getElementById('btn-rallongement').classList.add('active');
+  </script>
+
+</body>
+</html>
