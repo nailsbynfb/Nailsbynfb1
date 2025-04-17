@@ -160,7 +160,8 @@
     <button id="btn-forfait_depose" onclick="showCategory('forfait_depose')">Forfait Dépose + Pose</button>
     <button id="btn-depose" onclick="showCategory('depose')">Dépose</button>
   </div>
-    <!-- Rallongement -->
+
+  <!-- Rallongement -->
   <div id="rallongement" class="category active">
     <h2>Rallongement</h2>
     <div class="service">
@@ -173,7 +174,8 @@
       <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 45 min – 80€</div>
     </div>
   </div>
-    <!-- Sans Rallongement -->
+
+  <!-- Sans Rallongement -->
   <div id="sans_rallongement" class="category">
     <h2>Sans Rallongement</h2>
     <div class="service">
@@ -185,36 +187,6 @@
       <div class="option"><input type="radio" name="gainage" value="Nail art complexe">Nail art complexe • 3 h – 65€</div>
       <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 15 min – 70€</div>
     </div>
-    <div class="service">
-      <h3>Semi Permanent Simple</h3>
-      <div class="option"><input type="radio" name="semi_simple" value="Semi permanent">Semi permanent • 2 h – 30€</div>
-      <div class="option"><input type="radio" name="semi_simple" value="Ongles rongés">Ongles rongés • 2 h 15 min – 40€</div>
-      <div class="option"><input type="radio" name="semi_simple" value="Nail art simple">Nail art simple • 2 h 15 min – 40€</div>
-      <div class="option"><input type="radio" name="semi_simple" value="Nail art complexe">Nail art complexe • 2 h 30 min – 50€</div>
-    </div>
-  </div>
-    <!-- Forfait Dépose + Pose -->
-  <div id="forfait_depose" class="category">
-    <h2>Forfait Dépose + Pose</h2>
-    <div class="service">
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel (Ongles rongés)">Dépose + Pose Gel (Ongles rongés) • 76€ – 4 h</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Gel">Dépose + Pose Gel • 66,50€ – 3 h 45 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé (Ongles rongés)">Dépose + Pose Semi perm. renforcé (Ongles rongés) • 57€ – 3 h 30 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi renforcé">Dépose + Pose Semi perm. renforcé • 47,50€ – 2 h 45 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple (Ongles rongés)">Dépose + Pose Semi perm. (Ongles rongés) • 47,50€ – 2 h 45 min</div>
-      <div class="option"><input type="radio" name="forfait" value="Dépose + Pose Semi simple">Dépose + Pose Semi perm. • 38€ – 2 h 30 min</div>
-    </div>
-  </div>
-    <!-- Dépose -->
-  <div id="depose" class="category">
-    <h2>Dépose</h2>
-    <div class="service">
-      <div class="option"><input type="radio" name="depose" value="Semi permanent simple">Semi permanent simple • 10€ – 30 min</div>
-      <div class="option"><input type="radio" name="depose" value="Semi permanent renforcé">Semi permanent renforcé • 15€ – 45 min</div>
-    </div>
-    <div class="service">
-      <div class="option"><input type="radio" name="depose" value="Dépose Gel">Dépose Gel • 20€ – 1 h 20 min</div>
-    </div>
   </div>
     <!-- Formulaire de réservation -->
   <div class="form-container">
@@ -223,26 +195,61 @@
       <input type="text" name="nom" placeholder="Nom complet" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="tel" name="telephone" placeholder="Téléphone" required>
+      <p>Date du rendez-vous souhaitée :</p>
       <input type="date" name="date" required>
+      <p>Horaire du rendez-vous souhaité :</p>
+      <select name="horaire" required>
+        <option value="">Choisir un horaire</option>
+        <option value="08:00">08:00</option>
+        <option value="08:30">08:30</option>
+        <option value="09:00">09:00</option>
+        <option value="09:30">09:30</option>
+        <option value="10:00">10:00</option>
+        <option value="10:30">10:30</option>
+        <option value="11:00">11:00</option>
+        <option value="11:30">11:30</option>
+        <option value="14:00">14:00</option>
+        <option value="14:30">14:30</option>
+        <option value="15:00">15:00</option>
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="16:30">16:30</option>
+        <option value="17:00">17:00</option>
+        <option value="17:30">17:30</option>
+        <option value="18:00">18:00</option>
+        <option value="18:30">18:30</option>
+        <option value="19:00">19:00</option>
+        <option value="19:30">19:30</option>
+      </select>
       <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
-      <input type="file" name="photo" accept="image/*" required>
-      <button type="submit">Confirmer le rendez-vous</button>
+      <input type="file" name="photo" accept="image/*">
+      <button type="submit">Réserver</button>
     </form>
   </div>
-    <script>
-    function showCategory(categoryId) {
-      document.querySelectorAll('.category').forEach(cat => {
-        cat.classList.remove('active');
-      });
-      document.getElementById(categoryId).classList.add('active');
-      document.querySelectorAll('.category-buttons button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      document.getElementById('btn-' + categoryId).classList.add('active');
-    }
-    // Initial active category
-    document.getElementById('btn-rallongement').classList.add('active');
-  </script>
 
+  <script>
+    // JavaScript pour vérifier la disponibilité et gérer les catégories
+    function showCategory(category) {
+      const categories = document.querySelectorAll('.category');
+      categories.forEach(cat => cat.classList.remove('active'));
+      document.getElementById(category).classList.add('active');
+    }
+    
+    // Validation de disponibilité (simplifiée ici)
+    function checkAvailability(date, time) {
+      // Exemples de code pour valider la disponibilité des horaires
+      const unavailableDates = ['2025-05-01', '2025-05-02']; // Dates non disponibles
+      const unavailableTimes = ['14:30', '15:30']; // Horaires non disponibles
+      if (unavailableDates.includes(date)) {
+        alert('Cette date n\'est pas disponible.');
+        return false;
+      }
+      if (unavailableTimes.includes(time)) {
+        alert('Cet horaire n\'est pas disponible.');
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
 </html>
