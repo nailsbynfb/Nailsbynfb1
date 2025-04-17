@@ -1,187 +1,175 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Réservation - Nails by NFB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inria Serif', serif;
-      background-color: #1c1c1c;
-      color: #f8f0f0;
-    }
-
-    header {
-      background-color: #BAA898;
-      color: #1c1c1c;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      margin: 0;
-    }
-
-    header span {
-      font-family: 'White Star', cursive;
-      display: block;
-      font-size: 3em;
-      color: #C2858C;
-      margin-top: 5px;
-    }
-
-    /* Ajout de la règle CSS pour changer la couleur du "NFB" en noir */
-    header span {
-      color: #000000; /* Noir pour "NFB" */
-    }
-
-    .category-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .category-buttons button {
-      background-color: #2b2b2b;
-      color: #C2858C;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: background-color 0.3s;
-    }
-
-    .category-buttons button:hover {
-      background-color: #3e3e3e;
-    }
-
-    .category {
-      display: none;
-      padding: 20px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    .category.active {
-      display: block;
-    }
-
-    .service {
-      background-color: #2b2b2b;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      border: 1px solid #C2858C;
-    }
-
-    .service h3 {
-      color: #C2858C;
-      margin-top: 0;
-    }
-
-    .option {
-      margin-top: 10px;
-    }
-
-    .option input {
-      margin-right: 10px;
-    }
-
-    .formulaire {
-      background-color: #333;
-      padding: 20px;
-      border-radius: 15px;
-      margin: 30px auto;
-      max-width: 700px;
-      border: 1px solid #C2858C;
-    }
-
-    .formulaire input,
-    .formulaire textarea,
-    .formulaire select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: none;
-      background-color: #1c1c1c;
-      color: #fff;
-    }
-
-    .formulaire button {
-      background-color: #C2858C;
-      border: none;
-      color: #fff;
-      padding: 10px 25px;
-      border-radius: 25px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Réservation - Nails by NFB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=White+Star&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inria Serif', serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            font-family: 'White Star', cursive;
+            text-transform: uppercase;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #ff77b5;
+        }
+        .menu button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 0 5px;
+            transition: background-color 0.3s;
+        }
+        .menu button:hover {
+            background-color: #ff77b5;
+        }
+        .category {
+            display: none;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .category h2 {
+            text-align: center;
+            font-size: 1.8em;
+            color: #ff77b5;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        .option:hover {
+            background-color: #ff77b5;
+            color: white;
+        }
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #ff77b5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            width: 100%;
+        }
+        .form-container button:hover {
+            background-color: #ff66a1;
+        }
+    </style>
 </head>
 <body>
-
-  <header>
-    <h1>Nails by <br><span>NFB</span></h1>
-  </header>
-
-  <div class="category-buttons">
-    <button onclick="showCategory('rallongement')">Rallongement</button>
-    <button onclick="showCategory('sans_rallongement')">Sans Rallongement</button>
-    <button onclick="showCategory('forfait')">Forfait Dépose + Pose</button>
-    <button onclick="showCategory('depose')">Dépose</button>
-  </div>
-
-  <!-- Rallongement -->
-  <div id="rallongement" class="category active">
-    <h2>Rallongement</h2>
-    <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
-
-    <div class="service">
-      <h3>Rallongement (Chablons ou Capsules)</h3>
-      <div class="option"><input type="radio" name="rallongement" value="Rallongement en Gel"> Rallongement en Gel • 2 h 45 min • 50€</div>
-      <div class="option"><input type="radio" name="rallongement" value="Nail art simple"> Nail art simple • 3 h • 60€</div>
-      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés"> Ongles rongés • 3 h • 60€</div>
-      <div class="option"><input type="radio" name="rallongement" value="Nail art complexe"> Nail art complexe • 3 h 15 • 70€</div>
-      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art simple"> Ongles rongés + Nail art simple • 3 h 30 min • 70€</div>
-      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art complexe"> Ongles rongés + Nail art complexe • 3 h 45 min • 80€</div>
-    </div>
-  </div>
-
-  <!-- Sans Rallongement -->
-  <div id="sans_rallongement" class="category">
-    <h2>Sans Rallongement</h2>
+    <header>
+        <h1>Nails by NFB</h1>
+    </header>
     
-    <h3>Gainage</h3>
-    <div class="service">
-      <div class="option"><input type="radio" name="gainage" value="Gainage"> Gainage • 2 h 30 min • 40€</div>
-      <div class="option"><input type="radio" name="gainage" value="Ongles rongés"> Ongles rongés • 2 h 45 min • 50€</div>
-      <div class="option"><input type="radio" name="gainage" value="Nail art simple"> Nail art simple • 2 h 45 min • 55€</div>
-      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art simple"> Ongles rongés + Nail art simple • 3 h • 60€</div>
-      <div class="option"><input type="radio" name="gainage" value="Nail art complexe"> Nail art complexe • 3 h • 65€</div>
-      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe"> Ongles rongés + Nail art complexe • 3 h 15 min • 70€</div>
+    <div class="menu">
+        <button onclick="showCategory('rallongement')">Rallongement</button>
+        <button onclick="showCategory('sans_rallongement')">Sans Rallongement</button>
+        <button onclick="showCategory('depose')">Dépose</button>
+        <button onclick="showCategory('forfait_depose')">Forfait Dépose + Pose</button>
     </div>
 
-    <h3>Semi Permanent Simple</h3>
-    <div class="service">
-      <div class="option"><input type="radio" name="semi_permanent" value="Semi permanent"> Semi permanent • 2 h • 30€</div>
-      <div class="option"><input type="radio" name="semi_permanent" value="Ongles rongés"> Ongles rongés • 2 h 15 min • 40€</div>
-      <div class="option"><input type="radio" name="semi_permanent" value="Nail art simple"> Nail art simple • 2 h 15 min • 40€</div>
-      <div class="option"><input type="radio" name="semi_permanent" value="Nail art complexe"> Nail art complexe • 2 h 30 min • 50€</div>
+    <!-- Rallongement Category -->
+    <div id="rallongement" class="category">
+        <h2>Rallongement</h2>
+        <div class="option">Rallongement (Chablons ou Capsules) - 50€ - 2h 45min</div>
+        <div class="option">Nail art simple - 60€ - 3h</div>
+        <div class="option">Ongles rongés - 60€ - 3h</div>
+        <div class="option">Nail art complexe - 70€ - 3h 15min</div>
+        <div class="option">Ongles rongés + Nail art simple - 70€ - 3h 30min</div>
+        <div class="option">Ongles rongés + Nail art complexe - 80€ - 3h 45min</div>
     </div>
 
-    <h3>Semi Permanent Renforcé</h3>
-    <div class="service">
-      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Semi permanent renforcé"> Semi permanent renforcé • 2 h • 35€</div>
-      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Ongles rongés"> Ongles rongés • 2 h 45 min • 45€</div>
-      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Nail art simple"> Nail art simple • 2 h
+    <!-- Sans Rallongement Category -->
+    <div id="sans_rallongement" class="category">
+        <h2>Sans Rallongement</h2>
+        <div class="option">Gainage - 40€ - 2h 30min</div>
+        <div class="option">Ongles rongés - 50€ - 2h 45min</div>
+        <div class="option">Nail art simple - 55€ - 2h 45min</div>
+        <div class="option">Ongles rongés + Nail art simple - 60€ - 3h</div>
+        <div class="option">Nail art complexe - 65€ - 3h</div>
+        <div class="option">Ongles rongés + Nail art complexe - 70€ - 3h 15min</div>
+    </div>
+
+    <!-- Dépose Category -->
+    <div id="depose" class="category">
+        <h2>Dépose</h2>
+        <div class="option">Dépose Semi permanent simple - 10€ - 30min</div>
+        <div class="option">Dépose Semi permanent renforcé - 15€ - 45min</div>
+        <div class="option">Dépose Gel - 20€ - 1h 20min</div>
+    </div>
+
+    <!-- Forfait Dépose + Pose Category -->
+    <div id="forfait_depose" class="category">
+        <h2>Forfait Dépose + Pose</h2>
+        <div class="option">Dépose + Pose Gel - 76€ - 4h</div>
+        <div class="option">Dépose + Pose Gel - 66,50€ - 3h 45min</div>
+        <div class="option">Dépose + Pose Semi Permanent renforcé - 57€ - 3h 30min</div>
+        <div class="option">Dépose + Pose Semi Permanent renforcé - 47,50€ - 2h 45min</div>
+        <div class="option">Dépose + Pose Semi Permanent - 47,50€ - 2h 45min</div>
+        <div class="option">Dépose + Pose Semi Permanent - 38€ - 2h 30min</div>
+    </div>
+
+    <!-- Reservation Form -->
+    <div class="form-container">
+        <h2>Réservez votre Rendez-vous</h2>
+        <form action="/submit" method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <input type="tel" name="phone" placeholder="Votre téléphone" required>
+            <textarea name="message" placeholder="Message (optionnel)"></textarea>
+            <input type="file" name="photo" accept="image/*" placeholder="Téléchargez une photo de vos mains">
+            <button type="submit">Réserver maintenant</button>
+        </form>
+    </div>
+
+    <script>
+        function showCategory(category) {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(function(cat) {
+                cat.style.display = 'none';
+            });
+            document.getElementById(category).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
