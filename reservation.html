@@ -153,37 +153,33 @@
     </div>
   </div>
 
-  <!-- Tu peux copier ce bloc et le dupliquer en modifiant l’ID + contenu pour Sans Rallongement, Forfait, Dépose -->
+  <!-- Sans Rallongement -->
+  <div id="sans_rallongement" class="category">
+    <h2>Sans Rallongement</h2>
 
-  <div class="formulaire">
-    <h2>Réserver un créneau</h2>
-    <form>
-      <label>Nom complet :</label>
-      <input type="text" name="nom" required>
+    <h3>Gainage</h3>
+    <p>Renforcez et sublimez vos ongles naturels avec notre service de gainage. Cette technique consiste à appliquer une couche de gel sur l’ongle naturel pour le protéger et l’embellir.</p>
+    <div class="service">
+      <div class="option"><input type="radio" name="gainage" value="Gainage"> Gainage • 2 h 30 min • 40€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés"> Ongles rongés • 2 h 45 min • 50€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art simple"> Nail art simple • 2 h 45 min • 55€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art simple"> Ongles rongés + Nail art simple • 3 h • 60€</div>
+      <div class="option"><input type="radio" name="gainage" value="Nail art complexe"> Nail art complexe • 3 h • 65€</div>
+      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe"> Ongles rongés + Nail art complexe • 3 h 15 min • 70€</div>
+    </div>
 
-      <label>Email :</label>
-      <input type="email" name="email" required>
+    <h3>Semi Permanent Simple</h3>
+    <p>Offrez à vos ongles un fini impeccable avec notre service de semi permanent.</p>
+    <div class="service">
+      <div class="option"><input type="radio" name="semi_permanent_simple" value="Semi permanent"> Semi permanent • 2 h • 30€</div>
+      <div class="option"><input type="radio" name="semi_permanent_simple" value="Ongles rongés"> Ongles rongés • 2 h 15 min • 40€</div>
+      <div class="option"><input type="radio" name="semi_permanent_simple" value="Nail art simple"> Nail art simple • 2 h 15 min • 40€</div>
+      <div class="option"><input type="radio" name="semi_permanent_simple" value="Nail art complexe"> Nail art complexe • 2 h 30 min • 50€</div>
+    </div>
 
-      <label>Téléphone :</label>
-      <input type="tel" name="telephone" required>
-
-      <label>Message / Remarques :</label>
-      <textarea name="message" placeholder="Optionnel"></textarea>
-
-      <label>* Photo de vos mains (obligatoire) :</label>
-      <input type="file" name="photo" accept="image/*" required>
-
-      <button type="submit">Confirmer le rendez-vous</button>
-    </form>
-  </div>
-
-  <script>
-    function showCategory(categoryId) {
-      const categories = document.querySelectorAll('.category');
-      categories.forEach(cat => cat.classList.remove('active'));
-      document.getElementById(categoryId).classList.add('active');
-    }
-  </script>
-
-</body>
-</html>
+    <h3>Semi Permanent Renforcé</h3>
+    <p>Offrez à vos ongles une tenue impeccable avec notre service de semi-permanent renforcé.</p>
+    <div class="service">
+      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Semi permanent renforcé"> Semi permanent renforcé • 2 h • 35€</div>
+      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Ongles rongés"> Ongles rongés • 2 h 45 min • 45€</div>
+      <div class="option"><input type="radio" name="semi_permanent_renforce" value="Nail art simple"> Nail art simple • 2
