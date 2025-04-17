@@ -165,7 +165,7 @@
   <!-- Formulaire de réservation -->
   <div class="form-container">
     <h2>Réservez votre rendez-vous</h2>
-    <form action="#" method="POST" id="reservation-form">
+    <form id="reservation-form">
       <input type="text" name="nom" placeholder="Nom complet" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="tel" name="telephone" placeholder="Téléphone" required>
@@ -236,6 +236,9 @@
       if (!checkAvailability(date, time)) {
         event.preventDefault();
         alert('Ce créneau est déjà réservé. Veuillez choisir un autre créneau.');
+      } else {
+        event.preventDefault();
+        alert('Réservation confirmée !');
       }
     });
     
