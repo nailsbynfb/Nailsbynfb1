@@ -38,7 +38,7 @@
       font-family: 'White Star', sans-serif;
       font-size: 3em;
       margin: 0;
-      color: #a4656f;
+      color: #1c1c1c; /* Couleur noire pour "NFB" */
     }
 
     .accroche {
@@ -162,7 +162,7 @@
   </div>
 
   <div class="section" style="text-align: center;">
-    <a href="reservation.html" class="btn">Prendre un rendez-vous</a>
+    <a href="reservaton.html" class="btn">Prendre un rendez-vous</a>
   </div>
 
   <div class="section">
@@ -238,11 +238,13 @@
     }
 
     function toggleCondition(conditionId) {
+      // Cache toutes les conditions avant d'afficher la nouvelle
       const conditions = document.querySelectorAll('.condition-content');
       conditions.forEach(function(condition) {
         condition.style.display = 'none';
       });
 
+      // Affiche la condition qui a été cliquée
       const conditionToShow = document.getElementById(conditionId);
       if (conditionToShow) {
         conditionToShow.style.display = 'block';
