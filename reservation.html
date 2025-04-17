@@ -207,12 +207,11 @@
   <div id="forfait_depose" class="category">
     <h2>Forfait Dépose + Pose</h2>
     <div class="service">
-      <h3>Forfait Dépose + Pose</h3>
-      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Rallongement en Gel">Dépose + Rallongement en Gel • 3 h – 65€</div>
-      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Gainage">Dépose + Gainage • 2 h 30 min – 50€</div>
-      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Semi permanent">Dépose + Semi permanent • 2 h 15 min – 45€</div>
-      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Nail art simple">Dépose + Nail art simple • 2 h 30 min – 50€</div>
-      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Nail art complexe">Dépose + Nail art complexe • 3 h – 60€</div>
+      <h3>Forfait Dépose + Pose (Chablons ou Capsules)</h3>
+      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Rallongement en Gel">Dépose + Rallongement en Gel • 3 h 30 min – 60€</div>
+      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Nail art simple">Dépose + Nail art simple • 3 h 45 min – 65€</div>
+      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Ongles rongés">Dépose + Ongles rongés • 3 h 45 min – 65€</div>
+      <div class="option"><input type="radio" name="forfait_depose" value="Dépose + Nail art complexe">Dépose + Nail art complexe • 4 h – 75€</div>
     </div>
   </div>
 
@@ -220,9 +219,9 @@
   <div id="depose" class="category">
     <h2>Dépose</h2>
     <div class="service">
-      <h3>Dépose seule</h3>
-      <div class="option"><input type="radio" name="depose" value="Dépose simple">Dépose simple • 30 min – 15€</div>
-      <div class="option"><input type="radio" name="depose" value="Dépose + soin">Dépose + soin • 45 min – 25€</div>
+      <h3>Dépose (Sans Repose)</h3>
+      <div class="option"><input type="radio" name="depose" value="Dépose simple">Dépose simple • 1 h 30 min – 25€</div>
+      <div class="option"><input type="radio" name="depose" value="Dépose avec soin">Dépose avec soin • 2 h – 30€</div>
     </div>
   </div>
 
@@ -307,14 +306,15 @@
       var selectedCategory = document.getElementById(category);
       selectedCategory.classList.add('active');
 
-      // Mettre à jour l'état des boutons
+      // Mettre à jour les boutons actifs
       var buttons = document.querySelectorAll('.category-buttons button');
       buttons.forEach(function(button) {
         button.classList.remove('active');
       });
-      document.getElementById('btn-' + category).classList.add('active');
+
+      var activeButton = document.getElementById('btn-' + category);
+      activeButton.classList.add('active');
     }
   </script>
-
 </body>
 </html>
