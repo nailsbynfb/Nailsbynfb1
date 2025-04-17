@@ -143,7 +143,15 @@
       background-color: #333;
       color: #fff;
       margin-top: 20px;
+      display: none; /* Initialement caché */
     }
+    
+    .policy-link {
+      color: #C2858C;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -203,26 +211,28 @@
     Site créé avec amour et passion
   </footer>
 
-  <!-- Conditions générales -->
+  <!-- Liens vers les conditions générales -->
   <div class="section">
-    <h2>Politique de remboursement et de règlement des litiges</h2>
-    <div class="policy-content">
-      <p>En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité et à respecter les engagements pris avec nos clientes. Toutefois, un acompte est exigé lors de la réservation de votre rendez-vous, afin de garantir la prise en charge de votre demande. Cet acompte est non remboursable, sauf dans les cas spécifiques prévus par la législation.</p>
-      <p>En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable. Si un règlement amiable ne peut être trouvé, vous avez la possibilité de faire appel aux autorités compétentes ou de recourir à un médiateur pour les litiges de consommation.</p>
-    </div>
+    <h2>Conditions générales</h2>
+    <p><span class="policy-link" onclick="togglePolicy('remboursement')">Politique de remboursement et de règlement des litiges</span></p>
+    <p><span class="policy-link" onclick="togglePolicy('annulation')">Politique d’annulation et de retard</span></p>
+    <p><span class="policy-link" onclick="togglePolicy('promotions')">Conditions générales applicables aux promotions</span></p>
   </div>
 
-  <div class="section">
-    <h2>Politique d’annulation et de retard</h2>
-    <div class="policy-content">
-      <p>Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions. Toute annulation doit être effectuée au minimum 48 heures avant le rendez-vous initial, via la messagerie de notre site ou tout autre moyen de communication spécifié.</p>
-      <p>Si l’annulation survient dans un délai inférieur à 48 heures, l’acompte versé ne sera pas remboursé. De même, si vous ne vous présentez pas à votre rendez-vous sans nous avoir informés dans le délai imparti, l’acompte sera également retenu.</p>
-    </div>
+  <!-- Contenus des conditions -->
+  <div id="remboursement" class="policy-content">
+    <p>En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité...</p>
+    <p>En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable...</p>
   </div>
 
-  <div class="section">
-    <h2>Conditions générales applicables aux promotions</h2>
-    <div class="policy-content">
-      <p>Les présentes conditions générales régissent les promotions proposées par Nails by NFB pour nos prestations d’onglerie, réservées via notre site internet. En participant à nos promotions, vous acceptez expressément ces conditions.</p>
-      <ol>
-        <li><strong>Validité des promotions</strong> : Les promotions sont valables uniquement pendant la période indiquée sur la
+  <div id="annulation" class="policy-content">
+    <p>Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions...</p>
+  </div>
+
+  <div id="promotions" class="policy-content">
+    <p>Les présentes conditions générales régissent les promotions proposées par Nails by NFB...</p>
+    <ol>
+      <li><strong>Validité des promotions</strong>: Les promotions sont valables uniquement pendant la période indiquée...</li>
+      <li><strong>Conditions d’éligibilité</strong>: Les promotions sont réservées aux personnes ayant effectué une réservation préalable...</li>
+      <li><strong>Application des promotions</strong>: Certaines promotions sont appliquées directement lors de la réservation...</li>
+      <li><strong>
