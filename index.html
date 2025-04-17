@@ -29,13 +29,12 @@
     }
 
     .brand-title {
-      font-family: 'Inria Serif', serif;
       font-size: 2.5em;
       margin: 0;
     }
 
     .brand-subtitle {
-      font-family: 'White Star', sans-serif;
+      font-family: 'White Star', cursive;
       font-size: 3em;
       margin: 0;
       color: #a4656f;
@@ -58,7 +57,6 @@
       border-radius: 8px;
       font-weight: bold;
       transition: background 0.3s;
-      font-family: 'Inria Serif', serif;
     }
 
     .btn:hover {
@@ -73,7 +71,6 @@
 
     .section h2 {
       color: #BAA898;
-      font-family: 'Inria Serif', serif;
       margin-bottom: 20px;
     }
 
@@ -85,7 +82,6 @@
       font-size: 0.9em;
     }
 
-    /* Galerie */
     .portfolio {
       display: none;
       justify-content: center;
@@ -120,7 +116,6 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Flèche animée */
     .arrow-container {
       text-align: center;
       margin-top: 15px;
@@ -137,7 +132,7 @@
       font-size: 1.1em;
     }
 
-    /* Styles pour les conditions */
+    /* Conditions styles */
     .condition-content {
       display: none;
       margin-top: 10px;
@@ -145,6 +140,7 @@
       background-color: #f4f4f4;
       color: #333;
       border-radius: 8px;
+      white-space: pre-line;
     }
 
     .condition-link {
@@ -152,12 +148,13 @@
       color: #C2858C;
       cursor: pointer;
       text-decoration: underline;
+      display: block;
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
-
   <header>
     <div class="brand-title">Nails by</div>
     <div class="brand-subtitle">NFB</div>
@@ -207,20 +204,69 @@
     <a class="btn review-btn" href="https://g.page/r/CQDGLLwBAEmbEBM/review" target="_blank">⭐ Laisser un avis</a>
   </div>
 
+  <div class="section">
+    <h2>Conditions et politiques</h2>
+    <span class="condition-link" onclick="toggleCondition('remboursement')">Politique de remboursement et de règlement des litiges</span>
+    <div id="remboursement" class="condition-content">
+      En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité et à respecter les engagements pris avec nos clientes. Toutefois, un acompte est exigé lors de la réservation de votre rendez-vous, afin de garantir la prise en charge de votre demande. Cet acompte est non remboursable, sauf dans les cas spécifiques prévus par la législation.
+
+      En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable. Si un règlement amiable ne peut être trouvé, vous avez la possibilité de faire appel aux autorités compétentes ou de recourir à un médiateur pour les litiges de consommation. La procédure de médiation peut être entamée conformément aux articles L. 612-1 et suivants du Code de la consommation.
+    </div>
+
+    <span class="condition-link" onclick="toggleCondition('annulation')">Politique d’annulation et de retard</span>
+    <div id="annulation" class="condition-content">
+      Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions. Toute annulation doit être effectuée au minimum 48 heures avant le rendez-vous initial, via la messagerie de notre site ou tout autre moyen de communication spécifié.
+
+      Si l’annulation survient dans un délai inférieur à 48 heures, l’acompte versé ne sera pas remboursé, conformément aux conditions de réservation. De même, si vous ne vous présentez pas à votre rendez-vous sans nous avoir informés dans le délai imparti, l’acompte sera également retenu.
+
+      Si vous souhaitez reporter votre rendez-vous, nous nous engageons à trouver un créneau disponible dans les plus brefs délais, mais aucun remboursement de l’acompte ne sera effectué.
+
+      Nous attachons une grande importance à la ponctualité afin de respecter nos horaires et de garantir un service de qualité à toutes nos clientes. Si vous arrivez avec un retard de plus de 30 minutes, nous nous réservons le droit d’annuler le rendez-vous. Dans ce cas, l’acompte versé ne sera pas remboursé, et aucun report du rendez-vous ne sera effectué, afin de respecter les horaires des autres clientes.
+    </div>
+
+    <span class="condition-link" onclick="toggleCondition('promotions')">Conditions générales applicables aux promotions</span>
+    <div id="promotions" class="condition-content">
+      Les présentes conditions générales régissent les promotions proposées par Nails by NFB pour nos prestations d’onglerie, réservées via notre site internet. En participant à nos promotions, vous acceptez expressément ces conditions.
+
+      1. Validité des promotions : Les promotions sont valables uniquement pendant la période indiquée. Certaines promotions peuvent être limitées à un nombre précis de créneaux, de services ou de produits.
+
+      2. Conditions d’éligibilité : Les promotions sont réservées aux personnes ayant effectué une réservation via notre système en ligne. Certaines offres peuvent être limitées à une utilisation par client.
+
+      3. Application des promotions : Certaines promotions sont appliquées directement lors de la réservation, d’autres au moment du paiement.
+
+      4. Non cumulabilité : Sauf mention contraire, les promotions ne sont pas cumulables.
+
+      5. Réservation et paiement : Une réservation préalable est nécessaire, ainsi qu’un acompte.
+
+      6. Annulation et modification : En cas de modification du rendez-vous, la promotion peut ne plus être valable.
+
+      7. Exclusions : Certaines promotions peuvent exclure certains services.
+
+      8. Modification : Nous nous réservons le droit de modifier ou d'annuler les promotions à tout moment sans préavis.
+    </div>
+  </div>
+
   <footer>
     Nails by NFB - Corbeil-Essonnes<br/>
     Site créé avec amour et passion
   </footer>
 
-  <div class="section">
-    <h2>Conditions</h2>
-    <p><span class="condition-link" onclick="toggleCondition('remboursement')">Politique de remboursement et de règlement des litiges</span></p>
-    <div id="remboursement" class="condition-content">
-      <p>En tant que prestataire de services de prothèse ongulaire, nous nous engageons à offrir un service de qualité et à respecter les engagements pris avec nos clientes. Toutefois, un acompte est exigé lors de la réservation de votre rendez-vous, afin de garantir la prise en charge de votre demande. Cet acompte est non remboursable, sauf dans les cas spécifiques prévus par la législation.</p>
-      <p>En cas de litige, nous vous invitons à nous contacter directement par messagerie afin de tenter de résoudre le problème à l’amiable. Si un règlement amiable ne peut être trouvé, vous avez la possibilité de faire appel aux autorités compétentes ou de recourir à un médiateur pour les litiges de consommation. La procédure de médiation peut être entamée conformément aux articles L. 612-1 et suivants du Code de la consommation.</p>
-    </div>
+  <script>
+    function showGallery() {
+      document.getElementById('portfolio').style.display = 'flex';
+      document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+    }
 
-    <p><span class="condition-link" onclick="toggleCondition('annulation')">Politique d’annulation et de retard</span></p>
-    <div id="annulation" class="condition-content">
-      <p>Nous comprenons que des imprévus peuvent survenir. C’est pourquoi nous vous permettons de reporter votre rendez-vous sous certaines conditions. Toute annulation doit être effectuée au minimum 48 heures avant le rendez-vous initial, via la messagerie de notre site ou tout autre moyen de communication spécifié.</p>
-      <p>Si l’annulation survient dans un délai inférieur à 48 heures, l’acompte versé ne sera pas remboursé, conformément aux conditions de réservation. De même, si vous ne vous présentez pas à votre rendez-vous sans nous avoir informés dans le délai imparti, l’acompte sera également retenu
+    function toggleCondition(id) {
+      const allContents = document.querySelectorAll('.condition-content');
+      allContents.forEach(content => {
+        if (content.id === id) {
+          content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        } else {
+          content.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
