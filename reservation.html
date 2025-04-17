@@ -161,42 +161,53 @@
     <button id="btn-depose" onclick="showCategory('depose')">Dépose</button>
   </div>
 
+  <!-- Rallongement -->
+  <div id="rallongement" class="category active">
+    <h2>Rallongement</h2>
+    <div class="service">
+      <h3>Rallongement (Chablons ou Capsules)</h3>
+      <div class="option"><input type="radio" name="rallongement" value="Rallongement en Gel">Rallongement en Gel • 2 h 45 min – 50€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Nail art simple">Nail art simple • 3 h – 60€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés">Ongles rongés • 3 h – 60€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Nail art complexe">Nail art complexe • 3 h 15 min – 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art simple">Ongles rongés + Nail art simple • 3 h 30 min – 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 45 min – 80€</div>
+    </div>
+  </div>
+
   <!-- Formulaire de réservation -->
   <div class="form-container">
     <h2>Réservez votre rendez-vous</h2>
-    <form action="#" method="POST">
+    <form action="#" method="POST" id="reservation-form">
       <input type="text" name="nom" placeholder="Nom complet" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="tel" name="telephone" placeholder="Téléphone" required>
+      
+      <!-- Date du rendez-vous -->
       <label for="date">Date du rendez-vous souhaitée :</label>
       <input type="date" name="date" id="date" required>
+      
+      <!-- Horaire du rendez-vous -->
       <label for="horaire">Horaire du rendez-vous souhaité :</label>
       <select name="horaire" id="horaire" required>
-        <!-- Options horaires -->
-        <option value="08:00">08:00</option>
-        <option value="08:30">08:30</option>
+        <!-- Exemple d'horaires -->
         <option value="09:00">09:00</option>
-        <option value="09:30">09:30</option>
         <option value="10:00">10:00</option>
-        <option value="10:30">10:30</option>
         <option value="11:00">11:00</option>
-        <option value="11:30">11:30</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
         <option value="14:00">14:00</option>
-        <option value="14:30">14:30</option>
         <option value="15:00">15:00</option>
-        <option value="15:30">15:30</option>
         <option value="16:00">16:00</option>
-        <option value="16:30">16:30</option>
         <option value="17:00">17:00</option>
-        <option value="17:30">17:30</option>
-        <option value="18:00">18:00</option>
-        <option value="18:30">18:30</option>
-        <option value="19:00">19:00</option>
-        <option value="19:30">19:30</option>
       </select>
+
+      <button type="button" onclick="checkAvailability()">Vérifier la disponibilité</button>
+
+      <!-- Message ou informations supplémentaires -->
       <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
-      <input type="file" name="photo" accept="image/*" required>
-      <button type="submit" onclick="checkAvailability(event)">Confirmer le rendez-vous</button>
+      <input type="file" name="photo" accept="image/*">
+      <button type="submit">Confirmer le rendez-vous</button>
     </form>
   </div>
 
@@ -209,23 +220,19 @@
       document.querySelectorAll('.category-buttons button').forEach(btn => {
         btn.classList.remove('active');
       });
-      document.getElementById('btn-' + categoryId).classList.add('active');
+      document.querySelector(`#btn-${categoryId}`).classList.add('active');
     }
 
-    function checkAvailability(event) {
-      event.preventDefault();
-
+    function checkAvailability() {
       const date = document.getElementById('date').value;
       const horaire = document.getElementById('horaire').value;
 
-      // Example validation: checking if the selected time is within business hours (8:00-12:00, 14:00-20:00)
-      const businessHoursStart = ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30"];
-      if (businessHoursStart.includes(horaire)) {
-        alert("Votre rendez-vous est confirmé pour le " + date + " à " + horaire);
-        // Form submission here, you can add AJAX call if needed to send the form data
-        event.target.closest('form').submit();
+      // Exemple de logique de vérification de disponibilité
+      if (date && horaire) {
+        alert(`Vérification de la disponibilité pour le ${date} à ${horaire}`);
+        // Ajoutez ici la logique pour vérifier la disponibilité, par exemple une API
       } else {
-        alert("L'horaire sélectionné est en dehors des heures d'ouverture.");
+        alert('Veuillez sélectionner une date et une heure.');
       }
     }
   </script>
