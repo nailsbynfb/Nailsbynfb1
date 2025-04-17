@@ -235,7 +235,12 @@
       <input type="text" name="nom" placeholder="Nom complet" required>
       <input type="email" name="email" placeholder="Email" required>
       <input type="tel" name="telephone" placeholder="Téléphone" required>
+      <label for="date">Date du rendez-vous souhaitée :</label>
       <input type="date" name="date" required>
+      <label for="horaire">Horaire du rendez-vous souhaité :</label>
+      <select name="horaire" required>
+        <!-- Création d'options horaires -->
+      </select>
       <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
       <input type="file" name="photo" accept="image/*" required>
       <button type="submit">Confirmer le rendez-vous</button>
@@ -248,14 +253,4 @@
         cat.classList.remove('active');
       });
       document.getElementById(categoryId).classList.add('active');
-      document.querySelectorAll('.category-buttons button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      document.getElementById('btn-' + categoryId).classList.add('active');
-    }
-    // Initial active category
-    document.getElementById('btn-rallongement').classList.add('active');
-  </script>
-
-</body>
-</html>
+      document.querySelectorAll('.category-buttons button').forEach(btn
