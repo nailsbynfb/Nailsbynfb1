@@ -253,4 +253,11 @@
         cat.classList.remove('active');
       });
       document.getElementById(categoryId).classList.add('active');
-      document.querySelectorAll('.category-buttons button').forEach(btn
+      document.querySelectorAll('.category-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelector(`#btn-${categoryId}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
