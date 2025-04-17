@@ -1,244 +1,213 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Réservation - Nails by NFB</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Réservation | Nails by NFB</title>
   <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=White+Star&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Inria Serif', serif;
       background-color: #1c1c1c;
-      color: #fff;
+      color: #ffffff;
+      padding-bottom: 100px;
     }
 
     header {
-      text-align: center;
-      padding: 30px 20px 10px;
       background-color: #BAA898;
-    }
-
-    .brand-title {
-      font-family: 'Inria Serif', serif;
-      font-size: 2.2em;
-      margin: 0;
       color: #1c1c1c;
+      text-align: center;
+      padding: 30px 20px;
     }
 
-    .brand-subtitle {
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    header h1 span {
+      display: block;
+      font-size: 1.2em;
       font-family: 'White Star', cursive;
-      font-size: 2.8em;
-      margin: 0;
+      color: #C2858C;
+      font-weight: normal;
       margin-top: 5px;
-      color: #1c1c1c;
     }
 
     nav {
+      background-color: #2e2e2e;
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      background-color: #C2858C;
-      padding: 15px;
       flex-wrap: wrap;
+      justify-content: center;
+      padding: 15px;
+      gap: 10px;
     }
 
     nav button {
-      background-color: #fff;
-      color: #1c1c1c;
+      background-color: #C2858C;
       border: none;
-      border-radius: 20px;
       padding: 10px 20px;
+      border-radius: 20px;
+      color: #fff;
       cursor: pointer;
-      font-weight: bold;
       font-family: 'Inria Serif', serif;
-      transition: background 0.3s;
+      font-size: 1em;
     }
 
     nav button:hover {
-      background-color: #e1d1c7;
-    }
-
-    .section {
-      display: none;
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    .category-description {
-      font-style: italic;
-      margin-bottom: 15px;
-    }
-
-    .service {
-      background-color: #2e2e2e;
-      border-radius: 15px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-
-    .service h4 {
-      margin: 0 0 10px;
-      color: #C2858C;
-    }
-
-    .service p {
-      margin: 5px 0;
-    }
-
-    .form-section {
-      background-color: #2e2e2e;
-      border-radius: 15px;
-      padding: 20px;
-      margin-top: 40px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 10px;
-      margin-bottom: 15px;
-      font-family: 'Inria Serif', serif;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-    }
-
-    .submit-btn {
-      background-color: #C2858C;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 25px;
-      font-size: 1em;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s;
-    }
-
-    .submit-btn:hover {
       background-color: #a4656f;
     }
 
+    .category {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      display: none;
+    }
+
+    .category.active {
+      display: block;
+    }
+
+    .category h2 {
+      color: #BAA898;
+      border-bottom: 1px solid #BAA898;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .service-card {
+      background-color: #2e2e2e;
+      border: 1px solid #BAA898;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .service-title {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #fff;
+    }
+
+    .service-price {
+      font-weight: bold;
+      color: #C2858C;
+      font-size: 1.2em;
+    }
+
+    .service-info {
+      margin-top: 10px;
+      color: #dcdcdc;
+    }
+
+    .service-duration {
+      display: inline-block;
+      background-color: #BAA898;
+      color: #1c1c1c;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9em;
+      margin-top: 60px;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1 class="brand-title">Nails by</h1>
-    <h2 class="brand-subtitle">NFB</h2>
+    <h1>Nails by <span>NFB</span></h1>
   </header>
 
   <nav>
-    <button onclick="showSection('rallongement')">Rallongement</button>
-    <button onclick="showSection('sans')">Sans Rallongement</button>
-    <button onclick="showSection('depose')">Dépose</button>
-    <button onclick="showSection('forfait')">Forfait Dépose + Pose</button>
+    <button onclick="showCategory('rallongement')">Rallongement</button>
+    <button onclick="showCategory('sans')">Sans Rallongement</button>
+    <button onclick="showCategory('depose')">Dépose</button>
+    <button onclick="showCategory('forfait')">Forfait Dépose + Pose</button>
   </nav>
 
-  <div id="rallongement" class="section active">
-    <p class="category-description">Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.</p>
-    <div class="service">
-      <h4>Rallongement (Chablons ou Capsules)</h4>
-      <p>* Rallongement en Gel • 2h45 — 50€</p>
-      <p>* Nail art simple • 3h — 60€</p>
-      <p>* Ongles rongés • 3h — 60€</p>
-      <p>* Nail art complexe • 3h15 — 70€</p>
-      <p>* Ongles rongés + Nail art simple • 3h30 — 70€</p>
-      <p>* Ongles rongés + Nail art complexe • 3h45 — 80€</p>
+  <div id="rallongement" class="category active">
+    <h2>Rallongement</h2>
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-title">* Rallongement en Gel</span>
+        <span class="service-price">50€</span>
+      </div>
+      <div class="service-info">
+        <span class="service-duration">2h45</span>
+        <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle. ⚠️‼️ N’oubliez pas de prendre rendez-vous toutes les 3-4 semaines !</p>
+      </div>
+    </div>
+    <!-- Ajoute ici les autres prestations "rallongement" -->
+  </div>
+
+  <div id="sans" class="category">
+    <h2>Sans Rallongement</h2>
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-title">* Gainage</span>
+        <span class="service-price">40€</span>
+      </div>
+      <div class="service-info">
+        <span class="service-duration">2h30</span>
+        <p>Renforcez et sublimez vos ongles naturels. Le gel protège, embellit, et structure l’ongle pour un effet harmonieux et solide.</p>
+      </div>
+    </div>
+    <!-- Autres prestations sans rallongement -->
+  </div>
+
+  <div id="depose" class="category">
+    <h2>Dépose</h2>
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-title">Dépose gel</span>
+        <span class="service-price">20€</span>
+      </div>
+      <div class="service-info">
+        <span class="service-duration">1h</span>
+        <p>Offrez à vos ongles un retrait soigné. Obligatoire si le gel a été posé ailleurs.</p>
+      </div>
     </div>
   </div>
 
-  <div id="sans" class="section">
-    <div class="service">
-      <h4>Gainage</h4>
-      <p class="category-description">Renforcez et sublimez vos ongles naturels avec notre service de gainage. Le gel renforce l’ongle naturel tout en lui offrant une forme harmonieuse et élégante.</p>
-      <p>* Gainage • 2h30 — 40€</p>
-      <p>* Ongles rongés • 2h45 — 50€</p>
-      <p>* Nail art simple • 2h45 — 55€</p>
-      <p>* Ongles rongés + Nail art simple • 3h — 60€</p>
-      <p>* Nail art complexe • 3h — 65€</p>
-      <p>* Ongles rongés + Nail art complexe • 3h15 — 70€</p>
+  <div id="forfait" class="category">
+    <h2>Forfait Dépose + Pose</h2>
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-title">* Dépose + Pose gel</span>
+        <span class="service-price">66,50€</span>
+      </div>
+      <div class="service-info">
+        <span class="service-duration">3h45</span>
+        <p>Ce forfait inclut une réduction de 5% (déjà appliquée).</p>
+      </div>
     </div>
-
-    <div class="service">
-      <h4>Semi permanent simple</h4>
-      <p class="category-description">Offrez à vos ongles un fini impeccable avec deux couches de vernis semi-permanent. Profitez d’une finition lisse et durable !</p>
-      <p>* Semi permanent • 2h — 30€</p>
-      <p>* Ongles rongés • 2h15 — 40€</p>
-      <p>* Nail art simple • 2h15 — 40€</p>
-      <p>* Nail art complexe • 2h30 — 50€</p>
-    </div>
-
-    <div class="service">
-      <h4>Semi permanent renforcé</h4>
-      <p class="category-description">Base rubber pour solidité et tenue prolongée. Une manucure résistante et durable !</p>
-      <p>* Semi permanent renforcé • 2h — 35€</p>
-      <p>* Ongles rongés • 2h45 — 45€</p>
-      <p>* Nail art simple • 2h45 — 45€</p>
-      <p>* Nail art complexe • 3h — 55€</p>
-    </div>
+    <!-- Autres forfaits ici -->
   </div>
 
-  <div id="depose" class="section">
-    <div class="service">
-      <h4>Dépose</h4>
-      <p class="category-description">Offrez à vos ongles un retrait soigné. ⚠️ Obligatoire si gel posé ailleurs.</p>
-      <p>* Semi permanent simple — 30 min — 10€</p>
-      <p>* Semi permanent renforcé — 45 min — 15€</p>
-      <p>* Dépose gel — 1h — 20€</p>
-    </div>
-  </div>
-
-  <div id="forfait" class="section">
-    <div class="service">
-      <h4>Forfaits (réduction 5% déjà appliquée)</h4>
-      <p>* Dépose + Pose Gel Ongles rongés — 4h — 76€</p>
-      <p>* Dépose + Pose Gel — 3h45 — 66,50€</p>
-      <p>* Dépose + Pose Semi renforcé Ongles rongés — 3h30 — 57€</p>
-      <p>* Dépose + Pose Semi renforcé — 2h45 — 47,50€</p>
-      <p>* Dépose + Pose Semi simple Ongles rongés — 2h45 — 47,50€</p>
-      <p>* Dépose + Pose Semi simple — 2h30 — 38€</p>
-    </div>
-  </div>
-
-  <div class="form-section">
-    <h3>Informations supplémentaires</h3>
-    <label for="photo">* Photo d’inspiration (si vous en avez)</label>
-    <input type="file" id="photo" accept="image/*">
-
-    <label for="photo-mains">* Photo de vos mains (obligatoire)</label>
-    <input type="file" id="photo-mains" accept="image/*" required>
-
-    <label for="remarques">Remarques (facultatif)</label>
-    <textarea id="remarques" placeholder="Laissez un message ou une précision ici..."></textarea>
-
-    <button class="submit-btn">Envoyer ma demande</button>
-  </div>
+  <footer>
+    &copy; 2025 Nails by NFB — Tous droits réservés.
+  </footer>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-      });
+    function showCategory(id) {
+      document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
       document.getElementById(id).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-
 </body>
 </html>
