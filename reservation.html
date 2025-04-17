@@ -1,195 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Réservation - Nails by NFB</title>
   <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inria Serif', serif;
-      background-color: #fffafc;
       margin: 0;
-      padding: 0;
-      color: #222;
+      font-family: 'Inria Serif', serif;
+      background-color: #1c1c1c;
+      color: #f8f0f0;
     }
 
-    h1, h2, h3 {
+    header {
+      background-color: #BAA898;
+      color: #1c1c1c;
+      padding: 20px;
       text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    header span {
+      font-family: 'White Star', cursive;
+      display: block;
+      font-size: 3em;
+      color: #C2858C;
+      margin-top: 5px;
     }
 
     .category-buttons {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
-      margin: 30px auto;
-      max-width: 90%;
+      padding: 20px;
     }
 
     .category-buttons button {
-      background-color: #1e1e1e;
-      color: #ff80aa;
+      background-color: #2b2b2b;
+      color: #C2858C;
       border: none;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border-radius: 25px;
-      font-size: 16px;
       cursor: pointer;
+      font-size: 1em;
       transition: background-color 0.3s;
     }
 
     .category-buttons button:hover {
-      background-color: #2d2d2d;
+      background-color: #3e3e3e;
     }
 
-    .category-section {
+    .category {
       display: none;
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 25px;
-      border-radius: 20px;
-      background-color: #fff;
-      border: 2px solid #f3d9df;
+      padding: 20px;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    .category-section.active {
+    .category.active {
       display: block;
     }
 
-    .category-description {
-      font-size: 15px;
-      margin-bottom: 15px;
-      text-align: center;
-      color: #333;
-    }
-
-    .service-card {
-      background-color: #fef0f5;
-      border: 1px solid #ffbdd5;
+    .service {
+      background-color: #2b2b2b;
       border-radius: 15px;
       padding: 20px;
       margin-bottom: 20px;
+      border: 1px solid #C2858C;
     }
 
-    .service-card h3 {
-      margin-bottom: 10px;
-      color: #1e1e1e;
+    .service h3 {
+      color: #C2858C;
+      margin-top: 0;
     }
 
-    .service-option label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
+    .option {
+      margin-top: 10px;
     }
 
-    .service-option input[type="radio"] {
-      margin-right: 8px;
+    .option input {
+      margin-right: 10px;
     }
 
-    form {
-      max-width: 700px;
-      margin: 40px auto;
+    .formulaire {
+      background-color: #333;
       padding: 20px;
-      border: 2px solid #ffbdd5;
       border-radius: 15px;
-      background-color: #fff;
+      margin: 30px auto;
+      max-width: 700px;
+      border: 1px solid #C2858C;
     }
 
-    form input, form textarea {
+    .formulaire input,
+    .formulaire textarea,
+    .formulaire select {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin: 10px 0;
       border-radius: 10px;
-      border: 1px solid #ccc;
-      font-family: 'Inria Serif', serif;
-    }
-
-    form button {
-      background-color: #1e1e1e;
-      color: #ff80aa;
-      padding: 12px 24px;
       border: none;
-      border-radius: 20px;
-      font-size: 16px;
+      background-color: #1c1c1c;
+      color: #fff;
+    }
+
+    .formulaire button {
+      background-color: #C2858C;
+      border: none;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
       cursor: pointer;
+      font-size: 1em;
     }
 
-    form button:hover {
-      background-color: #333;
-    }
-
-    .asterisk {
-      color: #d00;
-      font-weight: bold;
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
   </style>
 </head>
 <body>
 
-  <h1>Nails by <br><span style="font-size: 36px; color: #ff80aa;">NFB</span></h1>
+  <header>
+    <h1>Nails by <br><span>NFB</span></h1>
+  </header>
 
-  <!-- Boutons Catégories -->
   <div class="category-buttons">
     <button onclick="showCategory('rallongement')">Rallongement</button>
-    <button onclick="showCategory('sansRallongement')">Sans Rallongement</button>
-    <button onclick="showCategory('depose')">Dépose</button>
+    <button onclick="showCategory('sans_rallongement')">Sans Rallongement</button>
     <button onclick="showCategory('forfait')">Forfait Dépose + Pose</button>
+    <button onclick="showCategory('depose')">Dépose</button>
   </div>
 
-  <!-- Section Rallongement -->
-  <div id="rallongement" class="category-section">
+  <!-- Rallongement -->
+  <div id="rallongement" class="category active">
     <h2>Rallongement</h2>
-    <p class="category-description">
-      Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle.<br>
-      <strong>⚠️‼️ N’oubliez pas de prendre rendez-vous 3-4 semaines après afin de maintenir un résultat optimal !</strong>
-    </p>
+    <p>Service parfait pour celles ou ceux qui veulent des ongles plus longs sans compromettre la solidité et l’apparence naturelle. ⚠️‼️ N’oubliez pas de prendre rendez-vous 3-4 semaines afin de maintenir un résultat optimal !</p>
 
-    <div class="service-card">
+    <div class="service">
       <h3>Rallongement (Chablons ou Capsules)</h3>
-      <div class="service-option">
-        <label><input type="radio" name="rallongement"> Rallongement en Gel • 2 h 45 min — 50€</label>
-        <label><input type="radio" name="rallongement"> Nail art simple • 3 h — 60€</label>
-        <label><input type="radio" name="rallongement"> Ongles rongés • 3 h — 60€</label>
-        <label><input type="radio" name="rallongement"> Nail art complexe • 3 h 15 min — 70€</label>
-        <label><input type="radio" name="rallongement"> Ongles rongés + Nail art simple • 3 h 30 min — 70€</label>
-        <label><input type="radio" name="rallongement"> Ongles rongés + Nail art complexe • 3 h 45 min — 80€</label>
-      </div>
+      <div class="option"><input type="radio" name="rallongement" value="Rallongement en Gel"> Rallongement en Gel • 2 h 45 min • 50€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Nail art simple"> Nail art simple • 3 h • 60€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés"> Ongles rongés • 3 h • 60€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Nail art complexe"> Nail art complexe • 3 h 15 • 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art simple"> Ongles rongés + Nail art simple • 3 h 30 • 70€</div>
+      <div class="option"><input type="radio" name="rallongement" value="Ongles rongés + Nail art complexe"> Ongles rongés + Nail art complexe • 3 h 45 • 80€</div>
     </div>
   </div>
 
-  <!-- Les autres catégories suivront le même modèle : Sans Rallongement, Dépose, Forfait Dépose + Pose -->
-  <!-- Tu veux que je les ajoute aussi maintenant ? Je peux tout faire d’un bloc si tu confirmes -->
+  <!-- Tu peux copier ce bloc et le dupliquer en modifiant l’ID + contenu pour Sans Rallongement, Forfait, Dépose -->
 
-  <!-- Formulaire de réservation -->
-  <form>
-    <h2>Réserver maintenant</h2>
-    <label>Nom complet *</label>
-    <input type="text" required>
+  <div class="formulaire">
+    <h2>Réserver un créneau</h2>
+    <form>
+      <label>Nom complet :</label>
+      <input type="text" name="nom" required>
 
-    <label>Email *</label>
-    <input type="email" required>
+      <label>Email :</label>
+      <input type="email" name="email" required>
 
-    <label>Téléphone *</label>
-    <input type="tel" required>
+      <label>Téléphone :</label>
+      <input type="tel" name="telephone" required>
 
-    <label>Message ou remarque (optionnel)</label>
-    <textarea rows="4"></textarea>
+      <label>Message / Remarques :</label>
+      <textarea name="message" placeholder="Optionnel"></textarea>
 
-    <label>Ajouter une photo de vos mains (obligatoire)</label>
-    <input type="file" accept="image/*" required>
+      <label>* Photo de vos mains (obligatoire) :</label>
+      <input type="file" name="photo" accept="image/*" required>
 
-    <button type="submit">Envoyer ma réservation</button>
-  </form>
+      <button type="submit">Confirmer le rendez-vous</button>
+    </form>
+  </div>
 
   <script>
     function showCategory(categoryId) {
-      const sections = document.querySelectorAll('.category-section');
-      sections.forEach(section => section.classList.remove('active'));
+      const categories = document.querySelectorAll('.category');
+      categories.forEach(cat => cat.classList.remove('active'));
       document.getElementById(categoryId).classList.add('active');
     }
-
-    window.onload = () => {
-      showCategory('rallongement');
-    };
   </script>
 
 </body>
