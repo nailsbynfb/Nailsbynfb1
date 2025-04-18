@@ -362,60 +362,65 @@
     }
   
   document.addEventListener('DOMContentLoaded', function () {
-    // Sélectionne le bouton "Confirmer le rendez-vous"
-    const confirmButton = document.querySelector("#confirm-btn");
+      // Sélectionne le bouton "Confirmer le rendez-vous"
+  const confirmButton = document.querySelector("#confirm-btn");
 
-    // Fonction pour rediriger vers le lien de paiement
-    confirmButton.addEventListener("click", function (event) {
-      event.preventDefault();  // Empêche l'envoi du formulaire par défaut
+  // Fonction pour rediriger vers le lien de paiement
+  confirmButton.addEventListener("click", function (event) {
+    event.preventDefault();  // Empêche l'envoi du formulaire par défaut
 
-      // Récupère la prestation choisie
-      const prestation = document.querySelector('input[name="prestation"]:checked');
-      if (!prestation) {
-        alert("Veuillez sélectionner une prestation.");
-        return;
-      }
+    // Récupère la catégorie active
+    const activeCategory = document.querySelector('.category.active');
+    if (!activeCategory) {
+      alert("Veuillez sélectionner une catégorie de prestation.");
+      return;
+    }
 
-      // Récupère la méthode de paiement choisie
-      const paiement = document.querySelector('input[name="paiement"]:checked');
-      if (!paiement) {
-        alert("Veuillez choisir une méthode de paiement.");
-        return;
-      }
+    // Récupère la prestation choisie dans la catégorie active
+    const prestation = activeCategory.querySelector('input[type="radio"]:checked');
+    if (!prestation) {
+      alert("Veuillez sélectionner une prestation.");
+      return;
+    }
 
-      // Récupère le montant (acompte ou total)
-      const montant = document.querySelector('input[name="montant"]:checked');
-      if (!montant) {
-        alert("Veuillez choisir un montant à payer.");
-        return;
-      }
+    // Récupère la méthode de paiement choisie
+    const paiement = document.querySelector('input[name="paiement"]:checked');
+    if (!paiement) {
+      alert("Veuillez choisir une méthode de paiement.");
+      return;
+    }
 
-      // Déterminer les liens en fonction de la sélection
-      const lienStripeAcompte = prestation.getAttribute('data-stripe-acompte');
-      const lienStripeTotal = prestation.getAttribute('data-stripe-total');
-      const lienPaypalAcompte = prestation.getAttribute('data-paypal-acompte');
-      const lienPaypalTotal = prestation.getAttribute('data-paypal-total');
+    // Récupère le montant (acompte ou total)
+    const montant = document.querySelector('input[name="montant"]:checked');
+    if (!montant) {
+      alert("Veuillez choisir un montant à payer.");
+      return;
+    }
 
-      let lienPaiement = '';
+    // Déterminer les liens en fonction de la sélection
+    const lienStripeAcompte = prestation.getAttribute('data-stripe-acompte');
+    const lienStripeTotal = prestation.getAttribute('data-stripe-total');
+    const lienPaypalAcompte = prestation.getAttribute('data-paypal-acompte');
+    const lienPaypalTotal = prestation.getAttribute('data-paypal-total');
 
-      if (paiement.value === "stripe") {
-        if (montant.value === "acompte") {
-          lienPaiement = lienStripeAcompte;
-        } else {
-          lienPaiement = lienStripeTotal;
-        }
-      } else if (paiement.value === "paypal") {
-        if (montant.value === "acompte") {
-          lienPaiement = lienPaypalAcompte;
-        } else {
-          lienPaiement = lienPaypalTotal;
-        }
-      }
+    let lienPaiement = '';
 
-      // Rediriger vers le lien de paiement sélectionné
-      window.open(lienPaiement, "_blank");
-    });
+    // Logique pour la méthode de paiement et le montant
+    if (paiement.value === "stripe") {
+      lienPaiement = montant.value === "acompte" ? lienStripeAcompte : lienStripeTotal;
+    } else if (paiement.value === "paypal") {
+      lienPaiement = montant.value === "acompte" ? lienPaypalAcompte : lienPaypalTotal;
+    }
+
+    if (!lienPaiement) {
+      alert("Erreur dans la récupération du lien de paiement.");
+      return;
+    }
+
+    // Rediriger vers le lien de paiement sélectionné
+    window.open(lienPaiement, "_blank");
   });
+});
 </script>
 </body>
 </html>
