@@ -364,5 +364,62 @@
       activeButton.classList.add('active');
     }
   </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Sélectionne le bouton "Confirmer le rendez-vous"
+    const confirmButton = document.querySelector("#confirm-btn");
+
+    // Fonction pour rediriger vers le lien de paiement
+    confirmButton.addEventListener("click", function (event) {
+      event.preventDefault();  // Empêche l'envoi du formulaire par défaut
+
+      // Récupère la prestation choisie
+      const prestation = document.querySelector('input[name="prestation"]:checked');
+      if (!prestation) {
+        alert("Veuillez sélectionner une prestation.");
+        return;
+      }
+
+      // Récupère la méthode de paiement choisie
+      const paiement = document.querySelector('input[name="paiement"]:checked');
+      if (!paiement) {
+        alert("Veuillez choisir une méthode de paiement.");
+        return;
+      }
+
+      // Récupère le montant (acompte ou total)
+      const montant = document.querySelector('input[name="montant"]:checked');
+      if (!montant) {
+        alert("Veuillez choisir un montant à payer.");
+        return;
+      }
+
+      // Déterminer les liens en fonction de la sélection
+      const lienStripeAcompte = prestation.getAttribute('data-stripe-acompte');
+      const lienStripeTotal = prestation.getAttribute('data-stripe-total');
+      const lienPaypalAcompte = prestation.getAttribute('data-paypal-acompte');
+      const lienPaypalTotal = prestation.getAttribute('data-paypal-total');
+
+      let lienPaiement = '';
+
+      if (paiement.value === "stripe") {
+        if (montant.value === "acompte") {
+          lienPaiement = lienStripeAcompte;
+        } else {
+          lienPaiement = lienStripeTotal;
+        }
+      } else if (paiement.value === "paypal") {
+        if (montant.value === "acompte") {
+          lienPaiement = lienPaypalAcompte;
+        } else {
+          lienPaiement = lienPaypalTotal;
+        }
+      }
+
+      // Rediriger vers le lien de paiement sélectionné
+      window.open(lienPaiement, "_blank");
+    });
+  });
+</script>
 </body>
 </html>
