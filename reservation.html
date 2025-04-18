@@ -392,7 +392,8 @@
   document.addEventListener('DOMContentLoaded', function () {
       // Sélectionne le bouton "Confirmer le rendez-vous"
   const confirmButton = document.querySelector("#confirm-btn");
-
+<button onclick="handlePayment()">Confirmer le rendez-vous</button>
+    
   // Fonction pour rediriger vers le lien de paiement
   confirmButton.addEventListener("click", function (event) {
     event.preventDefault();  // Empêche l'envoi du formulaire par défaut
@@ -474,7 +475,41 @@
     if (paymentLink) {
       window.open(paymentLink, '_blank');
       window.location.href = 'merci.html';  // ou une page de redirection de paiement refusé si nécessaire
+function showCategory(categoryId) {
+  // Masquer toutes les catégories
+  const categories = document.querySelectorAll('.category');
+  categories.forEach(category => {
+    category.classList.remove('active');
   });
+  
+  // Afficher la catégorie sélectionnée
+  const category = document.getElementById(categoryId);
+  category.classList.add('active');
+  
+  // Gérer la mise en surbrillance des boutons
+  const buttons = document.querySelectorAll('.category-buttons button');
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  });
+  const activeButton = document.getElementById('btn-' + categoryId);
+  activeButton.classList.add('active');
+}
+   function handlePayment() {
+  const selectedOption = document.querySelector('input[type="radio"]:checked');
+  if (selectedOption) {
+    const stripeAcompteLink = selectedOption.getAttribute('data-stripe-acompte');
+    const paypalAcompteLink = selectedOption.getAttribute('data-paypal-acompte');
+    
+    if (stripeAcompteLink) {
+      window.open(stripeAcompteLink, '_blank');
+    } else if (paypalAcompteLink) {
+      window.open(paypalAcompteLink, '_blank');
+    }
+  } else {
+    alert('Veuillez sélectionner une option de paiement.');
+  }
+}
+    });
 });
 </script>
 </body>
