@@ -297,6 +297,19 @@
       </select>
       <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
       <input type="file" name="photo" accept="image/*" required>
+        <!-- Choix du montant -->
+    <label for="montant">Choisissez le montant à payer :</label>
+    <select id="montant" name="montant">
+      <option value="acompte">Acompte (15 €)</option>
+      <option value="total">Montant total</option>
+    </select>
+
+    <!-- Choix du mode de paiement -->
+    <label for="paiement">Sélectionnez votre mode de paiement :</label>
+    <select id="paiement" name="paiement">
+      <option value="stripe">Stripe</option>
+      <option value="paypal">PayPal</option>
+    </select>
       <button type="submit">Confirmer le rendez-vous</button>
     </form>
   </div>
