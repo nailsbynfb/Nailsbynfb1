@@ -447,6 +447,33 @@
 
     // Rediriger vers le lien de paiement sélectionné
     window.open(lienPaiement, "_blank");
+    
+  // Fonction pour afficher les catégories lorsqu'un bouton est cliqué
+  function showCategory(categoryId) {
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(category => {
+      category.classList.remove('active');
+    });
+
+    const selectedCategory = document.getElementById(categoryId);
+    selectedCategory.classList.add('active');
+  }
+
+  // Fonction de gestion de la redirection vers la page de paiement
+  function confirmBooking() {
+    const selectedOption = document.querySelector('input[type="radio"]:checked');
+
+    if (!selectedOption) {
+      alert("Veuillez choisir une prestation.");
+      return;
+    }
+
+    const paymentMethod = document.querySelector('input[name="payment_method"]:checked');
+    const paymentLink = selectedOption.getAttribute(`data-${paymentMethod.value.toLowerCase()}-${selectedOption.value.includes("acompte") ? 'acompte' : 'total'}`);
+
+    if (paymentLink) {
+      window.open(paymentLink, '_blank');
+      window.location.href = 'merci.html';  // ou une page de redirection de paiement refusé si nécessaire
   });
 });
 </script>
