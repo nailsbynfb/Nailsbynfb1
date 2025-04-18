@@ -323,193 +323,135 @@
   </div>
 
   <script>
-    document.getElementById('availability-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+  // Vérification de la disponibilité
+  document.getElementById('availability-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-  // Récupère les données du formulaire
-  var date = document.getElementById('availability-date').value;
-  var time = document.getElementById('availability-time').value;
+    // Récupérer les données du formulaire
+    var date = document.getElementById('availability-date').value;
+    var time = document.getElementById('availability-time').value;
 
-  // Exemple de vérification de la disponibilité (ici, une logique simulée)
-  var available = true;
+    // Exemple de vérification de la disponibilité (logique simulée)
+    var available = true;
 
-  var resultDiv = document.getElementById('availability-result');
-  if (available) {
-    resultDiv.textContent = `Le créneau du ${date} à ${time} est disponible ! Vous pouvez procéder à la réservation.`;
-    resultDiv.style.color = 'green';
-  } else {
-    resultDiv.textContent = `Désolé, le créneau du ${date} à ${time} n'est pas disponible.`;
-    resultDiv.style.color = 'red';
-  }
-
-  // Si tu veux envoyer ces données à un serveur ou service externe
-  fetch('/ton-endpoint', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ date: date, time: time })
-  })
-  .then(response => response.json())
-  .then(data => console.log('Réponse :', data))
-  .catch(error => console.error('Erreur :', error));
-});
-
-      // Exemple de logique pour vérifier la disponibilité (à adapter en fonction de l'API ou base de données)
-      var available = true; // Simule que le créneau est disponible, à adapter
-
-      var resultDiv = document.getElementById('availability-result');
-      if (available) {
-        resultDiv.textContent = `Le créneau du ${date} à ${time} est disponible ! Vous pouvez procéder à la réservation.`;
-        resultDiv.style.color = 'green';
-      } else {
-        resultDiv.textContent = `Désolé, le créneau du ${date} à ${time} n'est pas disponible.`;
-        resultDiv.style.color = 'red';
-      }
-    });
-
-    function showCategory(category) {
-      // Cacher toutes les catégories
-      var categories = document.querySelectorAll('.category');
-      categories.forEach(function(cat) {
-        cat.classList.remove('active');
-      });
-
-      // Afficher la catégorie sélectionnée
-      var selectedCategory = document.getElementById(category);
-      selectedCategory.classList.add('active');
-
-      // Mettre à jour les boutons actifs
-      var buttons = document.querySelectorAll('.category-buttons button');
-      buttons.forEach(function(button) {
-        button.classList.remove('active');
-      });
-
-      var activeButton = document.getElementById('btn-' + category);
-      activeButton.classList.add('active');
-    }
-  
-  document.addEventListener('DOMContentLoaded', function () {
-      // Sélectionne le bouton "Confirmer le rendez-vous"
-  const confirmButton = document.querySelector("#confirm-btn");
-<button onclick="handlePayment()">Confirmer le rendez-vous</button>
-    
-  // Fonction pour rediriger vers le lien de paiement
-  confirmButton.addEventListener("click", function (event) {
-    event.preventDefault();  // Empêche l'envoi du formulaire par défaut
-
-    // Récupère la catégorie active
-    const activeCategory = document.querySelector('.category.active');
-    if (!activeCategory) {
-      alert("Veuillez sélectionner une catégorie de prestation.");
-      return;
+    var resultDiv = document.getElementById('availability-result');
+    if (available) {
+      resultDiv.textContent = `Le créneau du ${date} à ${time} est disponible ! Vous pouvez procéder à la réservation.`;
+      resultDiv.style.color = 'green';
+    } else {
+      resultDiv.textContent = `Désolé, le créneau du ${date} à ${time} n'est pas disponible.`;
+      resultDiv.style.color = 'red';
     }
 
-    // Récupère la prestation choisie dans la catégorie active
-    const prestation = activeCategory.querySelector('input[type="radio"]:checked');
-    if (!prestation) {
-      alert("Veuillez sélectionner une prestation.");
-      return;
-    }
+    // Envoi des données à un service externe ou serveur
+    fetch('/ton-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ date: date, time: time })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Réponse :', data))
+    .catch(error => console.error('Erreur :', error));
+  });
 
-    // Récupère la méthode de paiement choisie
-    const paiement = document.querySelector('input[name="paiement"]:checked');
-    if (!paiement) {
-      alert("Veuillez choisir une méthode de paiement.");
-      return;
-    }
-
-    // Récupère le montant (acompte ou total)
-    const montant = document.querySelector('input[name="montant"]:checked');
-    if (!montant) {
-      alert("Veuillez choisir un montant à payer.");
-      return;
-    }
-
-    // Déterminer les liens en fonction de la sélection
-    const lienStripeAcompte = prestation.getAttribute('data-stripe-acompte');
-    const lienStripeTotal = prestation.getAttribute('data-stripe-total');
-    const lienPaypalAcompte = prestation.getAttribute('data-paypal-acompte');
-    const lienPaypalTotal = prestation.getAttribute('data-paypal-total');
-
-    let lienPaiement = '';
-
-    // Logique pour la méthode de paiement et le montant
-    if (paiement.value === "stripe") {
-      lienPaiement = montant.value === "acompte" ? lienStripeAcompte : lienStripeTotal;
-    } else if (paiement.value === "paypal") {
-      lienPaiement = montant.value === "acompte" ? lienPaypalAcompte : lienPaypalTotal;
-    }
-
-    if (!lienPaiement) {
-      alert("Erreur dans la récupération du lien de paiement.");
-      return;
-    }
-
-    // Rediriger vers le lien de paiement sélectionné
-    window.open(lienPaiement, "_blank");
-    
-  // Fonction pour afficher les catégories lorsqu'un bouton est cliqué
+  // Affichage dynamique des catégories
   function showCategory(categoryId) {
     const categories = document.querySelectorAll('.category');
-    categories.forEach(category => {
-      category.classList.remove('active');
+    categories.forEach(function(cat) {
+      cat.classList.remove('active');
     });
 
     const selectedCategory = document.getElementById(categoryId);
     selectedCategory.classList.add('active');
-  }
 
-  // Fonction de gestion de la redirection vers la page de paiement
-  function confirmBooking() {
-    const selectedOption = document.querySelector('input[type="radio"]:checked');
-
-    if (!selectedOption) {
-      alert("Veuillez choisir une prestation.");
-      return;
-    }
-
-    const paymentMethod = document.querySelector('input[name="payment_method"]:checked');
-    const paymentLink = selectedOption.getAttribute(`data-${paymentMethod.value.toLowerCase()}-${selectedOption.value.includes("acompte") ? 'acompte' : 'total'}`);
-
-    if (paymentLink) {
-      window.open(paymentLink, '_blank');
-      window.location.href = 'merci.html';  // ou une page de redirection de paiement refusé si nécessaire
-function showCategory(categoryId) {
-  // Masquer toutes les catégories
-  const categories = document.querySelectorAll('.category');
-  categories.forEach(category => {
-    category.classList.remove('active');
-  });
-  
-  // Afficher la catégorie sélectionnée
-  const category = document.getElementById(categoryId);
-  category.classList.add('active');
-  
-  // Gérer la mise en surbrillance des boutons
-  const buttons = document.querySelectorAll('.category-buttons button');
-  buttons.forEach(button => {
-    button.classList.remove('active');
-  });
-  const activeButton = document.getElementById('btn-' + categoryId);
-  activeButton.classList.add('active');
-}
-   function handlePayment() {
-  const selectedOption = document.querySelector('input[type="radio"]:checked');
-  if (selectedOption) {
-    const stripeAcompteLink = selectedOption.getAttribute('data-stripe-acompte');
-    const paypalAcompteLink = selectedOption.getAttribute('data-paypal-acompte');
-    
-    if (stripeAcompteLink) {
-      window.open(stripeAcompteLink, '_blank');
-    } else if (paypalAcompteLink) {
-      window.open(paypalAcompteLink, '_blank');
-    }
-  } else {
-    alert('Veuillez sélectionner une option de paiement.');
-  }
-}
+    // Gestion des boutons actifs
+    const buttons = document.querySelectorAll('.category-buttons button');
+    buttons.forEach(function(button) {
+      button.classList.remove('active');
     });
+
+    const activeButton = document.getElementById('btn-' + categoryId);
+    activeButton.classList.add('active');
+  }
+
+  // Gestion de la réservation et de la redirection vers la page de paiement
+  document.addEventListener('DOMContentLoaded', function() {
+    const confirmButton = document.querySelector("#confirm-btn");
+
+    confirmButton.addEventListener("click", function(event) {
+      event.preventDefault();  // Empêche l'envoi du formulaire
+
+      // Vérification de la catégorie active
+      const activeCategory = document.querySelector('.category.active');
+      if (!activeCategory) {
+        alert("Veuillez sélectionner une catégorie de prestation.");
+        return;
+      }
+
+      // Vérification de la prestation choisie
+      const prestation = activeCategory.querySelector('input[type="radio"]:checked');
+      if (!prestation) {
+        alert("Veuillez sélectionner une prestation.");
+        return;
+      }
+
+      // Vérification de la méthode de paiement choisie
+      const paiement = document.querySelector('input[name="paiement"]:checked');
+      if (!paiement) {
+        alert("Veuillez choisir une méthode de paiement.");
+        return;
+      }
+
+      // Vérification du montant (acompte ou total)
+      const montant = document.querySelector('input[name="montant"]:checked');
+      if (!montant) {
+        alert("Veuillez choisir un montant à payer.");
+        return;
+      }
+
+      // Détermination des liens en fonction de la sélection
+      const lienStripeAcompte = prestation.getAttribute('data-stripe-acompte');
+      const lienStripeTotal = prestation.getAttribute('data-stripe-total');
+      const lienPaypalAcompte = prestation.getAttribute('data-paypal-acompte');
+      const lienPaypalTotal = prestation.getAttribute('data-paypal-total');
+
+      let lienPaiement = '';
+
+      // Logique pour déterminer le lien de paiement
+      if (paiement.value === "stripe") {
+        lienPaiement = montant.value === "acompte" ? lienStripeAcompte : lienStripeTotal;
+      } else if (paiement.value === "paypal") {
+        lienPaiement = montant.value === "acompte" ? lienPaypalAcompte : lienPaypalTotal;
+      }
+
+      if (!lienPaiement) {
+        alert("Erreur dans la récupération du lien de paiement.");
+        return;
+      }
+
+      // Ouvrir le lien de paiement dans un nouvel onglet
+      window.open(lienPaiement, "_blank");
+    });
+  });
+
+  // Fonction pour rediriger vers le lien de paiement
+  function handlePayment() {
+    const selectedOption = document.querySelector('input[type="radio"]:checked');
+    if (selectedOption) {
+      const stripeAcompteLink = selectedOption.getAttribute('data-stripe-acompte');
+      const paypalAcompteLink = selectedOption.getAttribute('data-paypal-acompte');
+
+      if (stripeAcompteLink) {
+        window.open(stripeAcompteLink, '_blank');
+      } else if (paypalAcompteLink) {
+        window.open(paypalAcompteLink, '_blank');
+      }
+    } else {
+      alert('Veuillez sélectionner une option de paiement.');
+    }
+  }
 });
 </script>
 </body>
