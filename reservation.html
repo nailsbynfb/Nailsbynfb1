@@ -331,9 +331,36 @@
 
   <script>
     document.getElementById('availability-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var date = document.getElementById('availability-date').value;
-      var time = document.getElementById('availability-time').value;
+  event.preventDefault();
+
+  // Récupère les données du formulaire
+  var date = document.getElementById('availability-date').value;
+  var time = document.getElementById('availability-time').value;
+
+  // Exemple de vérification de la disponibilité (ici, une logique simulée)
+  var available = true;
+
+  var resultDiv = document.getElementById('availability-result');
+  if (available) {
+    resultDiv.textContent = `Le créneau du ${date} à ${time} est disponible ! Vous pouvez procéder à la réservation.`;
+    resultDiv.style.color = 'green';
+  } else {
+    resultDiv.textContent = `Désolé, le créneau du ${date} à ${time} n'est pas disponible.`;
+    resultDiv.style.color = 'red';
+  }
+
+  // Si tu veux envoyer ces données à un serveur ou service externe
+  fetch('/ton-endpoint', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ date: date, time: time })
+  })
+  .then(response => response.json())
+  .then(data => console.log('Réponse :', data))
+  .catch(error => console.error('Erreur :', error));
+});
 
       // Exemple de logique pour vérifier la disponibilité (à adapter en fonction de l'API ou base de données)
       var available = true; // Simule que le créneau est disponible, à adapter
