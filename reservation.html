@@ -153,340 +153,118 @@
   <header>
     <h1>Nails by<br><span>NFB</span></h1>
   </header>
+  <div class="category active" id="rallongement">
+  <h2>Rallongement</h2>
 
-  <div class="category-buttons">
-    <button id="btn-rallongement" onclick="showCategory('rallongement')">Rallongement</button>
-    <button id="btn-sans_rallongement" onclick="showCategory('sans_rallongement')">Sans Rallongement</button>
-    <button id="btn-forfait_depose" onclick="showCategory('forfait_depose')">Forfait Dépose + Pose</button>
-    <button id="btn-depose" onclick="showCategory('depose')">Dépose</button>
-  </div>
-
-  <!-- Rallongement -->
-  <div id="rallongement" class="category active">
-    <h2>Rallongement</h2>
-    <div class="service">
-      <h3>Rallongement (Chablons ou Capsules)</h3>
-      <div class="option">
-        <label>
-          <input type="radio" name="rallongement" value="Rallongement en Gel"
-            data-stripe-acompte="https://buy.stripe.com/9AQcPSbF44SjbqEbJh"
-            data-stripe-total="https://buy.stripe.com/aEU9DG4cCfwX0M07t2"
-            data-paypal-acompte="https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L"
-            data-paypal-total="https://www.paypal.com/ncp/payment/EEZKU7KEQS6L8">
-          Rallongement en Gel • 2 h 45 min - 50€
-        </label>
-      </div>
-      <div class="option">
-        <label>
-          <input type="radio" name="rallongement" value="Nail art simple"
-            data-stripe-acompte="https://buy.stripe.com/9AQcPSbF44SjbqEbJh"
-            data-stripe-total="https://buy.stripe.com/5kAcPS6kK3Of1Q49Bb"
-            data-paypal-acompte="https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L"
-            data-paypal-total="https://www.paypal.com/ncp/payment/WGKNF8UWX5QLW">
-          Nail art simple • 3 h – 60€
-        </label>
-      </div>
-      <div class="option">
-        <label>
-          <input type="radio" name="rallongement" value="Ongles rongés"
-            data-stripe-acompte="https://buy.stripe.com/9AQcPSbF44SjbqEbJh"
-            data-stripe-total="https://buy.stripe.com/4gweY07oOesTgKY3cO"
-            data-paypal-acompte="https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L"
-            data-paypal-total="https://www.paypal.com/ncp/payment/WECYW46JVTQK2">
-          Ongles rongés • 3 h – 60€
-        </label>
-      </div>
-      <div class="option">
-        <label>
-          <input type="radio" name="rallongement" value="Nail art complexe"
-            data-stripe-acompte="https://buy.stripe.com/9AQcPSbF44SjbqEbJh"
-            data-stripe-total="https://buy.stripe.com/00gaHK10q70r8es28L"
-            data-paypal-acompte="https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L"
-            data-paypal-total="https://www.paypal.com/ncp/payment/PWJ3KV7HF2PQC">
-          Nail art complexe • 3 h 15 min – 70€
-        </label>
-      </div>
-      <div class="option">
-        <label>
-          <input type="radio" name="rallongement" value="Ongles rongés + Nail art simple"
-            data-stripe-acompte="https://buy.stripe.com/9AQcPSbF44SjbqEbJh"
-            data-stripe-total="https://buy.stripe.com/50x7g0e7e6cfcSh8We"
-            data-paypal-acompte="https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L"
-            data-paypal-total="https://www.paypal.com/ncp/payment/L68ZMLKMNFPXE">
-          Ongles rongés + Nail art simple • 3 h 15 min – 65€
-        </label>
-     </div>
-
-  <!-- Sans Rallongement -->
-  <div id="sans_rallongement" class="category">
-    <h2>Sans Rallongement</h2>
-    <div class="service">
-      <h3>Gainage</h3>
-      <div class="option"><input type="radio" name="gainage" value="Gainage">Gainage • 2 h 30 min – 40€</div>
-      <div class="option"><input type="radio" name="gainage" value="Ongles rongés">Ongles rongés • 2 h 45 min – 50€</div>
-      <div class="option"><input type="radio" name="gainage" value="Nail art simple">Nail art simple • 2 h 45 min – 55€</div>
-      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art simple">Ongles rongés + Nail art simple • 3 h – 60€</div>
-      <div class="option"><input type="radio" name="gainage" value="Nail art complexe">Nail art complexe • 3 h – 65€</div>
-      <div class="option"><input type="radio" name="gainage" value="Ongles rongés + Nail art complexe">Ongles rongés + Nail art complexe • 3 h 15 min – 70€</div>
-    </div>
-    <div class="service">
-        <h3>Semi Permanent Simple</h3>
-    <div class="option"><input type="radio" name="semi_simple" value="Semi permanent">Semi permanent • 2 h • 30€</div>
-    <div class="option"><input type="radio" name="semi_simple" value="Ongles rongés">Ongles rongés • 2 h 15 min • 40€</div>
-    <div class="option"><input type="radio" name="semi_simple" value="Nail art simple">Semi Permanent + Nail art simple • 2 h 15 min • 40€</div>
-    <div class="option"><input type="radio" name="semi_simple" value="Nail art complexe">Semi Permanent + Nail art complexe • 2 h 30 min • 50€</div>
-    <div class="option"><input type="radio" name="semi_simple" value="Ongles rongés + Nail art simple">Semi Permanent + Nail art simple (Ongles rongés) • 2 h 30 min • 50€</div>
-    <div class="option"><input type="radio" name="semi_simple" value="Ongles rongés + Nail art complexe">Semi Permanent + Nail art complexe (Ongles rongés) • 2 h 40 min • 60€</div>
-    </div>
-    <div class="service">
-         <h3>Semi Permanent Renforcé</h3>
-    <div class="option"><input type="radio" name="semi_renforce" value="Semi permanent renforcé">Semi permanent renforcé • 2 h • 35€</div>
-    <div class="option"><input type="radio" name="semi_renforce" value="Ongles rongés">Ongles rongés • 2 h 45 min • 45€</div>
-    <div class="option"><input type="radio" name="semi_renforce" value="Nail art simple">Nail art simple • 2 h 45 min • 45€</div>
-    <div class="option"><input type="radio" name="semi_renforce" value="Nail art complexe">Nail art complexe • 3 h • 55€</div>
-    <div class="option"><input type="radio" name="semi_renforce" value="Semi Permanent Renforcé + Nail art simple (Ongles rongés)">Semi Permanent Renforcé + Nail art simple (Ongles rongés) • 3 h • 50€</div>
-    <div class="option"><input type="radio" name="semi_renforce" value="Semi Permanent + Nail art complexe (Ongles rongés)">Semi Permanent + Nail art complexe (Ongles rongés) • 3 h 15 min • 60€</div>
-  </div>
-  </div>
-
-  <!-- Forfaits Dépose + Pose -->
-<div id="forfait_depose" class="category">
-  <h2>Forfaits Dépose + Pose</h2>
- <div class="service">
-    <h3>Gel</h3>
-    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel">Dépose + Pose Gel • 2 h • 66,50€</div>
-    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art simple">Dépose + Pose Gel + Nail art simple • 2 h 15 min • 76€</div>
-    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art complexe">Dépose + Pose Gel + Nail art complexe • 2 h 30 min • 85,50€</div>
-    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel (Ongles rongés)">Dépose + Pose Gel (Ongles rongés) • 2 h 30 min • 76€</div>
-    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art simple (Ongles rongés)">Dépose + Pose Gel + Nail art simple (Ongles rongés) • 2 h 45 min • 85,50€</div>
-    <div class="option"><input type="radio" name="forfait_gel" value="Dépose + Pose Gel + Nail art complexe (Ongles rongés)">Dépose + Pose Gel + Nail art complexe (Ongles rongés) • 3 h • 95€</div>
-  </div>
   <div class="service">
-    <h3>Semi Permanent Renforcé</h3>
-    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé">Dépose + Pose Semi permanent renforcé • 1 h 45 min • 47,50€</div>
-    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé (Ongles rongés)">Dépose + Pose Semi permanent renforcé (Ongles rongés) • 2 h • 57€</div>
-    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé + Nail art simple">Dépose + Pose Semi permanent renforcé + Nail art simple • 2 h • 57€</div>
-    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé + Nail art complexe">Dépose + Pose Semi permanent renforcé + Nail art complexe • 2 h 15 min • 66,50€</div>
-    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art simple">Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art simple • 2 h 15 min • 61,75€</div>
-    <div class="option"><input type="radio" name="forfait_semi_renforce" value="Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art complexe">Dépose + Pose Semi permanent renforcé (Ongles rongés) + Nail art complexe • 2 h 30 min • 71,25€</div>
-  </div>
- <div class="service">
-    <h3>Semi Permanent Simple</h3>
-    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent">Dépose + Pose Semi permanent • 1 h 30 min • 38€</div>
-    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent (Ongles rongés)">Dépose + Pose Semi permanent (Ongles rongés) • 1 h 45 min • 47,50€</div>
-    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent + Nail art simple">Dépose + Pose Semi permanent + Nail art simple • 1 h 45 min • 47,50€</div>
-    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent + Nail art complexe">Dépose + Pose Semi permanent + Nail art complexe • 2 h • 57€</div>
-    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent (Ongles rongés) + Nail art simple">Dépose + Pose Semi permanent (Ongles rongés) + Nail art simple • 2 h • 57€</div>
-    <div class="option"><input type="radio" name="forfait_semi_simple" value="Dépose + Pose Semi permanent (Ongles rongés) + Nail art complexe">Dépose + Pose Semi permanent (Ongles rongés) + Nail art complexe • 2 h 15 min • 66,50€</div>
-</div>
-</div>
-
-  <!-- Dépose -->
-<div id="depose" class="category">
-  <h2>Dépose</h2>
-  <div class="service">
-    <h3>Forfait Dépose</h3>
-    <div class="option"><input type="radio" name="depose" value="Semi permanent simple">Semi permanent simple • 30 min • 10€</div>
-    <div class="option"><input type="radio" name="depose" value="Semi permanent renforcé">Semi permanent renforcé • 45 min • 15€</div>
-    <div class="option"><input type="radio" name="depose" value="Dépose gel">Dépose Gel • 1 h • 20€</div>
-  </div>
-</div>
-
-  <!-- Formulaire de vérification de disponibilité -->
-  <div class="form-container">
-    <h2>Vérifiez la disponibilité</h2>
-    <form id="availability-form">
-      <label for="date">Date du rendez-vous :</label>
-      <input type="date" name="date" id="availability-date" required>
-
-      <label for="horaire">Horaire :</label>
-      <select name="horaire" id="availability-time" required>
-        <option value="9:00">9:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="12:00">12:00</option>
-        <option value="13:00">13:00</option>
-        <option value="14:00">14:00</option>
-        <option value="15:00">15:00</option>
-        <option value="16:00">16:00</option>
-        <option value="17:00">17:00</option>
-      </select>
-      <button type="submit">Vérifier la disponibilité</button>
-    </form>
-    <div id="availability-result"></div>
-  </div>
-
-  <!-- Formulaire de réservation -->
-  <div class="form-container">
-    <h2>Réservez votre rendez-vous</h2>
-    <form action="#" method="POST">
-      <input type="text" name="nom" placeholder="Nom complet" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="tel" name="telephone" placeholder="Téléphone" required>
-      <label for="date">Date du rendez-vous souhaitée :</label>
-      <input type="date" name="date" required>
-      <label for="horaire">Horaire du rendez-vous souhaité :</label>
-      <select name="horaire" required>
-        <option value="9:00">9:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="12:00">12:00</option>
-        <option value="13:00">13:00</option>
-        <option value="14:00">14:00</option>
-        <option value="15:00">15:00</option>
-        <option value="16:00">16:00</option>
-        <option value="17:00">17:00</option>
-      </select>
-      <textarea name="message" rows="4" placeholder="Remarque (optionnel)"></textarea>
-      <input type="file" name="photo" accept="image/*" required>
-        <!-- Choix du montant -->
-    <label for="montant">Choisissez le montant à payer :</label>
-    <select id="montant" name="montant">
-      <option value="acompte">Acompte (15 €)</option>
-      <option value="total">Montant total</option>
+    <h3>Choisissez votre prestation :</h3>
+    <select id="service-rallongement">
+      <option value="">-- Sélectionnez --</option>
+      <option value="rallongement-gel">Rallongement en Gel simple - 50€</option>
+      <option value="rallongement-ronge">Rallongement en Gel (ongles rongés) - 60€</option>
+      <option value="rallongement-ns">Rallongement en Gel + Nail art simple - 60€</option>
+      <option value="rallongement-nc">Rallongement en Gel + Nail art complexe - 70€</option>
+      <option value="rallongement-ns-ronge">Rallongement + Nail art simple (ongles rongés) - 70€</option>
+      <option value="rallongement-nc-ronge">Rallongement + Nail art complexe (ongles rongés) - 80€</option>
     </select>
 
-    <!-- Choix du mode de paiement -->
-    <label for="paiement">Sélectionnez votre mode de paiement :</label>
-    <select id="paiement" name="paiement">
+    <h3>Choisissez votre mode de paiement :</h3>
+    <select id="paiement-rallongement">
+      <option value="">-- Sélectionnez --</option>
       <option value="stripe">Stripe</option>
       <option value="paypal">PayPal</option>
     </select>
-      <button type="submit">Confirmer le rendez-vous</button>
-    </form>
+
+    <h3>Choisissez le montant :</h3>
+    <select id="montant-rallongement">
+      <option value="">-- Sélectionnez --</option>
+      <option value="acompte">Acompte (15€)</option>
+      <option value="total">Montant total</option>
+    </select>
+
+    <button onclick="redirigerRallongement()">Confirmer mon rendez-vous</button>
   </div>
+</div>
 
-  <script>
-  // Vérification de la disponibilité
-  document.getElementById('availability-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+<script>
+  function redirigerRallongement() {
+    const service = document.getElementById("service-rallongement").value;
+    const paiement = document.getElementById("paiement-rallongement").value;
+    const montant = document.getElementById("montant-rallongement").value;
 
-    // Récupérer les données du formulaire
-    var date = document.getElementById('availability-date').value;
-    var time = document.getElementById('availability-time').value;
-
-    // Exemple de vérification de la disponibilité (logique simulée)
-    var available = true;
-
-    var resultDiv = document.getElementById('availability-result');
-    if (available) {
-      resultDiv.textContent = `Le créneau du ${date} à ${time} est disponible ! Vous pouvez procéder à la réservation.`;
-      resultDiv.style.color = 'green';
-    } else {
-      resultDiv.textContent = `Désolé, le créneau du ${date} à ${time} n'est pas disponible.`;
-      resultDiv.style.color = 'red';
+    if (!service || !paiement || !montant) {
+      alert("Veuillez sélectionner une prestation, un mode de paiement et un montant.");
+      return;
     }
 
-    // Envoi des données à un service externe ou serveur
-    fetch('/ton-endpoint', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+    const liensPaiement = {
+      "rallongement-gel": {
+        stripe: {
+          acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          total: "https://buy.stripe.com/aEU9DG4cCfwX0M07t2"
+        },
+        paypal: {
+          acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          total: "https://www.paypal.com/ncp/payment/EEZKU7KEQS6L8"
+        }
       },
-      body: JSON.stringify({ date: date, time: time })
-    })
-    .then(response => response.json())
-    .then(data => console.log('Réponse :', data))
-    .catch(error => console.error('Erreur :', error));
-  });
-
-  // Affichage dynamique des catégories
-  function showCategory(categoryId) {
-    const categories = document.querySelectorAll('.category');
-    categories.forEach(function(cat) {
-      cat.classList.remove('active');
-    });
-
-    const selectedCategory = document.getElementById(categoryId);
-    selectedCategory.classList.add('active');
-
-    // Gestion des boutons actifs
-    const buttons = document.querySelectorAll('.category-buttons button');
-    buttons.forEach(function(button) {
-      button.classList.remove('active');
-    });
-
-    const activeButton = document.getElementById('btn-' + categoryId);
-    activeButton.classList.add('active');
-  }
-
-  // Gestion de la réservation et de la redirection vers la page de paiement
-  document.addEventListener('DOMContentLoaded', function() {
-    const confirmButton = document.querySelector("#confirm-btn");
-
-    confirmButton.addEventListener("click", function(event) {
-      event.preventDefault();  // Empêche l'envoi du formulaire
-
-      // Vérification de la catégorie active
-      const activeCategory = document.querySelector('.category.active');
-      if (!activeCategory) {
-        alert("Veuillez sélectionner une catégorie de prestation.");
-        return;
+      "rallongement-ongles-rongés": {
+        stripe: {
+          acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          total: "https://buy.stripe.com/4gweY07oOesTgKY3cO"
+        },
+        paypal: {
+          acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          total: "https://www.paypal.com/ncp/payment/WECYW46JVTQK2"
+        }
+      },
+      "rallongement-nail-art-simple": {
+        stripe: {
+          acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          total: "https://buy.stripe.com/5kAcPS6kK3Of1Q49Bb"
+        },
+        paypal: {
+          acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          total: "https://www.paypal.com/ncp/payment/WGKNF8UWX5QLW"
+        }
+      },
+      "rallongement-nail-art-complexe": {
+        stripe: {
+          acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          total: "https://buy.stripe.com/00gaHK10q70r8es28L"
+        },
+        paypal: {
+          acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          total: "https://www.paypal.com/ncp/payment/PWJ3KV7HF2PQC"
+        }
+      },
+      "rallongement-nail-art-simple-ongles-rongés": {
+        stripe: {
+          acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          total: "https://buy.stripe.com/3cs3figZofwXfGU28M"
+        },
+        paypal: {
+          acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          total: "https://www.paypal.com/ncp/payment/LK5VG7AX7GY5N"
+        }
+      },
+      "rallongement-nail-art-complexe-ongles-rongés": {
+        stripe: {
+          acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          total: "https://buy.stripe.com/28o5nq24uesT66kcNr"
+        },
+        paypal: {
+          acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          total: "https://www.paypal.com/ncp/payment/KUBV6JNRDLP7L"
+        }
       }
+    };
 
-      // Vérification de la prestation choisie
-      const prestation = activeCategory.querySelector('input[type="radio"]:checked');
-      if (!prestation) {
-        alert("Veuillez sélectionner une prestation.");
-        return;
-      }
-
-      // Vérification de la méthode de paiement choisie
-      const paiement = document.querySelector('input[name="paiement"]:checked');
-      if (!paiement) {
-        alert("Veuillez choisir une méthode de paiement.");
-        return;
-      }
-
-      // Vérification du montant (acompte ou total)
-      const montant = document.querySelector('input[name="montant"]:checked');
-      if (!montant) {
-        alert("Veuillez choisir un montant à payer.");
-        return;
-      }
-
-      // Détermination des liens en fonction de la sélection
-      const lienStripeAcompte = prestation.getAttribute('data-stripe-acompte');
-      const lienStripeTotal = prestation.getAttribute('data-stripe-total');
-      const lienPaypalAcompte = prestation.getAttribute('data-paypal-acompte');
-      const lienPaypalTotal = prestation.getAttribute('data-paypal-total');
-
-      let lienPaiement = '';
-
-      // Logique pour déterminer le lien de paiement
-      if (paiement.value === "stripe") {
-        lienPaiement = montant.value === "acompte" ? lienStripeAcompte : lienStripeTotal;
-      } else if (paiement.value === "paypal") {
-        lienPaiement = montant.value === "acompte" ? lienPaypalAcompte : lienPaypalTotal;
-      }
-
-      if (!lienPaiement) {
-        alert("Erreur dans la récupération du lien de paiement.");
-        return;
-      }
-
-      // Ouvrir le lien de paiement dans un nouvel onglet
-      window.open(lienPaiement, "_blank");
-    });
-  });
-
-  // Fonction pour rediriger vers le lien de paiement
-  function handlePayment() {
-    const selectedOption = document.querySelector('input[type="radio"]:checked');
-    if (selectedOption) {
-      const stripeAcompteLink = selectedOption.getAttribute('data-stripe-acompte');
-      const paypalAcompteLink = selectedOption.getAttribute('data-paypal-acompte');
-
-      if (stripeAcompteLink) {
-        window.open(stripeAcompteLink, '_blank');
-      } else if (paypalAcompteLink) {
-        window.open(paypalAcompteLink, '_blank');
-      }
+    const url = liensPaiement[service][paiement][montant];
+    if (url) {
+      window.open(url, "_blank");
     } else {
-      alert('Veuillez sélectionner une option de paiement.');
+      alert("Lien de paiement manquant.");
     }
   }
-});
 </script>
-</body>
-</html>
