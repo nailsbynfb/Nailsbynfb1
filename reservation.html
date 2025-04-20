@@ -185,6 +185,75 @@
     <button onclick="redirigerRallongement()">Confirmer mon rendez-vous</button>
   </div>
 </div>
+  <div class="category" id="sans-rallongement">
+  <h2>Sans rallongement</h2>
+
+  <!-- Sous-catégorie: Semi permanent simple -->
+  <div class="service">
+    <h3>Semi permanent simple</h3>
+    <select id="prestation-sans-rallongement-semi">
+      <option value="">-- Choisissez une prestation --</option>
+      <option value="Semi permanent">Semi permanent - 2h - 30€</option>
+      <option value="Semi permanent (ongles rongés)">Semi permanent (ongles rongés) - 2h15 - 40€</option>
+      <option value="Semi permanent, nail art simple">Semi permanent, nail art simple - 2h15 - 40€</option>
+      <option value="Semi permanent, nail art complexe">Semi permanent, nail art complexe - 2h30 - 50€</option>
+      <option value="Semi permanent, nail art simple (ongles rongés)">Semi permanent, nail art simple (ongles rongés) - 2h45 - 50€</option>
+      <option value="Semi permanent, nail art complexe (ongles rongés)">Semi permanent, nail art complexe (ongles rongés) - 3h - 60€</option>
+    </select>
+
+    <label><input type="radio" name="paiement-sans-semi" value="stripe"> Stripe</label>
+    <label><input type="radio" name="paiement-sans-semi" value="paypal"> PayPal</label>
+    <br>
+    <label><input type="radio" name="montant-sans-semi" value="acompte"> Acompte</label>
+    <label><input type="radio" name="montant-sans-semi" value="total"> Total</label>
+    <br><br>
+    <button onclick="redirigerPaiement('sans-rallongement-semi')">Confirmer mon rendez-vous</button>
+  </div>
+
+  <!-- Sous-catégorie: Gainage -->
+  <div class="service">
+    <h3>Gainage</h3>
+    <select id="prestation-sans-rallongement-gainage">
+      <option value="">-- Choisissez une prestation --</option>
+      <option value="Gainage">Gainage - 2h30 - 40€</option>
+      <option value="Gainage (ongles rongés)">Gainage (ongles rongés) - 2h45 - 50€</option>
+      <option value="Gainage, nail art simple">Gainage, nail art simple - 2h45 - 55€</option>
+      <option value="Gainage, nail art complexe">Gainage, nail art complexe - 3h - 65€</option>
+      <option value="Gainage, nail art simple (ongles rongés)">Gainage, nail art simple (ongles rongés) - 3h - 60€</option>
+      <option value="Gainage, nail art complexe (ongles rongés)">Gainage, nail art complexe (ongles rongés) - 3h15 - 70€</option>
+    </select>
+
+    <label><input type="radio" name="paiement-sans-gainage" value="stripe"> Stripe</label>
+    <label><input type="radio" name="paiement-sans-gainage" value="paypal"> PayPal</label>
+    <br>
+    <label><input type="radio" name="montant-sans-gainage" value="acompte"> Acompte</label>
+    <label><input type="radio" name="montant-sans-gainage" value="total"> Total</label>
+    <br><br>
+    <button onclick="redirigerPaiement('sans-rallongement-gainage')">Confirmer mon rendez-vous</button>
+  </div>
+
+  <!-- Sous-catégorie: Semi permanent renforcé -->
+  <div class="service">
+    <h3>Semi permanent renforcé</h3>
+    <select id="prestation-sans-rallongement-renforce">
+      <option value="">-- Choisissez une prestation --</option>
+      <option value="Semi Permanent Renforcé">Semi Permanent Renforcé - 2h30 - 35€</option>
+      <option value="Semi Permanent Renforcé (ongles rongés)">Semi Permanent Renforcé (ongles rongés) - 2h45 - 45€</option>
+      <option value="Semi Permanent Renforcé, nail art simple">Semi Permanent Renforcé, nail art simple - 2h45 - 45€</option>
+      <option value="Semi Permanent Renforcé, nail art complexe">Semi Permanent Renforcé, nail art complexe - 3h - 55€</option>
+      <option value="Semi Permanent Renforcé, nail art simple (ongles rongés)">Semi Permanent Renforcé, nail art simple (ongles rongés) - 3h - 55€</option>
+      <option value="Semi Permanent Renforcé, nail art complexe (ongles rongés)">Semi Permanent Renforcé, nail art complexe (ongles rongés) - 3h15 - 65€</option>
+    </select>
+
+    <label><input type="radio" name="paiement-sans-renforce" value="stripe"> Stripe</label>
+    <label><input type="radio" name="paiement-sans-renforce" value="paypal"> PayPal</label>
+    <br>
+    <label><input type="radio" name="montant-sans-renforce" value="acompte"> Acompte</label>
+    <label><input type="radio" name="montant-sans-renforce" value="total"> Total</label>
+    <br><br>
+    <button onclick="redirigerPaiement('sans-rallongement-renforce')">Confirmer mon rendez-vous</button>
+  </div>
+</div>
 
 <script>
   function redirigerRallongement() {
