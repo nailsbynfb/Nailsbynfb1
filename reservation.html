@@ -500,7 +500,6 @@
         }
       }
     };
-
     const url = liensPaiement[service][paiement][montant];
     if (url) {
       window.open(url, "_blank");
@@ -582,5 +581,87 @@
       alert("Merci de sélectionner une prestation, un mode de paiement et un montant.");
     }
   }
+    // Gainage
+    "gainage": {
+      "gainage": {
+        "stripe": {
+          "acompte": "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          "total": "https://buy.stripe.com/3cs17a10q2KbbqE9Bg"
+        },
+        "paypal": {
+          "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          "total": "https://www.paypal.com/ncp/payment/DBGQU8QTUVV7W"
+        }
+      },
+      "gainage-ongles-rongés": {
+        "stripe": {
+          "acompte": "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          "total": "https://buy.stripe.com/3csg2438yfwX52g5l1"
+        },
+        "paypal": {
+          "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          "total": "https://www.paypal.com/ncp/payment/Q9STHDNTYGENL"
+        }
+      },
+      "gainage-nail-art-simple": {
+        "stripe": {
+          "acompte": "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          "total": "https://buy.stripe.com/28o9DG8sS2KbbqE7ta"
+        },
+        "paypal": {
+          "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          "total": "https://www.paypal.com/ncp/payment/LRPTHK97UFTMG"
+        }
+      },
+      "gainage-nail-art-complexe": {
+        "stripe": {
+          "acompte": "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          "total": "https://buy.stripe.com/00g7vycJ870rfGU3cW"
+        },
+        "paypal": {
+          "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          "total": "https://www.paypal.com/ncp/payment/PS3LPDFSGP2B6"
+        }
+      },
+      "gainage-nail-art-simple-ongles-rongés": {
+        "stripe": {
+          "acompte": "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          "total": "https://buy.stripe.com/28o9DG38ydoP66kfZH"
+        },
+        "paypal": {
+          "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          "total": "https://www.paypal.com/ncp/payment/QXSUNU9BEZL8C"
+        }
+      },
+      "gainage-nail-art-complexe-ongles-rongés": {
+        "stripe": {
+          "acompte": "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
+          "total": "https://buy.stripe.com/bIYdTW38y4SjeCQ14P"
+        },
+        "paypal": {
+          "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
+          "total": "https://www.paypal.com/ncp/payment/M2HE2WU3ZGHV8"
+        }
+      }
+    }
+  };
 
+  function redirigerGainage() {
+    const prestation = document.getElementById("service-gainage").value;
+    const paiement = document.getElementById("paiement-gainage").value;
+    const montant = document.getElementById("montant-gainage").value;
+
+    if (!prestation || !paiement || !montant) {
+      alert("Veuillez sélectionner une prestation, un mode de paiement et un montant.");
+      return;
+    }
+
+    const lien = liensPaiement["gainage"][prestation]?.[paiement]?.[montant];
+
+    if (lien) {
+      window.open(lien, "_blank");
+    } else {
+      alert("Lien de paiement introuvable pour cette combinaison.");
+    }
+  }
 </script>
