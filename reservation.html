@@ -391,7 +391,50 @@
     <button onclick="redirigerForfaitDeposePoseGainage()">Confirmer mon rendez-vous</button>
   </div>
 </div>
+<div class="category" id="forfait">
+  <h2>Forfait Dépose + Pose</h2>
 
+  <div class="service">
+    <h3>Choisissez votre prestation :</h3>
+    <select id="service-forfait">
+      <option value="">-- Sélectionnez --</option>
+      <option value="forfait-depose-pose-gel">Forfait Dépose + pose Gel - 66,50€</option>
+      <option value="forfait-depose-pose-gel-nail-art-simple">Forfait Dépose + Pose Gel+ Nail art simple - 76€</option>
+      <option value="forfait-depose-pose-gel-nail-art-complexe">Forfait Dépose + Pose Gel+ Nail art complexe - 85,50€</option>
+      <option value="forfait-depose-pose-gel-ongles-rongés">Forfait Dépose + Pose gel (Ongles rongés) - 76€</option>
+      <option value="forfait-depose-pose-gel-nail-art-complexe-ongles-rongés">Forfait Dépose + Pose Gel+ Nail art complexe (Ongles rongés) - 95€</option>
+      <option value="forfait-depose-pose-gel-nail-art-simple-ongles-rongés">Forfait Dépose + Pose Gel+ Nail art simple (Ongles rongés) - 85,5€</option>
+      <option value="forfait-depose-pose-semi-renforcé">Forfait Dépose + pose Semi permanent renforcé - 47,50€</option>
+      <option value="forfait-depose-pose-semi-renforcé-ongles-rongés">Forfait Dépose + Pose Semi permanent renforcé (Ongles rongés) - 57€</option>
+      <option value="forfait-depose-pose-semi-renforcé-nail-art-simple">Forfait Dépose + Pose Semi permanent renforcé+ Nail art simple - 57€</option>
+      <option value="forfait-depose-pose-semi-renforcé-nail-art-complexe">Forfait Dépose + Pose Semi permanent renforcé+ Nail art complexe - 66,50€</option>
+      <option value="forfait-depose-pose-semi-renforcé-ongles-rongés-nail-art-simple">Forfait Dépose + Pose Semi renforcé (Ongles rongés)+ Nail art simple - 61,75€</option>
+      <option value="forfait-depose-pose-semi-renforcé-ongles-rongés-nail-art-complexe">Forfait Dépose + Pose Semi renforcé (Ongles rongés)+ Nail art complexe - 71,25€</option>
+      <option value="forfait-depose-pose-semi">Forfait Dépose+ Pose Semi permanent - 38€</option>
+      <option value="forfait-depose-pose-semi-ongles-rongés">Forfait Dépose + Pose Semi permanent (Ongles rongés) - 47,5€</option>
+      <option value="forfait-depose-pose-semi-nail-art-simple">Forfait Dépose + Pose Semi permanent + Nail art simple - 47,50€</option>
+      <option value="forfait-depose-pose-semi-nail-art-complexe">Forfait Dépose + Pose Semi permanent + Nail art complexe - 57€</option>
+      <option value="forfait-depose-pose-semi-ongles-rongés-nail-art-simple">Forfait Dépose + Pose Semi permanent (Ongles rongés) + Nail art simple - 57€</option>
+      <option value="forfait-depose-pose-semi-ongles-rongés-nail-art-complexe">Forfait Dépose + Pose Semi permanent (Ongles rongés)+ Nail art complexe - 66,50€</option>
+    </select>
+
+    <h3>Choisissez votre mode de paiement :</h3>
+    <select id="paiement-forfait">
+      <option value="">-- Sélectionnez --</option>
+      <option value="stripe">Stripe</option>
+      <option value="paypal">PayPal</option>
+    </select>
+
+    <h3>Choisissez le montant :</h3>
+    <select id="montant-forfait">
+      <option value="">-- Sélectionnez --</option>
+      <option value="acompte">Acompte (15€)</option>
+      <option value="total">Montant total</option>
+    </select>
+
+    <button onclick="redirigerForfait()">Confirmer mon rendez-vous</button>
+  </div>
+</div>
   <div class="category" id="forfait-depose-pose-semi-permanent">
   <h2>Forfait Dépose + Pose</h2>
   <h3>Semi Permanent</h3>
@@ -428,16 +471,6 @@
 
   
 <script>
-  function redirigerRallongement() {
-    const service = document.getElementById("service-rallongement").value;
-    const paiement = document.getElementById("paiement-rallongement").value;
-    const montant = document.getElementById("montant-rallongement").value;
-
-    if (!service || !paiement || !montant) {
-      alert("Veuillez sélectionner une prestation, un mode de paiement et un montant.");
-      return;
-    }
-
     const liensPaiement = {
       "rallongement-gel": {
         stripe: {
@@ -497,22 +530,8 @@
         paypal: {
           acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
           total: "https://www.paypal.com/ncp/payment/KUBV6JNRDLP7L"
-        }
-      }
-    };
-    const url = liensPaiement[service][paiement][montant];
-    if (url) {
-      window.open(url, "_blank");
-    } else {
-      alert("Lien de paiement manquant.");
-    }
-  }
-  function redirigerSansRallongementSemi() {
-    const service = document.getElementById("service-sans-rallongement-semi").value;
-    const paiement = document.getElementById("paiement-sans-rallongement-semi").value;
-    const montant = document.getElementById("montant-sans-rallongement-semi").value;
-
-    const liensPaiement = {
+        },
+    "semi-permanent": {
       "semi-permanent": {
         stripe: {
           acompte: "https://buy.stripe.com/9AQcPSbF44SjbqEbJh",
@@ -571,17 +590,7 @@
         paypal: {
           acompte: "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
           total: "https://www.paypal.com/ncp/payment/WVWHC6SDPXN9E"
-        }
-      }
-    };
-
-    if (liensPaiement[service] && liensPaiement[service][paiement] && liensPaiement[service][paiement][montant]) {
-      window.open(liensPaiement[service][paiement][montant], '_blank');
-    } else {
-      alert("Merci de sélectionner une prestation, un mode de paiement et un montant.");
-    }
-  }
-    // Gainage
+        }, 
     "gainage": {
       "gainage": {
         "stripe": {
@@ -641,22 +650,254 @@
         "paypal": {
           "acompte": "https://www.paypal.com/ncp/payment/5LHMZD8VMSS5L",
           "total": "https://www.paypal.com/ncp/payment/M2HE2WU3ZGHV8"
-        }
+        },
+        "semi-permanent-renforce": {
+    "semi-permanent-renforce": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SPR",
+        "total": "LIEN_STRIPE_TOTAL_SPR"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SPR",
+        "total": "LIEN_PAYPAL_TOTAL_SPR"
+      }
+    },
+    "semi-permanent-renforce-ongles-rongés": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SPR_OR",
+        "total": "LIEN_STRIPE_TOTAL_SPR_OR"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SPR_OR",
+        "total": "LIEN_PAYPAL_TOTAL_SPR_OR"
+      }
+    },
+    "semi-permanent-renforce-nail-art-simple": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SPR_NAS",
+        "total": "LIEN_STRIPE_TOTAL_SPR_NAS"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SPR_NAS",
+        "total": "LIEN_PAYPAL_TOTAL_SPR_NAS"
+      }
+    },
+    "semi-permanent-renforce-nail-art-complexe": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SPR_NAC",
+        "total": "LIEN_STRIPE_TOTAL_SPR_NAC"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SPR_NAC",
+        "total": "LIEN_PAYPAL_TOTAL_SPR_NAC"
+      }
+    },
+    "semi-permanent-renforce-ongles-rongés-nail-art-simple": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SPR_OR_NAS",
+        "total": "LIEN_STRIPE_TOTAL_SPR_OR_NAS"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SPR_OR_NAS",
+        "total": "LIEN_PAYPAL_TOTAL_SPR_OR_NAS"
+      }
+    },
+    "semi-permanent-renforce-ongles-rongés-nail-art-complexe": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SPR_OR_NAC",
+        "total": "LIEN_STRIPE_TOTAL_SPR_OR_NAC"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SPR_OR_NAC",
+        "total": "LIEN_PAYPAL_TOTAL_SPR_OR_NAC"
+      },
+    "semi-permanent": {
+    "semi-permanent": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SP",
+        "total": "LIEN_STRIPE_TOTAL_SP"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SP",
+        "total": "LIEN_PAYPAL_TOTAL_SP"
+      }
+    },
+    "semi-permanent-ongles-rongés": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SP_OR",
+        "total": "LIEN_STRIPE_TOTAL_SP_OR"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SP_OR",
+        "total": "LIEN_PAYPAL_TOTAL_SP_OR"
+      }
+    },
+    "semi-permanent-nail-art-simple": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SP_NAS",
+        "total": "LIEN_STRIPE_TOTAL_SP_NAS"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SP_NAS",
+        "total": "LIEN_PAYPAL_TOTAL_SP_NAS"
+      }
+    },
+    "semi-permanent-nail-art-complexe": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SP_NAC",
+        "total": "LIEN_STRIPE_TOTAL_SP_NAC"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SP_NAC",
+        "total": "LIEN_PAYPAL_TOTAL_SP_NAC"
+      }
+    },
+    "semi-permanent-ongles-rongés-nail-art-simple": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SP_OR_NAS",
+        "total": "LIEN_STRIPE_TOTAL_SP_OR_NAS"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SP_OR_NAS",
+        "total": "LIEN_PAYPAL_TOTAL_SP_OR_NAS"
+      }
+    },
+    "semi-permanent-ongles-rongés-nail-art-complexe": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_SP_OR_NAC",
+        "total": "LIEN_STRIPE_TOTAL_SP_OR_NAC"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_SP_OR_NAC",
+        "total": "LIEN_PAYPAL_TOTAL_SP_OR_NAC"
+      },
+      "forfait": {
+  "forfait-depose-pose-gel": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPG", "total": "LIEN_STRIPE_TOTAL_FDPG" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPG", "total": "LIEN_PAYPAL_TOTAL_FDPG" }
+  },
+  "forfait-depose-pose-gel-nail-art-simple": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPGNAS", "total": "LIEN_STRIPE_TOTAL_FDPGNAS" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPGNAS", "total": "LIEN_PAYPAL_TOTAL_FDPGNAS" }
+  },
+  "forfait-depose-pose-gel-nail-art-complexe": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPGNAC", "total": "LIEN_STRIPE_TOTAL_FDPGNAC" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPGNAC", "total": "LIEN_PAYPAL_TOTAL_FDPGNAC" }
+  },
+  "forfait-depose-pose-gel-ongles-rongés": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPGOR", "total": "LIEN_STRIPE_TOTAL_FDPGOR" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPGOR", "total": "LIEN_PAYPAL_TOTAL_FDPGOR" }
+  },
+  "forfait-depose-pose-gel-nail-art-complexe-ongles-rongés": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPGNACOR", "total": "LIEN_STRIPE_TOTAL_FDPGNACOR" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPGNACOR", "total": "LIEN_PAYPAL_TOTAL_FDPGNACOR" }
+  },
+  "forfait-depose-pose-gel-nail-art-simple-ongles-rongés": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPGNASOR", "total": "LIEN_STRIPE_TOTAL_FDPGNASOR" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPGNASOR", "total": "LIEN_PAYPAL_TOTAL_FDPGNASOR" }
+  },
+  "forfait-depose-pose-semi-renforcé": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSR", "total": "LIEN_STRIPE_TOTAL_FDPSR" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSR", "total": "LIEN_PAYPAL_TOTAL_FDPSR" }
+  },
+  "forfait-depose-pose-semi-renforcé-ongles-rongés": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSROR", "total": "LIEN_STRIPE_TOTAL_FDPSROR" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSROR", "total": "LIEN_PAYPAL_TOTAL_FDPSROR" }
+  },
+  "forfait-depose-pose-semi-renforcé-nail-art-simple": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSRNAS", "total": "LIEN_STRIPE_TOTAL_FDPSRNAS" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSRNAS", "total": "LIEN_PAYPAL_TOTAL_FDPSRNAS" }
+  },
+  "forfait-depose-pose-semi-renforcé-nail-art-complexe": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSRNAC", "total": "LIEN_STRIPE_TOTAL_FDPSRNAC" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSRNAC", "total": "LIEN_PAYPAL_TOTAL_FDPSRNAC" }
+  },
+  "forfait-depose-pose-semi-renforcé-ongles-rongés-nail-art-simple": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSRORNAS", "total": "LIEN_STRIPE_TOTAL_FDPSRORNAS" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSRORNAS", "total": "LIEN_PAYPAL_TOTAL_FDPSRORNAS" }
+  },
+  "forfait-depose-pose-semi-renforcé-ongles-rongés-nail-art-complexe": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSRORNAC", "total": "LIEN_STRIPE_TOTAL_FDPSRORNAC" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSRORNAC", "total": "LIEN_PAYPAL_TOTAL_FDPSRORNAC" }
+  },
+  "forfait-depose-pose-semi": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPS", "total": "LIEN_STRIPE_TOTAL_FDPS" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPS", "total": "LIEN_PAYPAL_TOTAL_FDPS" }
+  },
+  "forfait-depose-pose-semi-ongles-rongés": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSOR", "total": "LIEN_STRIPE_TOTAL_FDPSOR" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSOR", "total": "LIEN_PAYPAL_TOTAL_FDPSOR" }
+  },
+  "forfait-depose-pose-semi-nail-art-simple": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSNAS", "total": "LIEN_STRIPE_TOTAL_FDPSNAS" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSNAS", "total": "LIEN_PAYPAL_TOTAL_FDPSNAS" }
+  },
+  "forfait-depose-pose-semi-nail-art-complexe": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSNAC", "total": "LIEN_STRIPE_TOTAL_FDPSNAC" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSNAC", "total": "LIEN_PAYPAL_TOTAL_FDPSNAC" }
+  },
+  "forfait-depose-pose-semi-ongles-rongés-nail-art-simple": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSORNAS", "total": "LIEN_STRIPE_TOTAL_FDPSORNAS" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSORNAS", "total": "LIEN_PAYPAL_TOTAL_FDPSORNAS" }
+  },
+  "forfait-depose-pose-semi-ongles-rongés-nail-art-complexe": {
+    "stripe": { "acompte": "LIEN_STRIPE_ACOMPTE_FDPSORNAC", "total": "LIEN_STRIPE_TOTAL_FDPSORNAC" },
+    "paypal": { "acompte": "LIEN_PAYPAL_ACOMPTE_FDPSORNAC", "total": "LIEN_PAYPAL_TOTAL_FDPSORNAC" }
+  },
+        "dépose":{
+    "depose-semi-permanent": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_DEP_SP",
+        "total": "LIEN_STRIPE_TOTAL_DEP_SP"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_DEP_SP",
+        "total": "LIEN_PAYPAL_TOTAL_DEP_SP"
+      }
+    },
+    "depose-semi-permanent-renforcé": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_DEP_SPR",
+        "total": "LIEN_STRIPE_TOTAL_DEP_SPR"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_DEP_SPR",
+        "total": "LIEN_PAYPAL_TOTAL_DEP_SPR"
+      }
+    },
+    "depose-gainage": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_DEP_G",
+        "total": "LIEN_STRIPE_TOTAL_DEP_G"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_DEP_G",
+        "total": "LIEN_PAYPAL_TOTAL_DEP_G"
+      }
+    },
+    "depose-gel": {
+      "stripe": {
+        "acompte": "LIEN_STRIPE_ACOMPTE_DEP_GEL",
+        "total": "LIEN_STRIPE_TOTAL_DEP_GEL"
+      },
+      "paypal": {
+        "acompte": "LIEN_PAYPAL_ACOMPTE_DEP_GEL",
+        "total": "LIEN_PAYPAL_TOTAL_DEP_GEL"
       }
     }
   };
 
-  function redirigerGainage() {
-    const prestation = document.getElementById("service-gainage").value;
-    const paiement = document.getElementById("paiement-gainage").value;
-    const montant = document.getElementById("montant-gainage").value;
+  function rediriger(categorie) {
+    const service = document.getElementById(`service-${categorie}`).value;
+    const paiement = document.getElementById(`paiement-${categorie}`).value;
+    const montant = document.getElementById(`montant-${categorie}`).value;
 
-    if (!prestation || !paiement || !montant) {
+    if (!service || !paiement || !montant) {
       alert("Veuillez sélectionner une prestation, un mode de paiement et un montant.");
       return;
     }
 
-    const lien = liensPaiement["gainage"][prestation]?.[paiement]?.[montant];
+    const lien = liensPaiement[categorie]?.[service]?.[paiement]?.[montant];
 
     if (lien) {
       window.open(lien, "_blank");
@@ -664,4 +905,14 @@
       alert("Lien de paiement introuvable pour cette combinaison.");
     }
   }
+
+  // Fonctions par catégorie
+  function redirigerRallongement() { rediriger("rallongement"); }
+  function redirigerSemiPermanent() { rediriger("semi-permanent"); }
+  function redirigerGainage() { rediriger("gainage"); }
+  function redirigerSemiPermanentRenforcé() { rediriger("semi-permanent-renforcé"); }
+  function redirigerForfait() { rediriger("forfait"); }
+  function redirigerDepose() { rediriger("depose"); }
+</script>
+</script>
 </script>
