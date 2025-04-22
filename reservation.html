@@ -470,7 +470,36 @@
   </div>
 </div>
 
-  
+  <div class="category" id="depose">
+  <h2>Dépose</h2>
+
+  <div class="service">
+    <h3>Choisissez votre prestation :</h3>
+    <select id="service-depose">
+      <option value="">-- Sélectionnez --</option>
+      <option value="depose-semi">Dépose semi-permanent - 10€</option>
+      <option value="depose-semi-renforce">Dépose semi-permanent renforcé - 15€</option>
+      <option value="depose-gainage">Dépose gainage - 20€</option>
+      <option value="depose-gel">Dépose gel - 20€</option>
+    </select>
+
+    <h3>Choisissez votre mode de paiement :</h3>
+    <select id="paiement-depose">
+      <option value="">-- Sélectionnez --</option>
+      <option value="stripe">Stripe</option>
+      <option value="paypal">PayPal</option>
+    </select>
+
+    <h3>Choisissez le montant :</h3>
+    <select id="montant-depose">
+      <option value="">-- Sélectionnez --</option>
+      <option value="acompte">Acompte (15€)</option>
+      <option value="total">Montant total</option>
+    </select>
+
+    <button onclick="redirigerDepose()">Confirmer mon rendez-vous</button>
+  </div>
+</div>
 <script>
     const liensPaiement = {
       "rallongement-gel": {
